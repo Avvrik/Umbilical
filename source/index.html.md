@@ -23,7 +23,7 @@ Welcome to the Umbilical Developer Portal!
 
 This platform contains APIs, extensive documentation, and Node-specific installation guides for successful interaction with Umbilical.
 
-We provide each user with a personal "My account" page where they can access and manage multiple projects, as well as track transaction status.
+We provide each user with a personal "My account" page where they can access and manage multiple projects, as well as track transaction status. 
 
 
 # Getting Started
