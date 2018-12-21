@@ -2563,13 +2563,13 @@ Result see [shh_getFilterChanges](#shh_getfilterchanges)
 
 # IPFS API
 
-# block_get
+## block_get
 
-## /api/v0/block/get
+### /api/v0/block/get
 
 Get a raw IPFS block.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/block/get?arg=<key>`
 
@@ -2582,7 +2582,7 @@ Get a raw IPFS block.
 curl "https://ipfs.infura.io:5001/api/v0/block/get?arg=QmaYL7E4gDTPNfLxrCEEEcNJgcHBJ55NxxTnxpDKWqMtJ3"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2590,13 +2590,13 @@ On success, the call to this endpoint will return with 200 and the following bod
 ```
 This endpoint returns a `text/plain` response body.
 ```
-# block_stat
+## block_stat
 
-## /api/v0/block/stat
+### /api/v0/block/stat
 
 Print information of a raw IPFS block.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/block/stat?arg=<key>`
 
@@ -2609,7 +2609,7 @@ Print information of a raw IPFS block.
 curl "https://ipfs.infura.io:5001/api/v0/block/stat?arg=QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2624,13 +2624,13 @@ On success, the call to this endpoint will return with 200 and the following bod
     Size: 18
 }
 ```
-# cat
+## cat
 
-## /api/v0/cat
+### /api/v0/cat
 
 Show IPFS object data.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/cat?arg=<key>`
 
@@ -2643,7 +2643,7 @@ Show IPFS object data.
 curl "https://ipfs.infura.io:5001/api/v0/cat?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2651,13 +2651,13 @@ On success, the call to this endpoint will return with 200 and the following bod
 ```
 This endpoint returns a `text/plain` response body.
 ```
-# dag_get
+## dag_get
 
-## /api/v0/dag/get
+### /api/v0/dag/get
 
 Get a dag node from IPFS.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/dat/get?arg=<key>`
 
@@ -2670,7 +2670,7 @@ Get a dag node from IPFS.
 curl "https://ipfs.infura.io:5001/api/v0/dag/get?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2687,13 +2687,13 @@ On success, the call to this endpoint will return with 200 and the following bod
 ```
 
 
-# dag_resolve
+## dag_resolve
 
-## /api/v0/dag/resolve
+### /api/v0/dag/resolve
 
 Resolve IPLD block
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/dat/resolve?arg=<key>`
 
@@ -2706,7 +2706,7 @@ Resolve IPLD block
 curl "https://ipfs.infura.io:5001/api/v0/dag/resolve?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2723,13 +2723,13 @@ On success, the call to this endpoint will return with 200 and the following bod
     RemPath: ""
 }
 ```
-# files_cp
+## files_cp
 
-## /api/v0/files/cp
+### /api/v0/files/cp
 
 Copy files to a MFS (Mutable File System).
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/files/cp?arg=<source>&arg=<dest>`
 
@@ -2744,7 +2744,7 @@ Copy files to a MFS (Mutable File System).
  curl "https://ipfs.infura.io:5001/api/v0/files/cp?arg=/ipfs/QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3&arg=/ipfs-examples-docs-001"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2752,13 +2752,13 @@ On success, the call to this endpoint will return with 200 and the following bod
 ```
 This endpoint returns a `text/plain` response body.
 ```
-# files_flush
+## files_flush
 
-## /api/v0/files/flush
+### /api/v0/files/flush
 
 Flush a given path’s data to disk.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/files/flush?arg=<path>`
 
@@ -2771,7 +2771,7 @@ Flush a given path’s data to disk.
 curl "https://ipfs.infura.io:5001/api/v0/files/flush?arg=/ipfs-docs-example"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2779,13 +2779,13 @@ On success, the call to this endpoint will return with 200 and the following bod
 ```
 This endpoint returns a `text/plain` response body.
 ```
-# files_mkdir
+## files_mkdir
 
-## /api/v0/files/mkdir
+### /api/v0/files/mkdir
 
 Make directories on a MFS (Mutable File System).
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/files/mkdir?arg=<path>`
 
@@ -2799,7 +2799,7 @@ Make directories on a MFS (Mutable File System).
  curl "https://ipfs.infura.io:5001/api/v0/files/mkdir?arg=/ipfs-examples-dir"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2807,13 +2807,13 @@ On success, the call to this endpoint will return with 200 and the following bod
 ```
 This endpoint returns a `text/plain` response body.
 ```
-# files_read
+## files_read
 
-## /api/v0/files/read
+### /api/v0/files/read
 
 Read a file in a given MFS (mutable file system).
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/files/read?arg=<path>&offset=<value>&count=<value>`
 
@@ -2828,7 +2828,7 @@ Read a file in a given MFS (mutable file system).
 curl "https://ipfs.infura.io:5001/api/v0/files/read?arg=/ipfs-docs-example"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2836,13 +2836,13 @@ On success, the call to this endpoint will return with 200 and the following bod
 ```
 This endpoint returns a `text/plain` response body.
 ```
-# files_stat
+## files_stat
 
-## /api/v0/files/stat
+### /api/v0/files/stat
 
 Display file status.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/files/stat?arg=<path>&offset=<value>&count=<value>`
 
@@ -2858,7 +2858,7 @@ Display file status.
 curl "https://ipfs.infura.io:5001/api/v0/files/stat?arg=/ipfs-docs-example"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2880,13 +2880,13 @@ On success, the call to this endpoint will return with 200 and the following bod
     Type: "file"
 }
 ```
-# get
+## get
 
-## /api/v0/get
+### /api/v0/get
 
 Download IPFS objects.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/get?arg=<ipfs-path>&output=<value>&archive=false&compress=false&compression-level=-1`
 
@@ -2903,7 +2903,7 @@ Download IPFS objects.
 curl "https://ipfs.infura.io:5001/api/v0/get?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy&archive=true"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2912,13 +2912,13 @@ On success, the call to this endpoint will return with 200 and the following bod
 ```
 This endpoint returns a `text/plain` response body.
 ```
-# id
+## id
 
-## /api/v0/id
+### /api/v0/id
 
 Show IPFS node id info.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/id?arg=<peerid>&format=<value>`
 
@@ -2933,7 +2933,7 @@ Show IPFS node id info.
 curl "https://ipfs.infura.io:5001/api/v0/id?arg=Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2960,13 +2960,13 @@ On success, the call to this endpoint will return with 200 and the following bod
     ProtocolVersion: "ipfs/0.1.0"
 }
 ```
-# object_data
+## object_data
 
-## /api/v0/object/data
+### /api/v0/object/data
 
 Output the raw bytes of an IPFS object.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/object/data?arg=<key>`
 
@@ -2979,7 +2979,7 @@ Output the raw bytes of an IPFS object.
 curl "https://ipfs.infura.io:5001/api/v0/object/data?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -2987,30 +2987,13 @@ On success, the call to this endpoint will return with 200 and the following bod
 ```
 This endpoint returns a `text/plain` response body.
 ```
+## object_get
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# object_get
-
-## /api/v0/object/get
+### /api/v0/object/get
 
 Get and serialize the DAG node named by key.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/object/get?arg=<key>`
 
@@ -3023,7 +3006,7 @@ Get and serialize the DAG node named by key.
 curl "https://ipfs.infura.io:5001/api/v0/object/get?arg=QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -3038,13 +3021,13 @@ On success, the call to this endpoint will return with 200 and the following bod
     Data: "version 1 of my text "
 }
 ```
-# object_stat
+## object_stat
 
-## /api/v0/object/stat
+### /api/v0/object/stat
 
 Get stats for the DAG node named by key.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/object/stat?arg=<key>`
 
@@ -3057,7 +3040,7 @@ Get stats for the DAG node named by key.
 curl "https://ipfs.infura.io:5001/api/v0/object/stat?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -3080,48 +3063,13 @@ On success, the call to this endpoint will return with 200 and the following bod
     CumulativeSize: 29
 }
 ```
+## pin_add
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# pin_add
-
-## /api/v0/pin/add
+### /api/v0/pin/add
 
 Pin objects to local storage.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/pin/add?arg=<ipfs-path>&recursive=true&progress=<value>`
 
@@ -3138,7 +3086,7 @@ Argument 'file' is of file type. This endpoint expects a file in the body of the
 curl "https://ipfs.infura.io:5001/api/v0/pin/add?arg=/ipfs/QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3" 
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
@@ -3154,35 +3102,13 @@ On success, the call to this endpoint will return with 200 and the following bod
     ],
 }
 ```
+## version
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# version
-
-## /api/v0/version
+### /api/v0/version
 
 Show IPFS version information.
 
-### REQUEST
+#### REQUEST
 
 `GET https://ipfs.infura.io:5001/api/v0/version?number=false&commit=false&repo=false&all=false`
 
@@ -3199,7 +3125,7 @@ Show IPFS version information.
 curl "https://ipfs.infura.io:5001/api/v0/version"
 ```
 
-### RESPONSE
+#### RESPONSE
 
 On success, the call to this endpoint will return with 200 and the following body:
 
