@@ -2,10 +2,10 @@
 title: Umbilical Documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
+  - cpp
+  - go
   - python
-  - javascript
+  - shell
 
 toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
@@ -24,277 +24,9 @@ We provide each user with a personal "My account" page where they can access and
 
 # Getting Started
 
-
 # Ethereum API
 
-## JSON-RPC methods
- [JSON RPC API](#json-rpc-api)
-  - [JavaScript API](#javascript-api)
-  - [JSON-RPC Endpoint](#json-rpc-endpoint)
-    - [Go](#go)
-    - [C++](#c)
-    - [Python](#python)
-  - [JSON-RPC support](#json-rpc-support)
-  - [HEX value encoding](#hex-value-encoding)
-  - [The default block parameter](#the-default-block-parameter)
-  - [Curl Examples Explained](#curl-examples-explained)
-  - [JSON-RPC methods](#json-rpc-methods)
-  - [JSON RPC API Reference](#json-rpc-api-reference)
-      - [web3_clientVersion](#web3_clientversion)
-        - [Parameters](#parameters)
-        - [Returns](#returns)
-        - [Example](#example)
-      - [web3_sha3](#web3_sha3)
-        - [Parameters](#parameters-1)
-        - [Returns](#returns-1)
-        - [Example](#example-1)
-      - [net_version](#net_version)
-        - [Parameters](#parameters-2)
-        - [Returns](#returns-2)
-        - [Example](#example-2)
-      - [net_listening](#net_listening)
-        - [Parameters](#parameters-3)
-        - [Returns](#returns-3)
-        - [Example](#example-3)
-      - [net_peerCount](#net_peercount)
-        - [Parameters](#parameters-4)
-        - [Returns](#returns-4)
-        - [Example](#example-4)
-      - [eth_protocolVersion](#eth_protocolversion)
-        - [Parameters](#parameters-5)
-        - [Returns](#returns-5)
-        - [Example](#example-5)
-      - [eth_syncing](#eth_syncing)
-        - [Parameters](#parameters-6)
-        - [Returns](#returns-6)
-        - [Example](#example-6)
-      - [eth_coinbase](#eth_coinbase)
-        - [Parameters](#parameters-7)
-        - [Returns](#returns-7)
-        - [Example](#example-7)
-      - [eth_mining](#eth_mining)
-        - [Parameters](#parameters-8)
-        - [Returns](#returns-8)
-        - [Example](#example-8)
-      - [eth_hashrate](#eth_hashrate)
-        - [Parameters](#parameters-9)
-        - [Returns](#returns-9)
-        - [Example](#example-9)
-      - [eth_gasPrice](#eth_gasprice)
-        - [Parameters](#parameters-10)
-        - [Returns](#returns-10)
-        - [Example](#example-10)
-      - [eth_accounts](#eth_accounts)
-        - [Parameters](#parameters-11)
-        - [Returns](#returns-11)
-        - [Example](#example-11)
-      - [eth_blockNumber](#eth_blocknumber)
-        - [Parameters](#parameters-12)
-        - [Returns](#returns-12)
-        - [Example](#example-12)
-      - [eth_getBalance](#eth_getbalance)
-        - [Parameters](#parameters-13)
-        - [Returns](#returns-13)
-        - [Example](#example-13)
-      - [eth_getStorageAt](#eth_getstorageat)
-        - [Parameters](#parameters-14)
-        - [Returns](#returns-14)
-        - [Example](#example-14)
-      - [eth_getTransactionCount](#eth_gettransactioncount)
-        - [Parameters](#parameters-15)
-        - [Returns](#returns-15)
-        - [Example](#example-15)
-      - [eth_getBlockTransactionCountByHash](#eth_getblocktransactioncountbyhash)
-        - [Parameters](#parameters-16)
-        - [Returns](#returns-16)
-        - [Example](#example-16)
-      - [eth_getBlockTransactionCountByNumber](#eth_getblocktransactioncountbynumber)
-        - [Parameters](#parameters-17)
-        - [Returns](#returns-17)
-        - [Example](#example-17)
-      - [eth_getUncleCountByBlockHash](#eth_getunclecountbyblockhash)
-        - [Parameters](#parameters-18)
-        - [Returns](#returns-18)
-        - [Example](#example-18)
-      - [eth_getUncleCountByBlockNumber](#eth_getunclecountbyblocknumber)
-        - [Parameters](#parameters-19)
-        - [Returns](#returns-19)
-        - [Example](#example-19)
-      - [eth_getCode](#eth_getcode)
-        - [Parameters](#parameters-20)
-        - [Returns](#returns-20)
-        - [Example](#example-20)
-      - [eth_sign](#eth_sign)
-        - [Parameters](#parameters-21)
-        - [Returns](#returns-21)
-        - [Example](#example-21)
-      - [eth_sendTransaction](#eth_sendtransaction)
-        - [Parameters](#parameters-22)
-        - [Returns](#returns-22)
-        - [Example](#example-22)
-      - [eth_sendRawTransaction](#eth_sendrawtransaction)
-        - [Parameters](#parameters-23)
-        - [Returns](#returns-23)
-        - [Example](#example-23)
-      - [eth_call](#eth_call)
-        - [Parameters](#parameters-24)
-        - [Returns](#returns-24)
-        - [Example](#example-24)
-      - [eth_estimateGas](#eth_estimategas)
-        - [Parameters](#parameters-25)
-        - [Returns](#returns-25)
-        - [Example](#example-25)
-      - [eth_getBlockByHash](#eth_getblockbyhash)
-        - [Parameters](#parameters-26)
-        - [Returns](#returns-26)
-        - [Example](#example-26)
-      - [eth_getBlockByNumber](#eth_getblockbynumber)
-        - [Parameters](#parameters-27)
-        - [Returns](#returns-27)
-        - [Example](#example-27)
-      - [eth_getTransactionByHash](#eth_gettransactionbyhash)
-        - [Parameters](#parameters-28)
-        - [Returns](#returns-28)
-        - [Example](#example-28)
-      - [eth_getTransactionByBlockHashAndIndex](#eth_gettransactionbyblockhashandindex)
-        - [Parameters](#parameters-29)
-        - [Returns](#returns-29)
-        - [Example](#example-29)
-      - [eth_getTransactionByBlockNumberAndIndex](#eth_gettransactionbyblocknumberandindex)
-        - [Parameters](#parameters-30)
-        - [Returns](#returns-30)
-        - [Example](#example-30)
-      - [eth_getTransactionReceipt](#eth_gettransactionreceipt)
-        - [Parameters](#parameters-31)
-        - [Returns](#returns-31)
-        - [Example](#example-31)
-      - [eth_getUncleByBlockHashAndIndex](#eth_getunclebyblockhashandindex)
-        - [Parameters](#parameters-32)
-        - [Returns](#returns-32)
-        - [Example](#example-32)
-      - [eth_getUncleByBlockNumberAndIndex](#eth_getunclebyblocknumberandindex)
-        - [Parameters](#parameters-33)
-        - [Returns](#returns-33)
-        - [Example](#example-33)
-      - [eth_getCompilers (DEPRECATED)](#eth_getcompilers-deprecated)
-        - [Parameters](#parameters-34)
-        - [Returns](#returns-34)
-        - [Example](#example-34)
-      - [eth_compileSolidity (DEPRECATED)](#eth_compilesolidity-deprecated)
-        - [Parameters](#parameters-35)
-        - [Returns](#returns-35)
-        - [Example](#example-35)
-      - [eth_compileLLL (DEPRECATED)](#eth_compilelll-deprecated)
-        - [Parameters](#parameters-36)
-        - [Returns](#returns-36)
-        - [Example](#example-36)
-      - [eth_compileSerpent (DEPRECATED)](#eth_compileserpent-deprecated)
-        - [Parameters](#parameters-37)
-        - [Returns](#returns-37)
-        - [Example](#example-37)
-      - [eth_newFilter](#eth_newfilter)
-        - [A note on specifying topic filters:](#a-note-on-specifying-topic-filters)
-        - [Parameters](#parameters-38)
-        - [Returns](#returns-38)
-        - [Example](#example-38)
-      - [eth_newBlockFilter](#eth_newblockfilter)
-        - [Parameters](#parameters-39)
-        - [Returns](#returns-39)
-        - [Example](#example-39)
-      - [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter)
-        - [Parameters](#parameters-40)
-        - [Returns](#returns-40)
-        - [Example](#example-40)
-      - [eth_uninstallFilter](#eth_uninstallfilter)
-        - [Parameters](#parameters-41)
-        - [Returns](#returns-41)
-        - [Example](#example-41)
-      - [eth_getFilterChanges](#eth_getfilterchanges)
-        - [Parameters](#parameters-42)
-        - [Returns](#returns-42)
-        - [Example](#example-42)
-      - [eth_getFilterLogs](#eth_getfilterlogs)
-        - [Parameters](#parameters-43)
-        - [Returns](#returns-43)
-        - [Example](#example-43)
-      - [eth_getLogs](#eth_getlogs)
-        - [Parameters](#parameters-44)
-        - [Returns](#returns-44)
-        - [Example](#example-44)
-      - [eth_getWork](#eth_getwork)
-        - [Parameters](#parameters-45)
-        - [Returns](#returns-45)
-        - [Example](#example-45)
-      - [eth_submitWork](#eth_submitwork)
-        - [Parameters](#parameters-46)
-        - [Returns](#returns-46)
-        - [Example](#example-46)
-      - [eth_submitHashrate](#eth_submithashrate)
-        - [Parameters](#parameters-47)
-        - [Returns](#returns-47)
-        - [Example](#example-47)
-      - [eth_getProof](#eth_getproof)
-        - [getProof-Parameters](#getproof-parameters)
-        - [getProof-Returns](#getproof-returns)
-        - [getProof-Example](#getproof-example)
-      - [db_putString](#db_putstring)
-        - [Parameters](#parameters-48)
-        - [Returns](#returns-48)
-        - [Example](#example-48)
-      - [db_getString](#db_getstring)
-        - [Parameters](#parameters-49)
-        - [Returns](#returns-49)
-        - [Example](#example-49)
-      - [db_putHex](#db_puthex)
-        - [Parameters](#parameters-50)
-        - [Returns](#returns-50)
-        - [Example](#example-50)
-      - [db_getHex](#db_gethex)
-        - [Parameters](#parameters-51)
-        - [Returns](#returns-51)
-        - [Example](#example-51)
-      - [shh_version](#shh_version)
-        - [Parameters](#parameters-52)
-        - [Returns](#returns-52)
-        - [Example](#example-52)
-      - [shh_post](#shh_post)
-        - [Parameters](#parameters-53)
-        - [Returns](#returns-53)
-        - [Example](#example-53)
-      - [shh_newIdentity](#shh_newidentity)
-        - [Parameters](#parameters-54)
-        - [Returns](#returns-54)
-        - [Example](#example-54)
-      - [shh_hasIdentity](#shh_hasidentity)
-        - [Parameters](#parameters-55)
-        - [Returns](#returns-55)
-        - [Example](#example-55)
-      - [shh_newGroup](#shh_newgroup)
-        - [Parameters](#parameters-56)
-        - [Returns](#returns-56)
-        - [Example](#example-56)
-      - [shh_addToGroup](#shh_addtogroup)
-        - [Parameters](#parameters-57)
-        - [Returns](#returns-57)
-        - [Example](#example-57)
-      - [shh_newFilter](#shh_newfilter)
-        - [Parameters](#parameters-58)
-        - [Returns](#returns-58)
-        - [Example](#example-58)
-      - [shh_uninstallFilter](#shh_uninstallfilter)
-        - [Parameters](#parameters-59)
-        - [Returns](#returns-59)
-        - [Example](#example-59)
-      - [shh_getFilterChanges](#shh_getfilterchanges)
-        - [Parameters](#parameters-60)
-        - [Returns](#returns-60)
-        - [Example](#example-60)
-      - [shh_getMessages](#shh_getmessages)
-        - [Parameters](#parameters-61)
-        - [Returns](#returns-61)
-        - [Example](#example-61)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+Interacting with Ethereum suggests using [JSON-RPC methods](#json-rpc-methods).
 
 # JSON RPC API
 
@@ -2827,3 +2559,664 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"shh_getMessages","params":["0x7"
 
 Result see [shh_getFilterChanges](#shh_getfilterchanges)
 
+
+
+# IPFS API
+
+# block_get
+
+## /api/v0/block/get
+
+Get a raw IPFS block.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/block/get?arg=<key>`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - The base58 multihash of an existing block to get.
+
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/block/get?arg=QmaYL7E4gDTPNfLxrCEEEcNJgcHBJ55NxxTnxpDKWqMtJ3"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### BODY
+```
+This endpoint returns a `text/plain` response body.
+```
+# block_stat
+
+## /api/v0/block/stat
+
+Print information of a raw IPFS block.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/block/stat?arg=<key>`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - The base58 multihash of an existing block to stat.
+
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/block/stat?arg=QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `Key` - The base58 multihash string of the block
+- `Size` - An integer representing the size in bytes 
+
+#### BODY
+```js
+{
+    Key: "QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM",
+    Size: 18
+}
+```
+# cat
+
+## /api/v0/cat
+
+Show IPFS object data.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/cat?arg=<key>`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - The IPFS object hash
+
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/cat?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### BODY
+```
+This endpoint returns a `text/plain` response body.
+```
+# dag_get
+
+## /api/v0/dag/get
+
+Get a dag node from IPFS.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/dat/get?arg=<key>`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - The IPFS object hash
+
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/dag/get?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `data`
+- `links` - An array of associated link objects
+
+#### BODY
+```js
+{
+    data: "CAISFXZlcnNpb24gMSBvZiBteSB0ZXh0ChgV",
+    links: [ ]
+}
+```
+
+
+# dag_resolve
+
+## /api/v0/dag/resolve
+
+Resolve IPLD block
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/dat/resolve?arg=<key>`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - The IPFS object hash; the path to resolve
+
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/dag/resolve?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `Cid` - Content ID (see more [here](https://github.com/ipld/cid)) 
+- `RemPath`
+
+#### BODY
+```js
+{
+    Cid: {
+        /: "QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
+    },
+    RemPath: ""
+}
+```
+# files_cp
+
+## /api/v0/files/cp
+
+Copy files to a MFS (Mutable File System).
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/files/cp?arg=<source>&arg=<dest>`
+
+#### REQUEST PARAMS
+- `arg` _[Required]_ - Source object to copy. ( the ipfs/[hash] link )
+- `arg` _[Required]_ - Destination to copy object to. ( on the MFS )
+ 
+#### EXAMPLE
+
+```bash
+// GET
+ curl "https://ipfs.infura.io:5001/api/v0/files/cp?arg=/ipfs/QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3&arg=/ipfs-examples-docs-001"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### BODY
+```
+This endpoint returns a `text/plain` response body.
+```
+# files_flush
+
+## /api/v0/files/flush
+
+Flush a given path’s data to disk.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/files/flush?arg=<path>`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - Path to file to be read.
+
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/files/flush?arg=/ipfs-docs-example"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### BODY
+```
+This endpoint returns a `text/plain` response body.
+```
+# files_mkdir
+
+## /api/v0/files/mkdir
+
+Make directories on a MFS (Mutable File System).
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/files/mkdir?arg=<path>`
+
+#### REQUEST PARAMS
+- `arg` _[Required]_ - Path to dir to make.
+ 
+#### EXAMPLE
+
+```bash
+// GET
+ curl "https://ipfs.infura.io:5001/api/v0/files/mkdir?arg=/ipfs-examples-dir"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### BODY
+```
+This endpoint returns a `text/plain` response body.
+```
+# files_read
+
+## /api/v0/files/read
+
+Read a file in a given MFS (mutable file system).
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/files/read?arg=<path>&offset=<value>&count=<value>`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - Path to file to be read.
+- `offset` _[optional]_ - Byte offset to begin reading from.
+- `count` _[optional]_ - Maximum number of bytes to read.
+
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/files/read?arg=/ipfs-docs-example"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### BODY
+```
+This endpoint returns a `text/plain` response body.
+```
+# files_stat
+
+## /api/v0/files/stat
+
+Display file status.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/files/stat?arg=<path>&offset=<value>&count=<value>`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - Path to file to be read.
+- `format` _[optional]_ - Print statistics in given format.
+- `hash` _[optional]_ - Print only hash.
+- `size` _[optional]_ - Print only size.
+
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/files/stat?arg=/ipfs-docs-example"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `Hash` - Hash of the object
+- `Size` - size of file
+- `CumulativeSize` - size of the tree
+- `Blocks` - number of linked blocks
+- `Type` - node type (file or directory)
+
+
+#### BODY
+```json
+{
+    Hash: "QmVMvdPwiXvdSTKhDrTpQaW1zjoX5g9w72PWHsnSSTz2F2",
+    Size: 29,
+    CumulativeSize: 87,
+    Blocks: 1,
+    Type: "file"
+}
+```
+# get
+
+## /api/v0/get
+
+Download IPFS objects.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/get?arg=<ipfs-path>&output=<value>&archive=false&compress=false&compression-level=-1`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - The IPFS object hash
+- `output` _[optional]_ - The path where the output should be stored. 
+- `archive` _[optional]_ - Output a TAR archive. Default: “false”. 
+- `compress` _[optional]_ - Compress the output with GZIP compression. Default is “false”. 
+- `compression-level` _[optional]_ - The level of compression (1-9). Default: “-1”. 
+ 
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/get?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy&archive=true"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+
+#### BODY
+```
+This endpoint returns a `text/plain` response body.
+```
+# id
+
+## /api/v0/id
+
+Show IPFS node id info.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/id?arg=<peerid>&format=<value>`
+
+#### REQUEST PARAMS
+- `arg` _[optional]_ - Peer ID of node to look up.
+- `format` _[optional]_ - Optional output format
+
+ 
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/id?arg=Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `ID` - Peer ID hash
+- `PublicKey` - Public Key of the node
+- `Addresses` - Listen addresses of the Host
+- `AgentVersion` - Client version
+- `ProtocolVersion` - holds the current protocol version for a client running this code
+
+#### BODY
+```json
+{
+    ID: "Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N",
+    PublicKey: "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCq1Rc1+JFY1Ds4dHHPs/sshcC/8Oh5dG/kkIK/HmUpib2/kRg242O1hIGDb2yKDN9TFa43TZDYYNNGJbHRRr8Y1J5bBX6jHHGW0i85NEZm74LbU023vVjYUMoOjT7QPnjSUym7zB2vOIydQSLmSSSta2lZi4hPhH+fDzJoL2cQ241i2o6Ay/AoorayJO9vMj3N4ptjrW2aWhLdQZA+Lg6mtpu0GdpnoYJQvki/T40ZCgOvB/9gG/Z1guUvhXzl3DS8TbPrSqUMWe97oyN0J1VLnVw2UKGOW+hyNhJ9oLG0MesRTIa2p9OOKAB55Taf7cBY9tSKzCNDxfi5NP8PEyJNAgMBAAE=",
+    Addresses: [
+        "/ip4/127.0.0.1/tcp/4001/ipfs/Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N",
+        "/ip4/10.0.21.194/tcp/4001/ipfs/Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N",
+        "/ip4/172.17.0.1/tcp/4001/ipfs/Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N",
+        "/ip6/::1/tcp/4001/ipfs/Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N",
+        "/ip4/18.232.150.108/tcp/4001/ipfs/Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N"
+    ],
+    AgentVersion: "go-ipfs/0.4.14/",
+    ProtocolVersion: "ipfs/0.1.0"
+}
+```
+# object_data
+
+## /api/v0/object/data
+
+Output the raw bytes of an IPFS object.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/object/data?arg=<key>`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - Key of the object to retrieve, in base58-encoded multihash format. 
+
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/object/data?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### BODY
+```
+This endpoint returns a `text/plain` response body.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# object_get
+
+## /api/v0/object/get
+
+Get and serialize the DAG node named by key.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/object/get?arg=<key>`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - Key of the object to retrieve, in base58-encoded multihash format. 
+
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/object/get?arg=QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `links` - An array of associated link objects
+- `data`
+
+#### BODY
+```
+{
+    Links: [ ],
+    Data: "version 1 of my text "
+}
+```
+# object_stat
+
+## /api/v0/object/stat
+
+Get stats for the DAG node named by key.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/object/stat?arg=<key>`
+
+#### REQUEST PARAMS
+- `arg` _[required]_ - Key of the object to retrieve, in base58-encoded multihash format. 
+
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/object/stat?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `Hash` - Hash of the object
+- `NumLinks` - number of links the node contains
+- `BlockSize` - size of the raw serialized node
+- `LinksSize` - size of the links block section
+- `DataSize` - size of data block section
+- `CumulativeSize` - size of the tree (BlockSize + link sizes)
+
+#### BODY
+```json
+{
+    Hash: "QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy",
+    NumLinks: 0,
+    BlockSize: 29,
+    LinksSize: 2,
+    DataSize: 27,
+    CumulativeSize: 29
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# pin_add
+
+## /api/v0/pin/add
+
+Pin objects to local storage.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/pin/add?arg=<ipfs-path>&recursive=true&progress=<value>`
+
+#### REQUEST PARAMS
+- `arg` _[Required]_ - Path to object(s) to be pinned.
+- `recursive` _[Optional]_ - Recursively pin the object linked to by the specified object(s). Default: “true”
+- `progress` _[Optional]_ - Show progress. 
+
+#### EXAMPLE
+Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
+
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/pin/add?arg=/ipfs/QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3" 
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `Pins` - An array of Pin hashes
+
+
+#### BODY
+```json
+{
+    "Pins": [
+        "QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3"
+    ],
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version
+
+## /api/v0/version
+
+Show IPFS version information.
+
+### REQUEST
+
+`GET https://ipfs.infura.io:5001/api/v0/version?number=false&commit=false&repo=false&all=false`
+
+#### REQUEST PARAMS
+- `number` _[optional]_ - Only show the version number. Default is false
+- `commit` _[optional]_ - Show the commit hash. Default is false
+- `repo` _[optional]_ - Show repo version. Default is false
+- `all` _[optional]_ - Show all version information. Default is false
+
+ 
+#### EXAMPLE
+```bash
+// GET
+curl "https://ipfs.infura.io:5001/api/v0/version"
+```
+
+### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `Version` - Current version number
+- `Commit` - Current commit id
+- `Repo` - Version number of the repo
+- `System` - System information
+- `Golang` - GoLang runtime version
+
+#### BODY
+```json
+{
+    Version: "0.4.14",
+    Commit: "",
+    Repo: "6",
+    System: "amd64/linux",
+    Golang: "go1.10"
+}
+```
