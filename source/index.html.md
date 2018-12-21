@@ -3146,3 +3146,238 @@ On success, the call to this endpoint will return with 200 and the following bod
     Golang: "go1.10"
 }
 ```
+## add
+
+### /api/v0/add
+
+Add a file or directory to IPFS.
+
+#### REQUEST
+
+`POST https://ipfs.infura.io:5001/api/v0/add?recursive=false&quiet=<value>&quieter=<value>&silent=<value>&progress=<value>&trickle=<value>&only-hash=<value>&wrap-with-directory=<value>&hidden=<value>&chunker=<value>&pin=true&raw-leaves=<value>&nocopy=<value>&fscache=<value>&cid-version=0&hash=sha2-256`
+
+#### REQUEST PARAMS
+- `file` _[Required]_ - The path to a file to be added to IPFS.
+- `recursive` _[Optional]_ - Add directory paths recursively. Default: “false”.
+- `quiet` _[Optional]_ - Write minimal output.
+- `quieter` _[Optional]_ - Write only final hash.
+- `silent` _[Optional]_ - Write no output.
+- `progress` _[Optional]_ - Stream progress data.
+- `trickle` _[Optional]_ - Use trickle-dag format for dag `generation`.
+- `only-hash` _[Optional]_ - Only chunk and hash - do not write to disk.
+- `wrap-with-directory` _[Optional]_ - Wrap files with a directory object.
+- `hidden` _[Optional]_ - Include files that are hidden. Only takes effect on recursive add.
+chunker [string]: Chunking algorithm to use.
+- `pin` _[Optional]_ - Pin this object when adding. Default: “true”.
+- `raw-leaves` _[Optional]_ - Use raw blocks for leaf nodes. (experimental).
+- `nocopy` _[Optional]_ - Add the file using filestore. (experimental).
+- `fscache` _[Optional]_ - Check the filestore for pre-existing blocks. (experimental).
+- `cid-version` [int]: Cid version. Non-zero value will change default of ‘raw-leaves’ to true. (experimental). Default: “0”.
+- `hash` [string]: Hash function to use. Will set Cid version to 1 if used. (experimental). Default: “sha2-256”.
+
+ 
+#### EXAMPLE
+Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
+
+```bash
+// POST
+curl "https://ipfs.infura.io:5001/api/v0/add?pin=false" \
+    -X POST \
+    -H "Content-Type: multipart/form-data" \
+    -F file=@"/sample-result.json" 
+```
+
+#### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `Name` - Name of the object
+- `Hash` - Hash  of the uploaded object
+- `Size` - integer indication size in bytes
+
+
+#### BODY
+```json
+{
+    "Name": "sample-result.json",
+    "Hash": "QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3",
+    "Size": "2120"
+}
+```
+## block_put
+
+### /api/v0/block/put
+
+Store input as an IPFS block.
+
+#### REQUEST
+
+`POST https://ipfs.infura.io::5001/api/v0/block/put?format=v0&mhtype=sha2-256&mhlen=-1`
+
+#### REQUEST PARAMS
+- `file` _[Required]_ - The path to a file to be added to IPFS.
+- `format` _[Optional]_ - cid format for blocks to be created with. Default: “v0”. 
+- `mhtype` _[Optional]_ - multihash hash function. Default: “sha2-256”.
+- `mhlen` _[Optional]_ - multihash hash length. Default: “-1”. 
+ 
+#### EXAMPLE
+Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
+
+```bash
+// POST
+curl "https://ipfs.infura.io:5001/api/v0/block/put" \
+    -X POST \
+    -H "Content-Type: multipart/form-data" \
+    -F file=@"/purpink.jpeg" 
+```
+
+#### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `Key` - Key of the block
+- `Size` - integer indication size in bytes
+
+
+#### BODY
+```json
+{
+    "Key": "QmaYL7E4gDTPNfLxrCEEEcNJgcHBJ55NxxTnxpDKWqMtJ3",
+    "Size": 2392
+}
+```
+
+## dag_put
+
+### /api/v0/dag/put
+
+Add a dag node to IPFS.
+
+#### REQUEST
+
+`POST https://ipfs.infura.io:5001/api/v0/dag/put?format=cbor&input-enc=json&pin=false&hash=<value>`
+
+#### REQUEST PARAMS
+- `file` _[Required]_ - The path to a file to be added to IPFS.
+- `format` _[Optional]_ - cid format for blocks to be created
+- `pin` _[Optional]_ - Pin this object when adding. Default: “true”.
+- `input-enc` _[Optional]_ - Format that the input object will be. Default: “json”. 
+- `hash` _[Optional]_ - Hash function to use.
+ 
+#### EXAMPLE
+Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
+
+```bash
+// POST
+curl "https://ipfs.infura.io:5001/api/v0/dag/put?format=cbor&input-enc=json&pin=false" \
+    -X POST \
+    -H "Content-Type: multipart/form-data" \
+    -F file=@"/sample-result.json" 
+```
+
+#### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `Cid` - Content ID (see more [here](https://github.com/ipld/cid)) 
+
+
+#### BODY
+```json
+{
+    "Cid": {
+        "/": "zdpuAzaZNBehCV84L76P6Zr5APxN8bbGdqvrqPfvX6XKMBYpK"
+    }
+}
+```
+
+## files_write
+
+### /api/v0/files/write
+
+Write to a mutable file in a given filesystem.
+
+#### REQUEST
+
+`POST https://ipfs.infura.io:5001/api/v0/files/write?format=cbor&input-enc=json&pin=false&hash=<value>`
+
+#### REQUEST PARAMS
+- `file` _[Required]_ - The file to be added to IPFS.
+- `path` _[Required]_ - The path to write the file to.
+- `offset` _[Optional]_ - Byte offset to begin writing at.
+- `create` _[Optional]_ - Create the file if it does not exist.
+- `truncate` _[Optional]_ - Truncate the file to size zero before writing. 
+- `count` _[Optional]_ - Maximum number of bytes to read.
+ 
+#### EXAMPLE
+Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
+
+```bash
+// POST
+curl "https://ipfs.infura.io:5001/api/v0/files/write?arg=/ipfs-file-test?create=true" \
+    -X POST \
+    -H "Content-Type: multipart/form-data" \
+    -F file=@"/readme.txt" 
+```
+
+#### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `Cid` - Content ID (see more [here](https://github.com/ipld/cid)) 
+
+
+#### BODY
+```json
+{
+    "Cid": {
+        "/": "zdpuAzaZNBehCV84L76P6Zr5APxN8bbGdqvrqPfvX6XKMBYpK"
+    }
+}
+```
+
+## object_put
+
+### /api/v0/object/put
+
+Store input as a DAG object, print its key.
+
+#### REQUEST
+
+`POST http://ipfs.infura:5001/api/v0/object/put?inputenc=json&datafieldenc=text&pin=false`
+
+#### REQUEST PARAMS
+- `file` _[Required]_ - the file to be stored as a DAG object.
+- `inputenc` _[Optional]_ - Encoding type of input data. One of: {“protobuf”, “json”}. Default: “json”. 
+- `datafieldenc` _[Optional]_ - Encoding type of the data field, either “text” or “base64”. Default: “text”.
+- `pin` _[Optional]_ - Pin this object when adding. Default: “false”.
+ 
+#### EXAMPLE
+Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
+
+```bash
+// POST
+curl "https://ipfs.infura.io:5001/api/v0/object/put?inputenc=json&datafieldenc=text&pin=false" \
+    -X POST \
+    -H "Content-Type: multipart/form-data" \
+    -F file=@"node.json" 
+```
+
+#### RESPONSE
+
+On success, the call to this endpoint will return with 200 and the following body:
+
+#### RESULT FIELDS
+- `Hash` - Hash of the object
+
+
+#### BODY
+```json
+{
+    "Hash": "QmZZmY4KCu9r3e7M2Pcn46Fc5qbn6NpzaAGaYb22kbfTqm"
+}
+```
