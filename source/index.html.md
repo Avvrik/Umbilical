@@ -153,7 +153,7 @@ The following options are possible for the defaultBlock parameter:
 - `String "earliest"` for the earliest/genesis block
 - `String "latest"` - for the latest mined block
 - `String "pending"` - for the pending state/transactions
-
+ 
 ## Curl Examples Explained
 
 The curl options below might return a response where the node complains about the content type, this is because the --data option sets the content type to application/x-www-form-urlencoded . If your node does complain, manually set the header by placing -H "Content-Type: application/json" at the start of the call.
