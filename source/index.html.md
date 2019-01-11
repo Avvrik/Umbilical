@@ -6,6 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - go
   - python
   - shell
+  - javascript
 
 toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
@@ -61,20 +62,23 @@ Default JSON-RPC endpoints:
 
 ### Go
 
-You can start the HTTP JSON-RPC with the `--rpc` flag
-```bash
+To start the HTTP JSON-RPC, see the right panel.
+
+> You can start the HTTP JSON-RPC with the `--rpc` flag
+
+```go
 geth --rpc
 ```
 
-change the default port (8545) and listing address (localhost) with:
+> change the default port (8545) and listing address (localhost) with:
 
-```bash
+```go
 geth --rpc --rpcaddr <ip> --rpcport <portnumber>
 ```
 
-If accessing the RPC from a browser, CORS will need to be enabled with the appropriate domain set. Otherwise, JavaScript calls are limit by the same-origin policy and requests will fail:
+> If accessing the RPC from a browser, CORS will need to be enabled with the appropriate domain set. Otherwise, JavaScript calls are limit by the same-origin policy and requests will fail:
 
-```bash
+```go
 geth --rpc --rpccorsdomain "http://localhost:3000"
 ```
 
@@ -84,12 +88,13 @@ The JSON RPC can also be started from the [geth console](https://github.com/ethe
 ### C++
 
 First start the node by running `aleth` application:
-```bash
+
+```cpp
 build/aleth/aleth
 ```
 
 Then start the JSON-RPC proxy (defaults to '~/.ethereum/geth.ipc' and 'http://127.0.0.1:8545'): 
-```bash
+```cpp
 scripts/jsonrpcproxy.py
 ```
 
