@@ -600,18 +600,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>String</code> - The current client version.</p>
 
 <hr>
-<h4 id='web3_sha3'>web3_sha3</h4>
-<p>Returns Keccak-256 (<em>not</em> the standardized SHA3-256) of the given data.</p>
-<h5 id='parameters-2'>Parameters</h5>
-<ol>
-<li><code>DATA</code> - the data to convert into a SHA3 hash.</li>
-</ol>
-<pre class="highlight javascript tab-javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">"0x68656c6c6f20776f726c64"</span>
-<span class="p">]</span>
-</code></pre><h5 id='returns-2'>Returns</h5>
-<p><code>DATA</code> - The SHA3 result of the given string.</p>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='web3_sha3'>web3_sha3</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'</span>
 
 <span class="c1">// Result</span>
@@ -621,6 +610,18 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc94770007dda54cF92009BFF0dE90c06F603a09f"</span>
 <span class="p">}</span>
 </code></pre>
+<p>Returns Keccak-256 (<em>not</em> the standardized SHA3-256) of the given data.</p>
+<h5 id='parameters-2'>Parameters</h5>
+<ol>
+<li><code>DATA</code> - the data to convert into a SHA3 hash.</li>
+</ol>
+
+<p>params: [
+  &quot;0x68656c6c6f20776f726c64&quot;
+]</p>
+<h5 id='returns-2'>Returns</h5>
+<p><code>DATA</code> - The SHA3 result of the given string.</p>
+
 <hr>
 <h4 id='net_version'>net_version</h4>
 <p>Returns the current network id.</p>
