@@ -836,19 +836,19 @@ Returns code at a given address.
 1. `DATA`, 20 Bytes - address.
 2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter).
 
-```js
+
 params: [
    '0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b',
    '0x2'  // 2
 ]
-```
+
 
 ##### Returns
 
 `DATA` - the code from the given address.
 
 ***
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}'
 
