@@ -437,8 +437,6 @@ none
 `DATA`, 20 bytes - the current coinbase address.
 
 ***
-
-### eth_mining
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}'
@@ -451,6 +449,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}
 }
 
 ```
+
+### eth_mining
+
 Returns `true` if client is actively mining new blocks.
 
 ##### Parameters
@@ -462,17 +463,7 @@ none
 
 ***
 
-#### eth_hashrate
-
-Returns the number of hashes per second that the node is mining with.
-
-##### Parameters
-none
-
-##### Returns
-
-`QUANTITY` - number of hashes per second.
-
+### eth_hashrate
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":71}'
@@ -485,20 +476,16 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":7
 }
 
 ```
-
-***
-
-#### eth_gasPrice
-
-Returns the current price per gas in wei.
+Returns the number of hashes per second that the node is mining with.
 
 ##### Parameters
 none
 
 ##### Returns
 
-`QUANTITY` - integer of the current gas price in wei.
+`QUANTITY` - number of hashes per second.
 
+***
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":73}'
@@ -510,22 +497,18 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":7
   "result": "0x09184e72a000" // 10000000000000
 }
 ```
+### eth_gasPrice
 
-***
-
-#### eth_accounts
-
-Returns a list of addresses owned by client.
-
+Returns the current price per gas in wei.
 
 ##### Parameters
 none
 
 ##### Returns
 
-`Array of DATA`, 20 Bytes - addresses owned by the client.
+`QUANTITY` - integer of the current gas price in wei.
 
-
+***
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}'
@@ -537,20 +520,18 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1
   "result": ["0xc94770007dda54cF92009BFF0dE90c06F603a09f"]
 }
 ```
+### eth_accounts
 
-***
-
-#### eth_blockNumber
-
-Returns the number of most recent block.
+Returns a list of addresses owned by client.
 
 ##### Parameters
 none
 
 ##### Returns
 
-`QUANTITY` - integer of the current block number the client is on.
+`Array of DATA`, 20 Bytes - addresses owned by the client.
 
+***
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
@@ -562,10 +543,33 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id
   "result": "0xc94" // 1207
 }
 ```
+### eth_blockNumber
+
+Returns the number of most recent block.
+
+##### Parameters
+none
+
+##### Returns
+
+`QUANTITY` - integer of the current block number the client is on.
+
+
 
 ***
 
-#### eth_getBalance
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0x0234c8a3397aab58" // 158972490234375000
+}
+```
+### eth_getBalance
 
 Returns the balance of the account of given address.
 
@@ -585,22 +589,9 @@ params: [
 
 `QUANTITY` - integer of the current balance in wei.
 
-
-```javascript
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}'
-
-// Result
-{
-  "id":1,
-  "jsonrpc": "2.0",
-  "result": "0x0234c8a3397aab58" // 158972490234375000
-}
-```
-
 ***
 
-#### eth_getStorageAt
+### eth_getStorageAt
 
 Returns the value from a storage position at a given address. 
 
@@ -625,33 +616,28 @@ contract Storage {
         pos1[msg.sender] = 5678;
     }
 }
-```
-```javascript
+
 //Retrieving the value of pos0 is straight forward:
 
 curl -X POST --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}' localhost:8545
 
 {"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000000000000000004d2"}
-```
-```javascript
+
 //Retrieving an element of the map is harder. The position of an element in the map is calculated with:
 
 keccack(LeftPad32(key, 0), LeftPad32(map position, 0))
-```
-```javascript
+
 //This means to retrieve the storage on pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"] we need to calculate the position with:
 
 keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
-```
-```javascript
+
 //The geth console which comes with the web3 library can be used to make the calculation:
 
 > var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
 undefined
 > web3.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
-```
-```javascript
+
 //Now to fetch the storage:
 
 curl -X POST --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' localhost:8545
