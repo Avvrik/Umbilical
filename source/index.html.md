@@ -578,33 +578,18 @@ Returns the balance of the account of given address.
 1. `DATA`, 20 Bytes - address to check for balance.
 2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
 
-```js
+
 params: [
    '0xc94770007dda54cF92009BFF0dE90c06F603a09f',
    'latest'
 ]
-```
+
 
 ##### Returns
 
 `QUANTITY` - integer of the current balance in wei.
 
 ***
-
-### eth_getStorageAt
-
-Returns the value from a storage position at a given address. 
-
-##### Parameters
-
-1. `DATA`, 20 Bytes - address of the storage.
-2. `QUANTITY` - integer of the position in the storage.
-3. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
-
-##### Returns
-
-`DATA` - the value at this storage position.
-
 ```javascript
 //Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
 contract Storage {
@@ -645,6 +630,19 @@ curl -X POST --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": [
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000162e"}
 
 ```
+### eth_getStorageAt
+
+Returns the value from a storage position at a given address. 
+
+##### Parameters
+
+1. `DATA`, 20 Bytes - address of the storage.
+2. `QUANTITY` - integer of the position in the storage.
+3. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
+
+##### Returns
+
+`DATA` - the value at this storage position.
 
 ***
 
