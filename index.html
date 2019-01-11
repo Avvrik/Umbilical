@@ -856,8 +856,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>QUANTITY</code> - integer of the current balance in wei.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">//Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.</span>
-<span class="nx">contract</span> <span class="nx">Storage</span> <span class="p">{</span>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">contract</span> <span class="nx">Storage</span> <span class="p">{</span>
     <span class="nx">uint</span> <span class="nx">pos0</span><span class="p">;</span>
     <span class="nx">mapping</span><span class="p">(</span><span class="nx">address</span> <span class="o">=&gt;</span> <span class="nx">uint</span><span class="p">)</span> <span class="nx">pos1</span><span class="p">;</span>
 
@@ -867,7 +866,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="c1">//Retrieving the value of pos0 is straight forward:</span>
+<span class="c1">//Retrieving the value of pos0 is straightforward:</span>
 
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}'</span> <span class="nx">localhost</span><span class="p">:</span><span class="mi">8545</span>
 
@@ -896,6 +895,8 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 
 </code></pre><h3 id='eth_getstorageat'>eth_getStorageAt</h3>
 <p>Returns the value from a storage position at a given address. </p>
+
+<p>Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at <code>0x295a70b2de5e3953354a6a8344e616ed314d7251</code> by address <code>0x391694e7e0b0cce554cb130d723a9d27458f9298</code>.</p>
 <h5 id='parameters-15'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 20 Bytes - address of the storage.</li>
@@ -904,6 +905,41 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 </ol>
 <h5 id='returns-15'>Returns</h5>
 <p><code>DATA</code> - the value at this storage position.</p>
+<h5 id='learn-more'>Learn more</h5>
+<ul>
+<li>Retrieving the value of pos0 is straightforward:</li>
+</ul>
+
+<p>curl -X POST --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;: &quot;eth_getStorageAt&quot;, &quot;params&quot;: [&quot;0x295a70b2de5e3953354a6a8344e616ed314d7251&quot;, &quot;0x0&quot;, &quot;latest&quot;], &quot;id&quot;: 1}&#39; localhost:8545</p>
+
+<p>{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:&quot;0x00000000000000000000000000000000000000000000000000000000000004d2&quot;}</p>
+
+<p>//Retrieving an element of the map is harder. The position of an element in the map is calculated with:</p>
+
+<p>keccack(LeftPad32(key, 0), LeftPad32(map position, 0))</p>
+
+<ul>
+<li>This means to retrieve the storage on pos1[&quot;0x391694e7e0b0cce554cb130d723a9d27458f9298&quot;] we need to calculate the position with:</li>
+</ul>
+
+<p>keccak(decodeHex(&quot;000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298&quot; + &quot;0000000000000000000000000000000000000000000000000000000000000001&quot;))</p>
+
+<ul>
+<li>The geth console which comes with the web3 library can be used to make the calculation:</li>
+</ul>
+
+<p>var key = &quot;000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298&quot; + &quot;0000000000000000000000000000000000000000000000000000000000000001&quot;
+undefined
+web3.sha3(key, {&quot;encoding&quot;: &quot;hex&quot;})
+&quot;0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9&quot;</p>
+
+<ul>
+<li>Now to fetch the storage:</li>
+</ul>
+
+<p>curl -X POST --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;: &quot;eth_getStorageAt&quot;, &quot;params&quot;: [&quot;0x295a70b2de5e3953354a6a8344e616ed314d7251&quot;, &quot;0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9&quot;, &quot;latest&quot;], &quot;id&quot;: 1}&#39; localhost:8545</p>
+
+<p>{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:&quot;0x000000000000000000000000000000000000000000000000000000000000162e&quot;}</p>
 
 <hr>
 <h4 id='eth_gettransactioncount'>eth_getTransactionCount</h4>
