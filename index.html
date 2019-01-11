@@ -847,24 +847,15 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <li><code>DATA</code>, 20 Bytes - address to check for balance.</li>
 <li><code>QUANTITY|TAG</code> - integer block number, or the string <code>&quot;latest&quot;</code>, <code>&quot;earliest&quot;</code> or <code>&quot;pending&quot;</code>, see the <a href="#the-default-block-parameter">default block parameter</a></li>
 </ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
-   <span class="s1">'0xc94770007dda54cF92009BFF0dE90c06F603a09f'</span><span class="p">,</span>
-   <span class="s1">'latest'</span>
-<span class="p">]</span>
-</code></pre><h5 id='returns-14'>Returns</h5>
+
+<p>params: [
+   &#39;0xc94770007dda54cF92009BFF0dE90c06F603a09f&#39;,
+   &#39;latest&#39;
+]</p>
+<h5 id='returns-14'>Returns</h5>
 <p><code>QUANTITY</code> - integer of the current balance in wei.</p>
 
 <hr>
-<h3 id='eth_getstorageat'>eth_getStorageAt</h3>
-<p>Returns the value from a storage position at a given address. </p>
-<h5 id='parameters-15'>Parameters</h5>
-<ol>
-<li><code>DATA</code>, 20 Bytes - address of the storage.</li>
-<li><code>QUANTITY</code> - integer of the position in the storage.</li>
-<li><code>QUANTITY|TAG</code> - integer block number, or the string <code>&quot;latest&quot;</code>, <code>&quot;earliest&quot;</code> or <code>&quot;pending&quot;</code>, see the <a href="#the-default-block-parameter">default block parameter</a></li>
-</ol>
-<h5 id='returns-15'>Returns</h5>
-<p><code>DATA</code> - the value at this storage position.</p>
 <pre class="highlight javascript tab-javascript"><code><span class="c1">//Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.</span>
 <span class="nx">contract</span> <span class="nx">Storage</span> <span class="p">{</span>
     <span class="nx">uint</span> <span class="nx">pos0</span><span class="p">;</span>
@@ -903,7 +894,17 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 
 <span class="p">{</span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"0x000000000000000000000000000000000000000000000000000000000000162e"</span><span class="p">}</span>
 
-</code></pre>
+</code></pre><h3 id='eth_getstorageat'>eth_getStorageAt</h3>
+<p>Returns the value from a storage position at a given address. </p>
+<h5 id='parameters-15'>Parameters</h5>
+<ol>
+<li><code>DATA</code>, 20 Bytes - address of the storage.</li>
+<li><code>QUANTITY</code> - integer of the position in the storage.</li>
+<li><code>QUANTITY|TAG</code> - integer block number, or the string <code>&quot;latest&quot;</code>, <code>&quot;earliest&quot;</code> or <code>&quot;pending&quot;</code>, see the <a href="#the-default-block-parameter">default block parameter</a></li>
+</ol>
+<h5 id='returns-15'>Returns</h5>
+<p><code>DATA</code> - the value at this storage position.</p>
+
 <hr>
 <h4 id='eth_gettransactioncount'>eth_getTransactionCount</h4>
 <p>Returns the number of transactions <em>sent</em> from an address.</p>
