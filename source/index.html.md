@@ -60,46 +60,44 @@ Default JSON-RPC endpoints:
 | Parity | http://localhost:8545 | 
 
 
-### Go
-
-To start the HTTP JSON-RPC, see the right panel.
-
-> You can start the HTTP JSON-RPC with the `--rpc` flag
+```go
+You can start the HTTP JSON-RPC with the `--rpc` flag
+```
 
 ```go
 geth --rpc
 ```
-
-> change the default port (8545) and listing address (localhost) with:
-
+```go
+change the default port (8545) and listing address (localhost) with:
+```
 ```go
 geth --rpc --rpcaddr <ip> --rpcport <portnumber>
 ```
-
-> If accessing the RPC from a browser, CORS will need to be enabled with the appropriate domain set. Otherwise, JavaScript calls are limit by the same-origin policy and requests will fail:
-
+```go
+If accessing the RPC from a browser, CORS will need to be enabled with the appropriate domain set. Otherwise, JavaScript calls are limit by the same-origin policy and requests will fail:
+```
 ```go
 geth --rpc --rpccorsdomain "http://localhost:3000"
 ```
-
+```go
 The JSON RPC can also be started from the [geth console](https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console) using the `admin.startRPC(addr, port)` command.
-
+```
 
 ### C++
 
-First start the node by running `aleth` application:
+> First start the node by running `aleth` application:
 
 ```cpp
 build/aleth/aleth
 ```
 
-Then start the JSON-RPC proxy (defaults to '~/.ethereum/geth.ipc' and 'http://127.0.0.1:8545'): 
+> Then start the JSON-RPC proxy (defaults to '~/.ethereum/geth.ipc' and 'http://127.0.0.1:8545'): 
 ```cpp
 scripts/jsonrpcproxy.py
 ```
 
-If you use non-default IPC path or JSON-RPC options, you can specify  :
-```bash
+> If you use non-default IPC path or JSON-RPC options, you can specify  :
+```cpp
 scripts/jsonrpcproxy.py <path to your node's geth.ipc> <URL for this proxy server>
 ```
 
