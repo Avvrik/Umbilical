@@ -223,8 +223,6 @@ The examples also do not include the URL/IP & port combination which must be the
 
 ## JSON RPC API Reference
 
-### web3_clientVersion
-
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}'
@@ -236,6 +234,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],
   "result": "Mist/v0.9.3/darwin/go1.4.1"
 }
 ```
+### web3_clientVersion
+
 Returns the current client version.
 
 ##### Parameters
@@ -247,9 +247,6 @@ none
 
 
 ***
-
-### web3_sha3
-
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'
@@ -261,6 +258,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c
   "result": "0xc94770007dda54cF92009BFF0dE90c06F603a09f"
 }
 ```
+### web3_sha3
+
 Returns Keccak-256 (*not* the standardized SHA3-256) of the given data.
 
 ##### Parameters
@@ -276,9 +275,6 @@ params: [
 `DATA` - The SHA3 result of the given string.
 
 ***
-
-### net_version
-
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'
@@ -290,6 +286,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67
   "result": "3"
 }
 ```
+### net_version
+
 Returns the current network id.
 
 ##### Parameters
@@ -306,9 +304,6 @@ none
 
 
 ***
-
-### net_listening
-
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}'
@@ -320,6 +315,9 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":
   "result":true
 }
 ```
+
+### net_listening
+
 Returns `true` if client is actively listening for network connections.
 
 ##### Parameters
@@ -330,9 +328,6 @@ none
 `Boolean` - `true` when listening, otherwise `false`.
 
 ***
-
-### net_peerCount
-
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}'
@@ -344,6 +339,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":
   "result": "0x2" // 2
 }
 ```
+### net_peerCount
+
 Returns number of peers currently connected to the client.
 
 ##### Parameters
@@ -354,9 +351,6 @@ none
 `QUANTITY` - integer of the number of connected peers.
 
 ***
-
-### eth_protocolVersion
-
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":67}'
@@ -368,6 +362,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[]
   "result": "54"
 }
 ```
+### eth_protocolVersion
+
 Returns the current ethereum protocol version.
 
 ##### Parameters
@@ -378,9 +374,6 @@ none
 `String` - The current ethereum protocol version.
 
 ***
-
-### eth_syncing
-
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}'
@@ -402,14 +395,14 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}
   "result": false
 }
 ```
+### eth_syncing
+
 Returns an object with data about the sync status or `false`.
 
 ##### Parameters
 none
 
 ##### Returns
-
-
 
 `Object|Boolean`, An object with sync status data or `FALSE`, when not syncing:
 
@@ -421,9 +414,6 @@ none
 
 
 ***
-
-### eth_coinbase
-
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":64}'
@@ -435,6 +425,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":6
   "result": "0xc94770007dda54cF92009BFF0dE90c06F603a09f"
 }
 ```
+### eth_coinbase
+
 Returns the client coinbase address.
 
 ##### Parameters
@@ -444,22 +436,9 @@ none
 
 `DATA`, 20 bytes - the current coinbase address.
 
-
-
-
 ***
 
 ### eth_mining
-
-Returns `true` if client is actively mining new blocks.
-
-##### Parameters
-none
-
-##### Returns
-
-`Boolean` - returns `true` of the client is mining, otherwise `false`.
-
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}'
@@ -472,6 +451,14 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}
 }
 
 ```
+Returns `true` if client is actively mining new blocks.
+
+##### Parameters
+none
+
+##### Returns
+
+`Boolean` - returns `true` of the client is mining, otherwise `false`.
 
 ***
 
