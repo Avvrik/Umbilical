@@ -251,23 +251,7 @@ none
 
 ***
 
-#### web3_sha3
-
-Returns Keccak-256 (*not* the standardized SHA3-256) of the given data.
-
-##### Parameters
-
-1. `DATA` - the data to convert into a SHA3 hash.
-
-```javascript
-params: [
-  "0x68656c6c6f20776f726c64"
-]
-```
-
-##### Returns
-
-`DATA` - The SHA3 result of the given string.
+### web3_sha3
 
 ```javascript
 // Request
@@ -280,6 +264,19 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c
   "result": "0xc94770007dda54cF92009BFF0dE90c06F603a09f"
 }
 ```
+Returns Keccak-256 (*not* the standardized SHA3-256) of the given data.
+
+##### Parameters
+
+1. `DATA` - the data to convert into a SHA3 hash.
+
+params: [
+  "0x68656c6c6f20776f726c64"
+]
+
+##### Returns
+
+`DATA` - The SHA3 result of the given string.
 
 ***
 
