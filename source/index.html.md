@@ -722,31 +722,8 @@ params: [
 
 `QUANTITY` - integer of the number of transactions in this block.
 
-
-
 ***
-
-#### eth_getBlockTransactionCountByNumber
-> > 
-Returns the number of transactions in a block matching the given block number.
-
-
-##### Parameters
-
-1. `QUANTITY|TAG` - integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter).
-
-```js
-params: [
-   '0xe8', // 232
-]
-```
-
-##### Returns
-
-`QUANTITY` - integer of the number of transactions in this block.
-
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}'
 
@@ -757,31 +734,25 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNu
   "result": "0xa" // 10
 }
 ```
+### eth_getBlockTransactionCountByNumber
 
-***
-
-#### eth_getUncleCountByBlockHash
-
-Returns the number of uncles in a block from a block matching the given block hash.
-
+Returns the number of transactions in a block matching the given block number.
 
 ##### Parameters
 
-1. `DATA`, 32 Bytes - hash of a block.
+1. `QUANTITY|TAG` - integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter).
 
-```js
+
 params: [
-   '0xc94770007dda54cF92009BFF0dE90c06F603a09f'
+   '0xe8', // 232
 ]
-```
 
 ##### Returns
 
-`QUANTITY` - integer of the number of uncles in this block.
+`QUANTITY` - integer of the number of transactions in this block.
 
-
-##### Example
-```js
+***
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f"],"id":1}'
 
@@ -792,31 +763,28 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","p
   "result": "0xc" // 1
 }
 ```
+### eth_getUncleCountByBlockHash
 
-***
-
-#### eth_getUncleCountByBlockNumber
-
-Returns the number of uncles in a block from a block matching the given block number.
+Returns the number of uncles in a block from a block matching the given block hash.
 
 
 ##### Parameters
 
-1. `QUANTITY|TAG` - integer of a block number, or the string "latest", "earliest" or "pending", see the [default block parameter](#the-default-block-parameter).
+1. `DATA`, 32 Bytes - hash of a block.
 
-```js
+
 params: [
-   '0xe8', // 232
+   '0xc94770007dda54cF92009BFF0dE90c06F603a09f'
 ]
-```
+
 
 ##### Returns
 
 `QUANTITY` - integer of the number of uncles in this block.
 
+***
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}'
 
@@ -827,10 +795,38 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber",
   "result": "0x1" // 1
 }
 ```
+### eth_getUncleCountByBlockNumber
+
+Returns the number of uncles in a block from a block matching the given block number.
+
+##### Parameters
+
+1. `QUANTITY|TAG` - integer of a block number, or the string "latest", "earliest" or "pending", see the [default block parameter](#the-default-block-parameter).
+
+
+params: [
+   '0xe8', // 232
+]
+
+
+##### Returns
+
+`QUANTITY` - integer of the number of uncles in this block.
 
 ***
 
-#### eth_getCode
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'
+
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056"
+}
+```
+### eth_getCode
 
 Returns code at a given address.
 
@@ -851,23 +847,19 @@ params: [
 
 `DATA` - the code from the given address.
 
-
-##### Example
+***
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}'
 
 // Result
 {
   "id":1,
   "jsonrpc": "2.0",
-  "result": "0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056"
+  "result": "0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"
 }
 ```
-
-***
-
-#### eth_sign
+### eth_sign
 
 The sign method calculates an Ethereum specific signature with: `sign(keccak256("\x19Ethereum Signed Message:\n" + len(message) + message)))`.
 
@@ -885,25 +877,22 @@ account, message
 
 `DATA`: Signature
 
-##### Example
+An example how to use solidity ecrecover to verify the signature calculated with `eth_sign` can be found [here](https://gist.github.com/bas-vk/d46d83da2b2b4721efb0907aecdb7ebd). The contract is deployed on the testnet Ropsten and Rinkeby.
 
-```js
+***
+
+```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{see above}],"id":1}'
 
 // Result
 {
   "id":1,
   "jsonrpc": "2.0",
-  "result": "0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"
+  "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
 }
 ```
-
-An example how to use solidity ecrecover to verify the signature calculated with `eth_sign` can be found [here](https://gist.github.com/bas-vk/d46d83da2b2b4721efb0907aecdb7ebd). The contract is deployed on the testnet Ropsten and Rinkeby.
-
-***
-
-#### eth_sendTransaction
+### eth_sendTransaction
 
 Creates new message call transaction or a contract creation, if the data field contains code.
 
@@ -918,7 +907,7 @@ Creates new message call transaction or a contract creation, if the data field c
   - `data`: `DATA`  - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see [Ethereum Contract ABI](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI)
   - `nonce`: `QUANTITY`  - (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.
 
-```js
+
 params: [{
   "from": "0xb60e8dd61c5d32be8058bb8eb970870f07233155",
   "to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
@@ -927,49 +916,15 @@ params: [{
   "value": "0x9184e72a", // 2441406250
   "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"
 }]
-```
 
 ##### Returns
 
 `DATA`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
 
 Use [eth_getTransactionReceipt](#eth_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
-
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{see above}],"id":1}'
-
-// Result
-{
-  "id":1,
-  "jsonrpc": "2.0",
-  "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
-}
-```
 
 ***
-
-#### eth_sendRawTransaction
-
-Creates new message call transaction or a contract creation for signed transactions.
-
-##### Parameters
-
-1. `DATA`, The signed transaction data.
-
-```js
-params: ["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"]
-```
-
-##### Returns
-
-`DATA`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
-
-Use [eth_getTransactionReceipt](#eth_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
-
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":[{see above}],"id":1}'
 
@@ -980,13 +935,39 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params"
   "result": "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
 }
 ```
+### eth_sendRawTransaction
+
+Creates new message call transaction or a contract creation for signed transactions.
+
+##### Parameters
+
+1. `DATA`, The signed transaction data.
+
+
+params: ["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"]
+
+
+##### Returns
+
+`DATA`, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
+
+Use [eth_getTransactionReceipt](#eth_gettransactionreceipt) to get the contract address, after the transaction was mined, when you created a contract.
 
 ***
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{see above}],"id":1}'
 
-#### eth_call
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0x"
+}
+```
+### eth_call
 
 Executes a new message call immediately without creating a transaction on the block chain.
-
 
 ##### Parameters
 
@@ -1003,22 +984,20 @@ Executes a new message call immediately without creating a transaction on the bl
 
 `DATA` - the return value of executed contract.
 
-##### Example
-```js
+***
+
+```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{see above}],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{see above}],"id":1}'
 
 // Result
 {
   "id":1,
   "jsonrpc": "2.0",
-  "result": "0x"
+  "result": "0x5208" // 21000
 }
 ```
-
-***
-
-#### eth_estimateGas
+### eth_estimateGas
 
 Generates and returns an estimate of how much gas is necessary to allow the transaction to complete. The transaction will not be added to the blockchain. Note that the estimate may be significantly more than the amount of gas actually used by the transaction, for a variety of reasons including EVM mechanics and node performance.
 
@@ -1030,65 +1009,8 @@ See [eth_call](#eth_call) parameters, expect that all properties are optional. I
 
 `QUANTITY` - the amount of gas used.
 
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{see above}],"id":1}'
-
-// Result
-{
-  "id":1,
-  "jsonrpc": "2.0",
-  "result": "0x5208" // 21000
-}
-```
-
 ***
-
-#### eth_getBlockByHash
-
-Returns information about a block by hash.
-
-
-##### Parameters
-
-1. `DATA`, 32 Bytes - Hash of a block.
-2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
-
-```js
-params: [
-   '0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331',
-   true
-]
-```
-
-##### Returns
-
-`Object` - A block object, or `null` when no block was found:
-
-  - `number`: `QUANTITY` - the block number. `null` when its pending block.
-  - `hash`: `DATA`, 32 Bytes - hash of the block. `null` when its pending block.
-  - `parentHash`: `DATA`, 32 Bytes - hash of the parent block.
-  - `nonce`: `DATA`, 8 Bytes - hash of the generated proof-of-work. `null` when its pending block.
-  - `sha3Uncles`: `DATA`, 32 Bytes - SHA3 of the uncles data in the block.
-  - `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. `null` when its pending block.
-  - `transactionsRoot`: `DATA`, 32 Bytes - the root of the transaction trie of the block.
-  - `stateRoot`: `DATA`, 32 Bytes - the root of the final state trie of the block.
-  - `receiptsRoot`: `DATA`, 32 Bytes - the root of the receipts trie of the block.
-  - `miner`: `DATA`, 20 Bytes - the address of the beneficiary to whom the mining rewards were given.
-  - `difficulty`: `QUANTITY` - integer of the difficulty for this block.
-  - `totalDifficulty`: `QUANTITY` - integer of the total difficulty of the chain until this block.
-  - `extraData`: `DATA` - the "extra data" field of this block.
-  - `size`: `QUANTITY` - integer the size of this block in bytes.
-  - `gasLimit`: `QUANTITY` - the maximum gas allowed in this block.
-  - `gasUsed`: `QUANTITY` - the total used gas by all transactions in this block.
-  - `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
-  - `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
-  - `uncles`: `Array` - Array of uncle hashes.
-
-
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", true],"id":1}'
 
@@ -1118,10 +1040,50 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0
   }
 }
 ```
+### eth_getBlockByHash
+
+Returns information about a block by hash.
+
+
+##### Parameters
+
+1. `DATA`, 32 Bytes - Hash of a block.
+2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
+
+
+params: [
+   '0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331',
+   true
+]
+
+
+##### Returns
+
+`Object` - A block object, or `null` when no block was found:
+
+  - `number`: `QUANTITY` - the block number. `null` when its pending block.
+  - `hash`: `DATA`, 32 Bytes - hash of the block. `null` when its pending block.
+  - `parentHash`: `DATA`, 32 Bytes - hash of the parent block.
+  - `nonce`: `DATA`, 8 Bytes - hash of the generated proof-of-work. `null` when its pending block.
+  - `sha3Uncles`: `DATA`, 32 Bytes - SHA3 of the uncles data in the block.
+  - `logsBloom`: `DATA`, 256 Bytes - the bloom filter for the logs of the block. `null` when its pending block.
+  - `transactionsRoot`: `DATA`, 32 Bytes - the root of the transaction trie of the block.
+  - `stateRoot`: `DATA`, 32 Bytes - the root of the final state trie of the block.
+  - `receiptsRoot`: `DATA`, 32 Bytes - the root of the receipts trie of the block.
+  - `miner`: `DATA`, 20 Bytes - the address of the beneficiary to whom the mining rewards were given.
+  - `difficulty`: `QUANTITY` - integer of the difficulty for this block.
+  - `totalDifficulty`: `QUANTITY` - integer of the total difficulty of the chain until this block.
+  - `extraData`: `DATA` - the "extra data" field of this block.
+  - `size`: `QUANTITY` - integer the size of this block in bytes.
+  - `gasLimit`: `QUANTITY` - the maximum gas allowed in this block.
+  - `gasUsed`: `QUANTITY` - the total used gas by all transactions in this block.
+  - `timestamp`: `QUANTITY` - the unix timestamp for when the block was collated.
+  - `transactions`: `Array` - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.
+  - `uncles`: `Array` - Array of uncle hashes.
 
 ***
 
-#### eth_getBlockByNumber
+### eth_getBlockByNumber
 
 Returns information about a block by block number.
 
@@ -1130,25 +1092,23 @@ Returns information about a block by block number.
 1. `QUANTITY|TAG` - integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter).
 2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
 
-```js
+
 params: [
    '0x1b4', // 436
    true
 ]
-```
+
 
 ##### Returns
 
 See [eth_getBlockByHash](#eth_getblockbyhash)
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x1b4", true],"id":1}'
+
+//Result see [eth_getBlockByHash](#eth_getblockbyhash)
 ```
-
-Result see [eth_getBlockByHash](#eth_getblockbyhash)
-
 ***
 
 #### eth_getTransactionByHash
