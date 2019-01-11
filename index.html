@@ -662,13 +662,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>Boolean</code> - <code>true</code> when listening, otherwise <code>false</code>.</p>
 
 <hr>
-<h4 id='net_peercount'>net_peerCount</h4>
-<p>Returns number of peers currently connected to the client.</p>
-<h5 id='parameters-5'>Parameters</h5>
-<p>none</p>
-<h5 id='returns-5'>Returns</h5>
-<p><code>QUANTITY</code> - integer of the number of connected peers.</p>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='net_peercount'>net_peerCount</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}'</span>
 
 <span class="c1">// Result</span>
@@ -678,14 +672,14 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x2"</span> <span class="c1">// 2</span>
 <span class="p">}</span>
 </code></pre>
-<hr>
-<h4 id='eth_protocolversion'>eth_protocolVersion</h4>
-<p>Returns the current ethereum protocol version.</p>
-<h5 id='parameters-6'>Parameters</h5>
+<p>Returns number of peers currently connected to the client.</p>
+<h5 id='parameters-5'>Parameters</h5>
 <p>none</p>
-<h5 id='returns-6'>Returns</h5>
-<p><code>String</code> - The current ethereum protocol version.</p>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h5 id='returns-5'>Returns</h5>
+<p><code>QUANTITY</code> - integer of the number of connected peers.</p>
+
+<hr>
+<h3 id='eth_protocolversion'>eth_protocolVersion</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -695,17 +689,14 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"54"</span>
 <span class="p">}</span>
 </code></pre>
-<hr>
-<h4 id='eth_syncing'>eth_syncing</h4>
-<p>Returns an object with data about the sync status or <code>false</code>.</p>
-<h5 id='parameters-7'>Parameters</h5>
+<p>Returns the current ethereum protocol version.</p>
+<h5 id='parameters-6'>Parameters</h5>
 <p>none</p>
-<h5 id='returns-7'>Returns</h5>
-<p><code>Object|Boolean</code>, An object with sync status data or <code>FALSE</code>, when not syncing:
-  - <code>startingBlock</code>: <code>QUANTITY</code> - The block at which the import started (will only be reset, after the sync reached his head)
-  - <code>currentBlock</code>: <code>QUANTITY</code> - The current block, same as eth_blockNumber
-  - <code>highestBlock</code>: <code>QUANTITY</code> - The estimated highest block</p>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h5 id='returns-6'>Returns</h5>
+<p><code>String</code> - The current ethereum protocol version.</p>
+
+<hr>
+<h3 id='eth_syncing'>eth_syncing</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -725,6 +716,15 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre>
+<p>Returns an object with data about the sync status or <code>false</code>.</p>
+<h5 id='parameters-7'>Parameters</h5>
+<p>none</p>
+<h5 id='returns-7'>Returns</h5>
+<p><code>Object|Boolean</code>, An object with sync status data or <code>FALSE</code>, when not syncing:
+  - <code>startingBlock</code>: <code>QUANTITY</code> - The block at which the import started (will only be reset, after the sync reached his head)
+  - <code>currentBlock</code>: <code>QUANTITY</code> - The current block, same as eth_blockNumber
+  - <code>highestBlock</code>: <code>QUANTITY</code> - The estimated highest block</p>
+
 <hr>
 <h4 id='eth_coinbase'>eth_coinbase</h4>
 <p>Returns the client coinbase address.</p>
