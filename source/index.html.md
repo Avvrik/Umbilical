@@ -238,7 +238,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],
   "result": "Mist/v0.9.3/darwin/go1.4.1"
 }
 ```
-
 Returns the current client version.
 
 ##### Parameters
@@ -280,8 +279,19 @@ params: [
 
 ***
 
-#### net_version
+### net_version
 
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'
+
+// Result
+{
+  "id":67,
+  "jsonrpc": "2.0",
+  "result": "3"
+}
+```
 Returns the current network id.
 
 ##### Parameters
@@ -296,30 +306,10 @@ none
 - `"4"`: Rinkeby Testnet
 - `"42"`: Kovan Testnet
 
-```javascript
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'
-
-// Result
-{
-  "id":67,
-  "jsonrpc": "2.0",
-  "result": "3"
-}
-```
 
 ***
 
-#### net_listening
-
-Returns `true` if client is actively listening for network connections.
-
-##### Parameters
-none
-
-##### Returns
-
-`Boolean` - `true` when listening, otherwise `false`.
+### net_listening
 
 ```javascript
 // Request
@@ -332,6 +322,14 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":
   "result":true
 }
 ```
+Returns `true` if client is actively listening for network connections.
+
+##### Parameters
+none
+
+##### Returns
+
+`Boolean` - `true` when listening, otherwise `false`.
 
 ***
 
