@@ -223,8 +223,6 @@ The examples also do not include the URL/IP & port combination which must be the
 
 ## JSON RPC API Reference
 
-***
-
 ### web3_clientVersion
 
 ```javascript
@@ -410,6 +408,8 @@ Returns an object with data about the sync status or `false`.
 none
 
 ##### Returns
+
+
 
 `Object|Boolean`, An object with sync status data or `FALSE`, when not syncing:
 
