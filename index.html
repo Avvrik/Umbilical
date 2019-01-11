@@ -362,33 +362,7 @@
 <h2 id='javascript-api'>JavaScript API</h2>
 <p>To talk to an ethereum node from inside a JavaScript application use the <a href="https://github.com/ethereum/web3.js">web3.js</a> library, which gives a convenient interface for the RPC methods.
 See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScript API</a> for more.</p>
-<h2 id='json-rpc-endpoint'>JSON-RPC Endpoint</h2>
-<p>Default JSON-RPC endpoints:</p>
-
-<table><thead>
-<tr>
-<th>Client</th>
-<th style="text-align: center">URL</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>C++</td>
-<td style="text-align: center">http://localhost:8545</td>
-</tr>
-<tr>
-<td>Go</td>
-<td style="text-align: center">http://localhost:8545</td>
-</tr>
-<tr>
-<td>Py</td>
-<td style="text-align: center">http://localhost:4000</td>
-</tr>
-<tr>
-<td>Parity</td>
-<td style="text-align: center">http://localhost:8545</td>
-</tr>
-</tbody></table>
-<pre class="highlight go tab-go"><code><span class="m">1.</span><span class="x"> </span><span class="n">You</span><span class="x"> </span><span class="n">can</span><span class="x"> </span><span class="n">start</span><span class="x"> </span><span class="n">the</span><span class="x"> </span><span class="n">HTTP</span><span class="x"> </span><span class="n">JSON</span><span class="o">-</span><span class="n">RPC</span><span class="x"> </span><span class="n">with</span><span class="x"> </span><span class="n">the</span><span class="x"> </span><span class="s">`--rpc`</span><span class="x"> </span><span class="n">flag</span><span class="x">
+<h2 id='json-rpc-endpoint'>JSON-RPC Endpoint</h2><pre class="highlight go tab-go"><code><span class="m">1.</span><span class="x"> </span><span class="n">You</span><span class="x"> </span><span class="n">can</span><span class="x"> </span><span class="n">start</span><span class="x"> </span><span class="n">the</span><span class="x"> </span><span class="n">HTTP</span><span class="x"> </span><span class="n">JSON</span><span class="o">-</span><span class="n">RPC</span><span class="x"> </span><span class="n">with</span><span class="x"> </span><span class="n">the</span><span class="x"> </span><span class="s">`--rpc`</span><span class="x"> </span><span class="n">flag</span><span class="x">
 
 </span><span class="n">geth</span><span class="x"> </span><span class="o">--</span><span class="n">rpc</span><span class="x">
 
@@ -417,7 +391,35 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <span class="n">You</span> <span class="n">can</span> <span class="n">change</span> <span class="n">the</span> <span class="n">port</span> <span class="ow">and</span> <span class="n">listen</span> <span class="n">address</span> <span class="n">by</span> <span class="n">giving</span> <span class="n">a</span> <span class="n">config</span> <span class="n">option</span><span class="o">.</span> 
 
 <span class="sb">`pyethapp -c jsonrpc.listen_port=4002 -c jsonrpc.listen_host=127.0.0.2 run`</span>
-</code></pre><h2 id='json-rpc-support'>JSON-RPC support</h2>
+</code></pre>
+<p>Default JSON-RPC endpoints:</p>
+
+<table><thead>
+<tr>
+<th>Client</th>
+<th style="text-align: center">URL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>C++</td>
+<td style="text-align: center">http://localhost:8545</td>
+</tr>
+<tr>
+<td>Go</td>
+<td style="text-align: center">http://localhost:8545</td>
+</tr>
+<tr>
+<td>Py</td>
+<td style="text-align: center">http://localhost:4000</td>
+</tr>
+<tr>
+<td>Parity</td>
+<td style="text-align: center">http://localhost:8545</td>
+</tr>
+</tbody></table>
+
+<p>To get started, see the right panel for instructions.</p>
+<h2 id='json-rpc-support'>JSON-RPC support</h2>
 <table><thead>
 <tr>
 <th></th>
@@ -587,7 +589,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p>none</p>
 <h5 id='returns'>Returns</h5>
 <p><code>String</code> - The current client version.</p>
-<h5 id='example'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -604,12 +606,12 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <ol>
 <li><code>DATA</code> - the data to convert into a SHA3 hash.</li>
 </ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
   <span class="s2">"0x68656c6c6f20776f726c64"</span>
 <span class="p">]</span>
 </code></pre><h5 id='returns-2'>Returns</h5>
 <p><code>DATA</code> - The SHA3 result of the given string.</p>
-<h5 id='example-2'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'</span>
 
 <span class="c1">// Result</span>
@@ -631,7 +633,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 - <code>&quot;3&quot;</code>: Ropsten Testnet
 - <code>&quot;4&quot;</code>: Rinkeby Testnet
 - <code>&quot;42&quot;</code>: Kovan Testnet</p>
-<h5 id='example-3'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -648,7 +650,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p>none</p>
 <h5 id='returns-4'>Returns</h5>
 <p><code>Boolean</code> - <code>true</code> when listening, otherwise <code>false</code>.</p>
-<h5 id='example-4'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -665,7 +667,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p>none</p>
 <h5 id='returns-5'>Returns</h5>
 <p><code>QUANTITY</code> - integer of the number of connected peers.</p>
-<h5 id='example-5'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}'</span>
 
 <span class="c1">// Result</span>
@@ -682,7 +684,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p>none</p>
 <h5 id='returns-6'>Returns</h5>
 <p><code>String</code> - The current ethereum protocol version.</p>
-<h5 id='example-6'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -702,7 +704,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   - <code>startingBlock</code>: <code>QUANTITY</code> - The block at which the import started (will only be reset, after the sync reached his head)
   - <code>currentBlock</code>: <code>QUANTITY</code> - The current block, same as eth_blockNumber
   - <code>highestBlock</code>: <code>QUANTITY</code> - The estimated highest block</p>
-<h5 id='example-7'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -729,7 +731,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p>none</p>
 <h5 id='returns-8'>Returns</h5>
 <p><code>DATA</code>, 20 bytes - the current coinbase address.</p>
-<h5 id='example-8'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":64}'</span>
 
 <span class="c1">// Result</span>
@@ -746,7 +748,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p>none</p>
 <h5 id='returns-9'>Returns</h5>
 <p><code>Boolean</code> - returns <code>true</code> of the client is mining, otherwise <code>false</code>.</p>
-<h5 id='example-9'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}'</span>
 
 <span class="c1">// Result</span>
@@ -764,7 +766,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p>none</p>
 <h5 id='returns-10'>Returns</h5>
 <p><code>QUANTITY</code> - number of hashes per second.</p>
-<h5 id='example-10'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":71}'</span>
 
 <span class="c1">// Result</span>
@@ -782,7 +784,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p>none</p>
 <h5 id='returns-11'>Returns</h5>
 <p><code>QUANTITY</code> - integer of the current gas price in wei.</p>
-<h5 id='example-11'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -799,7 +801,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p>none</p>
 <h5 id='returns-12'>Returns</h5>
 <p><code>Array of DATA</code>, 20 Bytes - addresses owned by the client.</p>
-<h5 id='example-12'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -816,7 +818,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p>none</p>
 <h5 id='returns-13'>Returns</h5>
 <p><code>QUANTITY</code> - integer of the current block number the client is on.</p>
-<h5 id='example-13'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -840,7 +842,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <span class="p">]</span>
 </code></pre><h5 id='returns-14'>Returns</h5>
 <p><code>QUANTITY</code> - integer of the current balance in wei.</p>
-<h5 id='example-14'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -861,68 +863,55 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 </ol>
 <h5 id='returns-15'>Returns</h5>
 <p><code>DATA</code> - the value at this storage position.</p>
-<h5 id='example-15'>Example</h5>
-<p>Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at <code>0x295a70b2de5e3953354a6a8344e616ed314d7251</code> by address <code>0x391694e7e0b0cce554cb130d723a9d27458f9298</code>.</p>
-<pre class="highlight plaintext"><code>contract Storage {
-    uint pos0;
-    mapping(address =&gt; uint) pos1;
+<pre class="highlight javascript tab-javascript"><code><span class="c1">//Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.</span>
+<span class="nx">contract</span> <span class="nx">Storage</span> <span class="p">{</span>
+    <span class="nx">uint</span> <span class="nx">pos0</span><span class="p">;</span>
+    <span class="nx">mapping</span><span class="p">(</span><span class="nx">address</span> <span class="o">=&gt;</span> <span class="nx">uint</span><span class="p">)</span> <span class="nx">pos1</span><span class="p">;</span>
 
-    function Storage() {
-        pos0 = 1234;
-        pos1[msg.sender] = 5678;
-    }
-}
-</code></pre>
-<p>Retrieving the value of pos0 is straight forward:</p>
-<pre class="highlight javascript"><code><span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}'</span> <span class="nx">localhost</span><span class="p">:</span><span class="mi">8545</span>
+    <span class="kd">function</span> <span class="nx">Storage</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">pos0</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
+        <span class="nx">pos1</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5678</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//Retrieving the value of pos0 is straight forward:</span>
+
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}'</span> <span class="nx">localhost</span><span class="p">:</span><span class="mi">8545</span>
 
 <span class="p">{</span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"0x00000000000000000000000000000000000000000000000000000000000004d2"</span><span class="p">}</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//Retrieving an element of the map is harder. The position of an element in the map is calculated with:</span>
+
+<span class="nx">keccack</span><span class="p">(</span><span class="nx">LeftPad32</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nx">LeftPad32</span><span class="p">(</span><span class="nx">map</span> <span class="nx">position</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//This means to retrieve the storage on pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"] we need to calculate the position with:</span>
+
+<span class="nx">keccak</span><span class="p">(</span><span class="nx">decodeHex</span><span class="p">(</span><span class="s2">"000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298"</span> <span class="o">+</span> <span class="s2">"0000000000000000000000000000000000000000000000000000000000000001"</span><span class="p">))</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//The geth console which comes with the web3 library can be used to make the calculation:</span>
+
+<span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="s2">"000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298"</span> <span class="o">+</span> <span class="s2">"0000000000000000000000000000000000000000000000000000000000000001"</span>
+<span class="kc">undefined</span>
+<span class="o">&gt;</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">sha3</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="p">{</span><span class="s2">"encoding"</span><span class="p">:</span> <span class="s2">"hex"</span><span class="p">})</span>
+<span class="s2">"0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//Now to fetch the storage:</span>
+
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}'</span> <span class="nx">localhost</span><span class="p">:</span><span class="mi">8545</span>
+
+<span class="p">{</span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"0x000000000000000000000000000000000000000000000000000000000000162e"</span><span class="p">}</span>
+
 </code></pre>
-<p>Retrieving an element of the map is harder. The position of an element in the map is calculated with:
-<code>js
-keccack(LeftPad32(key, 0), LeftPad32(map position, 0))
-</code></p>
-
-<p>This means to retrieve the storage on pos1[&quot;0x391694e7e0b0cce554cb130d723a9d27458f9298&quot;] we need to calculate the position with:
-<code>js
-keccak(decodeHex(&quot;000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298&quot; + &quot;0000000000000000000000000000000000000000000000000000000000000001&quot;))
-</code>
-The geth console which comes with the web3 library can be used to make the calculation:
-```js</p>
-
-<blockquote>
-<p>var key = &quot;000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298&quot; + &quot;0000000000000000000000000000000000000000000000000000000000000001&quot;
-undefined
-web3.sha3(key, {&quot;encoding&quot;: &quot;hex&quot;})
-&quot;0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9&quot;
-<code>
-Now to fetch the storage:
-</code>js
-curl -X POST --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;: &quot;eth_getStorageAt&quot;, &quot;params&quot;: [&quot;0x295a70b2de5e3953354a6a8344e616ed314d7251&quot;, &quot;0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9&quot;, &quot;latest&quot;], &quot;id&quot;: 1}&#39; localhost:8545</p>
-</blockquote>
-
-<p>{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:&quot;0x000000000000000000000000000000000000000000000000000000000000162e&quot;}</p>
-<pre class="highlight plaintext"><code>
-***
-
-#### eth_getTransactionCount
-
-Returns the number of transactions *sent* from an address.
-
-
-##### Parameters
-
-1. `DATA`, 20 Bytes - address.
-2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
-
-```js
-params: [
-   '0xc94770007dda54cF92009BFF0dE90c06F603a09f',
-   'latest' // state at the latest block
-]
+<hr>
+<h4 id='eth_gettransactioncount'>eth_getTransactionCount</h4>
+<p>Returns the number of transactions <em>sent</em> from an address.</p>
+<h5 id='parameters-16'>Parameters</h5>
+<ol>
+<li><code>DATA</code>, 20 Bytes - address.</li>
+<li><code>QUANTITY|TAG</code> - integer block number, or the string <code>&quot;latest&quot;</code>, <code>&quot;earliest&quot;</code> or <code>&quot;pending&quot;</code>, see the <a href="#the-default-block-parameter">default block parameter</a></li>
+</ol>
+<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
+   <span class="s1">'0xc94770007dda54cF92009BFF0dE90c06F603a09f'</span><span class="p">,</span>
+   <span class="s1">'latest'</span> <span class="c1">// state at the latest block</span>
+<span class="p">]</span>
 </code></pre><h5 id='returns-16'>Returns</h5>
 <p><code>QUANTITY</code> - integer of the number of transactions send from this address.</p>
-<h5 id='example-16'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -935,7 +924,7 @@ params: [
 <hr>
 <h4 id='eth_getblocktransactioncountbyhash'>eth_getBlockTransactionCountByHash</h4>
 <p>Returns the number of transactions in a block from a block matching the given block hash.</p>
-<h5 id='parameters-16'>Parameters</h5>
+<h5 id='parameters-17'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 32 Bytes - hash of a block.</li>
 </ol>
@@ -944,7 +933,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-17'>Returns</h5>
 <p><code>QUANTITY</code> - integer of the number of transactions in this block.</p>
-<h5 id='example-17'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-2'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -961,7 +950,7 @@ params: [
 <p>Returns the number of transactions in a block matching the given block number.</p>
 </blockquote>
 </blockquote>
-<h5 id='parameters-17'>Parameters</h5>
+<h5 id='parameters-18'>Parameters</h5>
 <ol>
 <li><code>QUANTITY|TAG</code> - integer of a block number, or the string <code>&quot;earliest&quot;</code>, <code>&quot;latest&quot;</code> or <code>&quot;pending&quot;</code>, as in the <a href="#the-default-block-parameter">default block parameter</a>.</li>
 </ol>
@@ -970,7 +959,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-18'>Returns</h5>
 <p><code>QUANTITY</code> - integer of the number of transactions in this block.</p>
-<h5 id='example-18'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-3'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -983,7 +972,7 @@ params: [
 <hr>
 <h4 id='eth_getunclecountbyblockhash'>eth_getUncleCountByBlockHash</h4>
 <p>Returns the number of uncles in a block from a block matching the given block hash.</p>
-<h5 id='parameters-18'>Parameters</h5>
+<h5 id='parameters-19'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 32 Bytes - hash of a block.</li>
 </ol>
@@ -992,7 +981,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-19'>Returns</h5>
 <p><code>QUANTITY</code> - integer of the number of uncles in this block.</p>
-<h5 id='example-19'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-4'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1005,7 +994,7 @@ params: [
 <hr>
 <h4 id='eth_getunclecountbyblocknumber'>eth_getUncleCountByBlockNumber</h4>
 <p>Returns the number of uncles in a block from a block matching the given block number.</p>
-<h5 id='parameters-19'>Parameters</h5>
+<h5 id='parameters-20'>Parameters</h5>
 <ol>
 <li><code>QUANTITY|TAG</code> - integer of a block number, or the string &quot;latest&quot;, &quot;earliest&quot; or &quot;pending&quot;, see the <a href="#the-default-block-parameter">default block parameter</a>.</li>
 </ol>
@@ -1014,7 +1003,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-20'>Returns</h5>
 <p><code>QUANTITY</code> - integer of the number of uncles in this block.</p>
-<h5 id='example-20'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-5'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1027,7 +1016,7 @@ params: [
 <hr>
 <h4 id='eth_getcode'>eth_getCode</h4>
 <p>Returns code at a given address.</p>
-<h5 id='parameters-20'>Parameters</h5>
+<h5 id='parameters-21'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 20 Bytes - address.</li>
 <li><code>QUANTITY|TAG</code> - integer block number, or the string <code>&quot;latest&quot;</code>, <code>&quot;earliest&quot;</code> or <code>&quot;pending&quot;</code>, see the <a href="#the-default-block-parameter">default block parameter</a>.</li>
@@ -1038,7 +1027,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-21'>Returns</h5>
 <p><code>DATA</code> - the code from the given address.</p>
-<h5 id='example-21'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-6'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1055,7 +1044,7 @@ params: [
 <p>By adding a prefix to the message makes the calculated signature recognisable as an Ethereum specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (e.g. transaction) and use the signature to impersonate the victim.</p>
 
 <p><strong>Note</strong> the address to sign with must be unlocked. </p>
-<h5 id='parameters-21'>Parameters</h5>
+<h5 id='parameters-22'>Parameters</h5>
 <p>account, message</p>
 
 <ol>
@@ -1064,7 +1053,7 @@ params: [
 </ol>
 <h5 id='returns-22'>Returns</h5>
 <p><code>DATA</code>: Signature</p>
-<h5 id='example-22'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-7'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1079,7 +1068,7 @@ params: [
 <hr>
 <h4 id='eth_sendtransaction'>eth_sendTransaction</h4>
 <p>Creates new message call transaction or a contract creation, if the data field contains code.</p>
-<h5 id='parameters-22'>Parameters</h5>
+<h5 id='parameters-23'>Parameters</h5>
 <ol>
 <li><code>Object</code> - The transaction object
 
@@ -1105,7 +1094,7 @@ params: [
 <p><code>DATA</code>, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.</p>
 
 <p>Use <a href="#eth_gettransactionreceipt">eth_getTransactionReceipt</a> to get the contract address, after the transaction was mined, when you created a contract.</p>
-<h5 id='example-23'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-8'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{see above}],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1118,7 +1107,7 @@ params: [
 <hr>
 <h4 id='eth_sendrawtransaction'>eth_sendRawTransaction</h4>
 <p>Creates new message call transaction or a contract creation for signed transactions.</p>
-<h5 id='parameters-23'>Parameters</h5>
+<h5 id='parameters-24'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, The signed transaction data.</li>
 </ol>
@@ -1127,7 +1116,7 @@ params: [
 <p><code>DATA</code>, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.</p>
 
 <p>Use <a href="#eth_gettransactionreceipt">eth_getTransactionReceipt</a> to get the contract address, after the transaction was mined, when you created a contract.</p>
-<h5 id='example-24'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-9'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":[{see above}],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1140,7 +1129,7 @@ params: [
 <hr>
 <h4 id='eth_call'>eth_call</h4>
 <p>Executes a new message call immediately without creating a transaction on the block chain.</p>
-<h5 id='parameters-24'>Parameters</h5>
+<h5 id='parameters-25'>Parameters</h5>
 <ol>
 <li><code>Object</code> - The transaction call object
 
@@ -1156,7 +1145,7 @@ params: [
 </ol>
 <h5 id='returns-25'>Returns</h5>
 <p><code>DATA</code> - the return value of executed contract.</p>
-<h5 id='example-25'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-10'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_call","params":[{see above}],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1169,11 +1158,11 @@ params: [
 <hr>
 <h4 id='eth_estimategas'>eth_estimateGas</h4>
 <p>Generates and returns an estimate of how much gas is necessary to allow the transaction to complete. The transaction will not be added to the blockchain. Note that the estimate may be significantly more than the amount of gas actually used by the transaction, for a variety of reasons including EVM mechanics and node performance.</p>
-<h5 id='parameters-25'>Parameters</h5>
+<h5 id='parameters-26'>Parameters</h5>
 <p>See <a href="#eth_call">eth_call</a> parameters, expect that all properties are optional. If no gas limit is specified geth uses the block gas limit from the pending block as an upper bound. As a result the returned estimate might not be enough to executed the call/transaction when the amount of gas is higher than the pending block gas limit.</p>
 <h5 id='returns-26'>Returns</h5>
 <p><code>QUANTITY</code> - the amount of gas used.</p>
-<h5 id='example-26'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-11'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{see above}],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1186,7 +1175,7 @@ params: [
 <hr>
 <h4 id='eth_getblockbyhash'>eth_getBlockByHash</h4>
 <p>Returns information about a block by hash.</p>
-<h5 id='parameters-26'>Parameters</h5>
+<h5 id='parameters-27'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 32 Bytes - Hash of a block.</li>
 <li><code>Boolean</code> - If <code>true</code> it returns the full transaction objects, if <code>false</code> only the hashes of the transactions.</li>
@@ -1219,7 +1208,7 @@ params: [
 <li><code>transactions</code>: <code>Array</code> - Array of transaction objects, or 32 Bytes transaction hashes depending on the last given parameter.</li>
 <li><code>uncles</code>: <code>Array</code> - Array of uncle hashes.</li>
 </ul>
-<h5 id='example-27'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-12'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", true],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1251,7 +1240,7 @@ params: [
 <hr>
 <h4 id='eth_getblockbynumber'>eth_getBlockByNumber</h4>
 <p>Returns information about a block by block number.</p>
-<h5 id='parameters-27'>Parameters</h5>
+<h5 id='parameters-28'>Parameters</h5>
 <ol>
 <li><code>QUANTITY|TAG</code> - integer of a block number, or the string <code>&quot;earliest&quot;</code>, <code>&quot;latest&quot;</code> or <code>&quot;pending&quot;</code>, as in the <a href="#the-default-block-parameter">default block parameter</a>.</li>
 <li><code>Boolean</code> - If <code>true</code> it returns the full transaction objects, if <code>false</code> only the hashes of the transactions.</li>
@@ -1262,7 +1251,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-28'>Returns</h5>
 <p>See <a href="#eth_getblockbyhash">eth_getBlockByHash</a></p>
-<h5 id='example-28'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-13'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x1b4", true],"id":1}'</span>
 </code></pre>
 <p>Result see <a href="#eth_getblockbyhash">eth_getBlockByHash</a></p>
@@ -1270,7 +1259,7 @@ params: [
 <hr>
 <h4 id='eth_gettransactionbyhash'>eth_getTransactionByHash</h4>
 <p>Returns the information about a transaction requested by transaction hash.</p>
-<h5 id='parameters-28'>Parameters</h5>
+<h5 id='parameters-29'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 32 Bytes - hash of a transaction</li>
 </ol>
@@ -1296,7 +1285,7 @@ params: [
 <li><code>r</code>: <code>DATA</code>, 32 Bytes - ECDSA signature r</li>
 <li><code>s</code>: <code>DATA</code>, 32 Bytes - ECDSA signature s</li>
 </ul>
-<h5 id='example-29'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-14'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1324,7 +1313,7 @@ params: [
 <hr>
 <h4 id='eth_gettransactionbyblockhashandindex'>eth_getTransactionByBlockHashAndIndex</h4>
 <p>Returns information about a transaction by block hash and transaction index position.</p>
-<h5 id='parameters-29'>Parameters</h5>
+<h5 id='parameters-30'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 32 Bytes - hash of a block.</li>
 <li><code>QUANTITY</code> - integer of the transaction index position.</li>
@@ -1335,7 +1324,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-30'>Returns</h5>
 <p>See <a href="#eth_gettransactionbyhash">eth_getTransactionByHash</a></p>
-<h5 id='example-30'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-15'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'</span>
 </code></pre>
 <p>Result see <a href="#eth_gettransactionbyhash">eth_getTransactionByHash</a></p>
@@ -1343,7 +1332,7 @@ params: [
 <hr>
 <h4 id='eth_gettransactionbyblocknumberandindex'>eth_getTransactionByBlockNumberAndIndex</h4>
 <p>Returns information about a transaction by block number and transaction index position.</p>
-<h5 id='parameters-30'>Parameters</h5>
+<h5 id='parameters-31'>Parameters</h5>
 <ol>
 <li><code>QUANTITY|TAG</code> - a block number, or the string <code>&quot;earliest&quot;</code>, <code>&quot;latest&quot;</code> or <code>&quot;pending&quot;</code>, as in the <a href="#the-default-block-parameter">default block parameter</a>.</li>
 <li><code>QUANTITY</code> - the transaction index position.</li>
@@ -1354,7 +1343,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-31'>Returns</h5>
 <p>See <a href="#eth_gettransactionbyhash">eth_getTransactionByHash</a></p>
-<h5 id='example-31'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-16'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'</span>
 </code></pre>
 <p>Result see <a href="#eth_gettransactionbyhash">eth_getTransactionByHash</a></p>
@@ -1364,7 +1353,7 @@ params: [
 <p>Returns the receipt of a transaction by transaction hash.</p>
 
 <p><strong>Note</strong> That the receipt is not available for pending transactions.</p>
-<h5 id='parameters-31'>Parameters</h5>
+<h5 id='parameters-32'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 32 Bytes - hash of a transaction</li>
 </ol>
@@ -1394,7 +1383,7 @@ params: [
 <li><code>root</code> : <code>DATA</code> 32 bytes of post-transaction stateroot (pre Byzantium)</li>
 <li><code>status</code>: <code>QUANTITY</code> either <code>1</code> (success) or <code>0</code> (failure) </li>
 </ul>
-<h5 id='example-32'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-17'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1420,7 +1409,7 @@ params: [
 <hr>
 <h4 id='eth_getunclebyblockhashandindex'>eth_getUncleByBlockHashAndIndex</h4>
 <p>Returns information about a uncle of a block by hash and uncle index position.</p>
-<h5 id='parameters-32'>Parameters</h5>
+<h5 id='parameters-33'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 32 Bytes - hash a block.</li>
 <li><code>QUANTITY</code> - the uncle&#39;s index position.</li>
@@ -1431,7 +1420,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-33'>Returns</h5>
 <p>See <a href="#eth_getblockbyhash">eth_getBlockByHash</a></p>
-<h5 id='example-33'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-18'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'</span>
 </code></pre>
 <p>Result see <a href="#eth_getblockbyhash">eth_getBlockByHash</a></p>
@@ -1441,7 +1430,7 @@ params: [
 <hr>
 <h4 id='eth_getunclebyblocknumberandindex'>eth_getUncleByBlockNumberAndIndex</h4>
 <p>Returns information about a uncle of a block by number and uncle index position.</p>
-<h5 id='parameters-33'>Parameters</h5>
+<h5 id='parameters-34'>Parameters</h5>
 <ol>
 <li><code>QUANTITY|TAG</code> - a block number, or the string <code>&quot;earliest&quot;</code>, <code>&quot;latest&quot;</code> or <code>&quot;pending&quot;</code>, as in the <a href="#the-default-block-parameter">default block parameter</a>.</li>
 <li><code>QUANTITY</code> - the uncle&#39;s index position.</li>
@@ -1454,7 +1443,7 @@ params: [
 <p>See <a href="#eth_getblockbyhash">eth_getBlockByHash</a></p>
 
 <p><strong>Note</strong>: An uncle doesn&#39;t contain individual transactions.</p>
-<h5 id='example-34'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-19'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'</span>
 </code></pre>
 <p>Result see <a href="#eth_getblockbyhash">eth_getBlockByHash</a></p>
@@ -1462,11 +1451,11 @@ params: [
 <hr>
 <h4 id='eth_getcompilers-deprecated'>eth_getCompilers (DEPRECATED)</h4>
 <p>Returns a list of available compilers in the client.</p>
-<h5 id='parameters-34'>Parameters</h5>
+<h5 id='parameters-35'>Parameters</h5>
 <p>none</p>
 <h5 id='returns-35'>Returns</h5>
 <p><code>Array</code> - Array of available compilers.</p>
-<h5 id='example-35'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-20'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getCompilers","params":[],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1479,7 +1468,7 @@ params: [
 <hr>
 <h4 id='eth_compilesolidity-deprecated'>eth_compileSolidity (DEPRECATED)</h4>
 <p>Returns compiled solidity code.</p>
-<h5 id='parameters-35'>Parameters</h5>
+<h5 id='parameters-36'>Parameters</h5>
 <ol>
 <li><code>String</code> - The source code.</li>
 </ol>
@@ -1488,7 +1477,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-36'>Returns</h5>
 <p><code>DATA</code> - The compiled source code.</p>
-<h5 id='example-36'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-21'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_compileSolidity","params":["contract test { function multiply(uint a) returns(uint d) {   return a * 7;   } }"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1534,7 +1523,7 @@ params: [
 <hr>
 <h4 id='eth_compilelll-deprecated'>eth_compileLLL (DEPRECATED)</h4>
 <p>Returns compiled LLL code.</p>
-<h5 id='parameters-36'>Parameters</h5>
+<h5 id='parameters-37'>Parameters</h5>
 <ol>
 <li><code>String</code> - The source code.</li>
 </ol>
@@ -1543,7 +1532,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-37'>Returns</h5>
 <p><code>DATA</code> - The compiled source code.</p>
-<h5 id='example-37'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-22'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_compileLLL","params":["(returnlll (suicide (caller)))"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1556,7 +1545,7 @@ params: [
 <hr>
 <h4 id='eth_compileserpent-deprecated'>eth_compileSerpent (DEPRECATED)</h4>
 <p>Returns compiled serpent code.</p>
-<h5 id='parameters-37'>Parameters</h5>
+<h5 id='parameters-38'>Parameters</h5>
 <ol>
 <li><code>String</code> - The source code.</li>
 </ol>
@@ -1565,7 +1554,7 @@ params: [
 <span class="p">]</span>
 </code></pre><h5 id='returns-38'>Returns</h5>
 <p><code>DATA</code> - The compiled source code.</p>
-<h5 id='example-38'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-23'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_compileSerpent","params":["/* some serpent */"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1586,7 +1575,7 @@ To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getF
 * <code>[null, B]</code> &quot;anything in first position AND B in second position (and anything after)&quot;
 * <code>[A, B]</code> &quot;A in first position AND B in second position (and anything after)&quot;
 * <code>[[A, B], [A, B]]</code> &quot;(A OR B) in first position AND (A OR B) in second position (and anything after)&quot;</p>
-<h5 id='parameters-38'>Parameters</h5>
+<h5 id='parameters-39'>Parameters</h5>
 <ol>
 <li><code>Object</code> - The filter options:
 
@@ -1605,7 +1594,7 @@ To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getF
 <span class="p">}]</span>
 </code></pre><h5 id='returns-39'>Returns</h5>
 <p><code>QUANTITY</code> - A filter id.</p>
-<h5 id='example-39'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-24'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"topics":["0x0000000000000000000000000000000000000000000000000000000012341234"]}],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1619,11 +1608,11 @@ To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getF
 <h4 id='eth_newblockfilter'>eth_newBlockFilter</h4>
 <p>Creates a filter in the node, to notify when a new block arrives.
 To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getFilterChanges</a>.</p>
-<h5 id='parameters-39'>Parameters</h5>
+<h5 id='parameters-40'>Parameters</h5>
 <p>None</p>
 <h5 id='returns-40'>Returns</h5>
 <p><code>QUANTITY</code> - A filter id.</p>
-<h5 id='example-40'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-25'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1637,11 +1626,11 @@ To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getF
 <h4 id='eth_newpendingtransactionfilter'>eth_newPendingTransactionFilter</h4>
 <p>Creates a filter in the node, to notify when new pending transactions arrive.
 To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getFilterChanges</a>.</p>
-<h5 id='parameters-40'>Parameters</h5>
+<h5 id='parameters-41'>Parameters</h5>
 <p>None</p>
 <h5 id='returns-41'>Returns</h5>
 <p><code>QUANTITY</code> - A filter id.</p>
-<h5 id='example-41'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-26'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1655,7 +1644,7 @@ To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getF
 <h4 id='eth_uninstallfilter'>eth_uninstallFilter</h4>
 <p>Uninstalls a filter with given id. Should always be called when watch is no longer needed.
 Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_getfilterchanges">eth_getFilterChanges</a> for a period of time.</p>
-<h5 id='parameters-41'>Parameters</h5>
+<h5 id='parameters-42'>Parameters</h5>
 <ol>
 <li><code>QUANTITY</code> - The filter id.</li>
 </ol>
@@ -1664,7 +1653,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <span class="p">]</span>
 </code></pre><h5 id='returns-42'>Returns</h5>
 <p><code>Boolean</code> - <code>true</code> if the filter was successfully uninstalled, otherwise <code>false</code>.</p>
-<h5 id='example-42'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-27'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0xb"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1677,7 +1666,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <hr>
 <h4 id='eth_getfilterchanges'>eth_getFilterChanges</h4>
 <p>Polling method for a filter, which returns an array of logs which occurred since last poll.</p>
-<h5 id='parameters-42'>Parameters</h5>
+<h5 id='parameters-43'>Parameters</h5>
 <ol>
 <li><code>QUANTITY</code> - the filter id.</li>
 </ol>
@@ -1704,7 +1693,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <li><code>topics</code>: <code>Array of DATA</code> - Array of 0 to 4 32 Bytes <code>DATA</code> of indexed log arguments. (In <em>solidity</em>: The first topic is the <em>hash</em> of the signature of the event (e.g. <code>Deposit(address,bytes32,uint256)</code>), except you declared the event with the <code>anonymous</code> specifier.)</li>
 </ul></li>
 </ul>
-<h5 id='example-43'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-28'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0x16"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1728,7 +1717,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <hr>
 <h4 id='eth_getfilterlogs'>eth_getFilterLogs</h4>
 <p>Returns an array of all logs matching filter with given id.</p>
-<h5 id='parameters-43'>Parameters</h5>
+<h5 id='parameters-44'>Parameters</h5>
 <ol>
 <li><code>QUANTITY</code> - The filter id.</li>
 </ol>
@@ -1737,7 +1726,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <span class="p">]</span>
 </code></pre><h5 id='returns-44'>Returns</h5>
 <p>See <a href="#eth_getfilterchanges">eth_getFilterChanges</a></p>
-<h5 id='example-44'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-29'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x16"],"id":74}'</span>
 </code></pre>
 <p>Result see <a href="#eth_getfilterchanges">eth_getFilterChanges</a></p>
@@ -1745,7 +1734,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <hr>
 <h4 id='eth_getlogs'>eth_getLogs</h4>
 <p>Returns an array of all logs matching a given filter object.</p>
-<h5 id='parameters-44'>Parameters</h5>
+<h5 id='parameters-45'>Parameters</h5>
 <ol>
 <li><code>Object</code> - The filter options:
 
@@ -1762,7 +1751,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <span class="p">}]</span>
 </code></pre><h5 id='returns-45'>Returns</h5>
 <p>See <a href="#eth_getfilterchanges">eth_getFilterChanges</a></p>
-<h5 id='example-45'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-30'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}'</span>
 </code></pre>
 <p>Result see <a href="#eth_getfilterchanges">eth_getFilterChanges</a></p>
@@ -1770,14 +1759,14 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <hr>
 <h4 id='eth_getwork'>eth_getWork</h4>
 <p>Returns the hash of the current block, the seedHash, and the boundary condition to be met (&quot;target&quot;).</p>
-<h5 id='parameters-45'>Parameters</h5>
+<h5 id='parameters-46'>Parameters</h5>
 <p>none</p>
 <h5 id='returns-46'>Returns</h5>
 <p><code>Array</code> - Array with the following properties:
   1. <code>DATA</code>, 32 Bytes - current block header pow-hash
   2. <code>DATA</code>, 32 Bytes - the seed hash used for the DAG.
   3. <code>DATA</code>, 32 Bytes - the boundary condition (&quot;target&quot;), 2^256 / difficulty.</p>
-<h5 id='example-46'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-31'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1794,7 +1783,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <hr>
 <h4 id='eth_submitwork'>eth_submitWork</h4>
 <p>Used for submitting a proof-of-work solution.</p>
-<h5 id='parameters-46'>Parameters</h5>
+<h5 id='parameters-47'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 8 Bytes - The nonce found (64 bits)</li>
 <li><code>DATA</code>, 32 Bytes - The header&#39;s pow-hash (256 bits)</li>
@@ -1807,7 +1796,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <span class="p">]</span>
 </code></pre><h5 id='returns-47'>Returns</h5>
 <p><code>Boolean</code> - returns <code>true</code> if the provided solution is valid, otherwise <code>false</code>.</p>
-<h5 id='example-47'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-32'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1820,7 +1809,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <hr>
 <h4 id='eth_submithashrate'>eth_submitHashrate</h4>
 <p>Used for submitting mining hashrate.</p>
-<h5 id='parameters-47'>Parameters</h5>
+<h5 id='parameters-48'>Parameters</h5>
 <ol>
 <li><code>Hashrate</code>, a hexadecimal string representation (32 bytes) of the hash rate </li>
 <li><code>ID</code>, String - A random hexadecimal(32 bytes) ID identifying the client</li>
@@ -1831,7 +1820,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <span class="p">]</span>
 </code></pre><h5 id='returns-48'>Returns</h5>
 <p><code>Boolean</code> - returns <code>true</code> if submitting went through succesfully and <code>false</code> otherwise.</p>
-<h5 id='example-48'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-33'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1909,7 +1898,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <p>Stores a string in the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
-<h5 id='parameters-48'>Parameters</h5>
+<h5 id='parameters-49'>Parameters</h5>
 <ol>
 <li><code>String</code> - Database name.</li>
 <li><code>String</code> - Key name.</li>
@@ -1922,7 +1911,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <span class="p">]</span>
 </code></pre><h5 id='returns-49'>Returns</h5>
 <p><code>Boolean</code> - returns <code>true</code> if the value was stored, otherwise <code>false</code>.</p>
-<h5 id='example-49'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-34'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_putString","params":["testDB","myKey","myString"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1937,7 +1926,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <p>Returns string from the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
-<h5 id='parameters-49'>Parameters</h5>
+<h5 id='parameters-50'>Parameters</h5>
 <ol>
 <li><code>String</code> - Database name.</li>
 <li><code>String</code> - Key name.</li>
@@ -1948,7 +1937,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <span class="p">]</span>
 </code></pre><h5 id='returns-50'>Returns</h5>
 <p><code>String</code> - The previously stored string.</p>
-<h5 id='example-50'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-35'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_getString","params":["testDB","myKey"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1963,7 +1952,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <p>Stores binary data in the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
-<h5 id='parameters-50'>Parameters</h5>
+<h5 id='parameters-51'>Parameters</h5>
 <ol>
 <li><code>String</code> - Database name.</li>
 <li><code>String</code> - Key name.</li>
@@ -1976,7 +1965,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <span class="p">]</span>
 </code></pre><h5 id='returns-51'>Returns</h5>
 <p><code>Boolean</code> - returns <code>true</code> if the value was stored, otherwise <code>false</code>.</p>
-<h5 id='example-51'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-36'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_putHex","params":["testDB","myKey","0x68656c6c6f20776f726c64"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1991,7 +1980,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <p>Returns binary data from the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
-<h5 id='parameters-51'>Parameters</h5>
+<h5 id='parameters-52'>Parameters</h5>
 <ol>
 <li><code>String</code> - Database name.</li>
 <li><code>String</code> - Key name.</li>
@@ -2002,7 +1991,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <span class="p">]</span>
 </code></pre><h5 id='returns-52'>Returns</h5>
 <p><code>DATA</code> - The previously stored data.</p>
-<h5 id='example-52'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-37'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_getHex","params":["testDB","myKey"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -2015,11 +2004,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <hr>
 <h4 id='shh_version'>shh_version</h4>
 <p>Returns the current whisper protocol version.</p>
-<h5 id='parameters-52'>Parameters</h5>
+<h5 id='parameters-53'>Parameters</h5>
 <p>none</p>
 <h5 id='returns-53'>Returns</h5>
 <p><code>String</code> - The current whisper protocol version</p>
-<h5 id='example-53'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-38'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_version","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -2032,7 +2021,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <hr>
 <h4 id='shh_post'>shh_post</h4>
 <p>Sends a whisper message.</p>
-<h5 id='parameters-53'>Parameters</h5>
+<h5 id='parameters-54'>Parameters</h5>
 <ol>
 <li><code>Object</code> - The whisper post object:
 
@@ -2055,7 +2044,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <span class="p">}]</span>
 </code></pre><h5 id='returns-54'>Returns</h5>
 <p><code>Boolean</code> - returns <code>true</code> if the message was send, otherwise <code>false</code>.</p>
-<h5 id='example-54'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-39'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_post","params":[{"from":"0xc931d93e97ab07fe42d923478ba2465f2..","topics": ["0x68656c6c6f20776f726c64"],"payload":"0x68656c6c6f20776f726c64","ttl":0x64,"priority":0x64}],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -2068,11 +2057,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <hr>
 <h4 id='shh_newidentity'>shh_newIdentity</h4>
 <p>Creates new whisper identity in the client.</p>
-<h5 id='parameters-54'>Parameters</h5>
+<h5 id='parameters-55'>Parameters</h5>
 <p>none</p>
 <h5 id='returns-55'>Returns</h5>
 <p><code>DATA</code>, 60 Bytes - the address of the new identiy.</p>
-<h5 id='example-55'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-40'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_newIdentity","params":[],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -2085,7 +2074,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <hr>
 <h4 id='shh_hasidentity'>shh_hasIdentity</h4>
 <p>Checks if the client hold the private keys for a given identity.</p>
-<h5 id='parameters-55'>Parameters</h5>
+<h5 id='parameters-56'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 60 Bytes - The identity address to check.</li>
 </ol>
@@ -2094,7 +2083,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <span class="p">]</span>
 </code></pre><h5 id='returns-56'>Returns</h5>
 <p><code>Boolean</code> - returns <code>true</code> if the client holds the privatekey for that identity, otherwise <code>false</code>.</p>
-<h5 id='example-56'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-41'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_hasIdentity","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -2107,11 +2096,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <hr>
 <h4 id='shh_newgroup'>shh_newGroup</h4>
 <p>Creates a new group.</p>
-<h5 id='parameters-56'>Parameters</h5>
+<h5 id='parameters-57'>Parameters</h5>
 <p>none</p>
 <h5 id='returns-57'>Returns</h5>
 <p><code>DATA</code>, 60 Bytes - the address of the new group.</p>
-<h5 id='example-57'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-42'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_newGroup","params":[],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -2124,7 +2113,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <hr>
 <h4 id='shh_addtogroup'>shh_addToGroup</h4>
 <p>Adds a whisper identity to the group.</p>
-<h5 id='parameters-57'>Parameters</h5>
+<h5 id='parameters-58'>Parameters</h5>
 <ol>
 <li><code>DATA</code>, 60 Bytes - The identity address to add to a group.</li>
 </ol>
@@ -2133,7 +2122,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <span class="p">]</span>
 </code></pre><h5 id='returns-58'>Returns</h5>
 <p><code>Boolean</code> - returns <code>true</code> if the identity was successfully added to the group, otherwise <code>false</code>.</p>
-<h5 id='example-58'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-43'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_addToGroup","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -2146,7 +2135,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <hr>
 <h4 id='shh_newfilter'>shh_newFilter</h4>
 <p>Creates filter to notify, when client receives whisper message matching the filter options.</p>
-<h5 id='parameters-58'>Parameters</h5>
+<h5 id='parameters-59'>Parameters</h5>
 <ol>
 <li><code>Object</code> - The filter options:
 
@@ -2164,7 +2153,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <span class="p">}]</span>
 </code></pre><h5 id='returns-59'>Returns</h5>
 <p><code>QUANTITY</code> - The newly created filter.</p>
-<h5 id='example-59'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-44'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_newFilter","params":[{"topics": ['</span><span class="mh">0x12341234bf4b564f</span><span class="s1">'],"to": "0x2341234bf4b2341234bf4b564f..."}],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -2178,7 +2167,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 <h4 id='shh_uninstallfilter'>shh_uninstallFilter</h4>
 <p>Uninstalls a filter with given id. Should always be called when watch is no longer needed.
 Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_getfilterchanges">shh_getFilterChanges</a> for a period of time.</p>
-<h5 id='parameters-59'>Parameters</h5>
+<h5 id='parameters-60'>Parameters</h5>
 <ol>
 <li><code>QUANTITY</code> - The filter id.</li>
 </ol>
@@ -2187,7 +2176,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <span class="p">]</span>
 </code></pre><h5 id='returns-60'>Returns</h5>
 <p><code>Boolean</code> - <code>true</code> if the filter was successfully uninstalled, otherwise <code>false</code>.</p>
-<h5 id='example-60'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-45'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_uninstallFilter","params":["0x7"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -2202,7 +2191,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <p>Polling method for whisper filters. Returns new messages since the last call of this method.</p>
 
 <p><strong>Note</strong> calling the <a href="#shh_getmessages">shh_getMessages</a> method, will reset the buffer for this method, so that you won&#39;t receive duplicate messages.</p>
-<h5 id='parameters-60'>Parameters</h5>
+<h5 id='parameters-61'>Parameters</h5>
 <ol>
 <li><code>QUANTITY</code> - The filter id.</li>
 </ol>
@@ -2223,7 +2212,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <li><code>payload</code>: <code>DATA</code> - The payload of the message.</li>
 <li><code>workProved</code>: <code>QUANTITY</code> - Integer of the work this message required before it was send (?).</li>
 </ul>
-<h5 id='example-61'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-46'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_getFilterChanges","params":["0x7"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -2246,7 +2235,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <hr>
 <h4 id='shh_getmessages'>shh_getMessages</h4>
 <p>Get all messages matching a filter. Unlike <code>shh_getFilterChanges</code> this returns all messages.</p>
-<h5 id='parameters-61'>Parameters</h5>
+<h5 id='parameters-62'>Parameters</h5>
 <ol>
 <li><code>QUANTITY</code> - The filter id.</li>
 </ol>
@@ -2255,7 +2244,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <span class="p">]</span>
 </code></pre><h5 id='returns-62'>Returns</h5>
 <p>See <a href="#shh_getfilterchanges">shh_getFilterChanges</a></p>
-<h5 id='example-62'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h5 id='example-47'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_getMessages","params":["0x7"],"id":73}'</span>
 </code></pre>
 <p>Result see <a href="#shh_getfilterchanges">shh_getFilterChanges</a></p>
@@ -2267,7 +2256,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <ul>
 <li><code>arg</code> <em>[required]</em> - The base58 multihash of an existing block to get.</li>
 </ul>
-<h4 id='example-63'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-48'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/get?arg=QmaYL7E4gDTPNfLxrCEEEcNJgcHBJ55NxxTnxpDKWqMtJ3"</span>
 </code></pre><h4 id='response'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2280,7 +2269,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/get?arg=QmaYL7E4
 <ul>
 <li><code>arg</code> <em>[required]</em> - The base58 multihash of an existing block to stat.</li>
 </ul>
-<h4 id='example-64'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-49'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/stat?arg=QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM"</span>
 </code></pre><h4 id='response-2'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2301,7 +2290,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/stat?arg=QmfQ5QA
 <ul>
 <li><code>arg</code> <em>[required]</em> - The IPFS object hash</li>
 </ul>
-<h4 id='example-65'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-50'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/cat?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"</span>
 </code></pre><h4 id='response-3'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2314,7 +2303,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/cat?arg=QmZtmD2qt6fJot
 <ul>
 <li><code>arg</code> <em>[required]</em> - The IPFS object hash</li>
 </ul>
-<h4 id='example-66'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-51'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/get?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"</span>
 </code></pre><h4 id='response-4'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2335,7 +2324,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/get?arg=QmZtmD2qt6
 <ul>
 <li><code>arg</code> <em>[required]</em> - The IPFS object hash; the path to resolve</li>
 </ul>
-<h4 id='example-67'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-52'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/resolve?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"</span>
 </code></pre><h4 id='response-5'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2359,7 +2348,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/resolve?arg=QmZtmD
 <li><code>arg</code> <em>[Required]</em> - Source object to copy. ( the ipfs/[hash] link )</li>
 <li><code>arg</code> <em>[Required]</em> - Destination to copy object to. ( on the MFS )</li>
 </ul>
-<h4 id='example-68'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-53'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
  curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/cp?arg=/ipfs/QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3&amp;arg=/ipfs-examples-docs-001"</span>
 </code></pre><h4 id='response-6'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2372,7 +2361,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/resolve?arg=QmZtmD
 <ul>
 <li><code>arg</code> <em>[required]</em> - Path to file to be read.</li>
 </ul>
-<h4 id='example-69'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-54'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/flush?arg=/ipfs-docs-example"</span>
 </code></pre><h4 id='response-7'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2385,7 +2374,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/flush?arg=/ipfs-
 <ul>
 <li><code>arg</code> <em>[Required]</em> - Path to dir to make.</li>
 </ul>
-<h4 id='example-70'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-55'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
  curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/mkdir?arg=/ipfs-examples-dir"</span>
 </code></pre><h4 id='response-8'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2400,7 +2389,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/flush?arg=/ipfs-
 <li><code>offset</code> <em>[optional]</em> - Byte offset to begin reading from.</li>
 <li><code>count</code> <em>[optional]</em> - Maximum number of bytes to read.</li>
 </ul>
-<h4 id='example-71'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-56'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/read?arg=/ipfs-docs-example"</span>
 </code></pre><h4 id='response-9'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2416,7 +2405,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/read?arg=/ipfs-d
 <li><code>hash</code> <em>[optional]</em> - Print only hash.</li>
 <li><code>size</code> <em>[optional]</em> - Print only size.</li>
 </ul>
-<h4 id='example-72'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-57'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/stat?arg=/ipfs-docs-example"</span>
 </code></pre><h4 id='response-10'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2447,7 +2436,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/stat?arg=/ipfs-d
 <li><code>compress</code> <em>[optional]</em> - Compress the output with GZIP compression. Default is “false”. </li>
 <li><code>compression-level</code> <em>[optional]</em> - The level of compression (1-9). Default: “-1”. </li>
 </ul>
-<h4 id='example-73'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-58'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/get?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy&amp;archive=true"</span>
 </code></pre><h4 id='response-11'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2461,7 +2450,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/get?arg=QmZtmD2qt6fJot
 <li><code>arg</code> <em>[optional]</em> - Peer ID of node to look up.</li>
 <li><code>format</code> <em>[optional]</em> - Optional output format</li>
 </ul>
-<h4 id='example-74'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-59'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/id?arg=Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N"</span>
 </code></pre><h4 id='response-12'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2494,7 +2483,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/id?arg=Qmdnso85PCsvwSP
 <ul>
 <li><code>arg</code> <em>[required]</em> - Key of the object to retrieve, in base58-encoded multihash format. </li>
 </ul>
-<h4 id='example-75'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-60'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/data?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"</span>
 </code></pre><h4 id='response-13'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2507,7 +2496,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/data?arg=QmZtmD
 <ul>
 <li><code>arg</code> <em>[required]</em> - Key of the object to retrieve, in base58-encoded multihash format. </li>
 </ul>
-<h4 id='example-76'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-61'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/get?arg=QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM"</span>
 </code></pre><h4 id='response-14'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2528,7 +2517,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/get?arg=QmfQ5QA
 <ul>
 <li><code>arg</code> <em>[required]</em> - Key of the object to retrieve, in base58-encoded multihash format. </li>
 </ul>
-<h4 id='example-77'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-62'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/stat?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"</span>
 </code></pre><h4 id='response-15'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2559,7 +2548,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/stat?arg=QmZtmD
 <li><code>recursive</code> <em>[Optional]</em> - Recursively pin the object linked to by the specified object(s). Default: “true”</li>
 <li><code>progress</code> <em>[Optional]</em> - Show progress. </li>
 </ul>
-<h4 id='example-78'>EXAMPLE</h4>
+<h4 id='example-63'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/pin/add?arg=/ipfs/QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3"</span> 
@@ -2585,7 +2574,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/pin/add?arg=/ipfs/QmST
 <li><code>repo</code> <em>[optional]</em> - Show repo version. Default is false</li>
 <li><code>all</code> <em>[optional]</em> - Show all version information. Default is false</li>
 </ul>
-<h4 id='example-79'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-64'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/version"</span>
 </code></pre><h4 id='response-17'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2628,7 +2617,7 @@ chunker [string]: Chunking algorithm to use.</li>
 <li><code>cid-version</code> [int]: Cid version. Non-zero value will change default of ‘raw-leaves’ to true. (experimental). Default: “0”.</li>
 <li><code>hash</code> [string]: Hash function to use. Will set Cid version to 1 if used. (experimental). Default: “sha2-256”.</li>
 </ul>
-<h4 id='example-80'>EXAMPLE</h4>
+<h4 id='example-65'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// POST
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/add?pin=false"</span> <span class="se">\</span>
@@ -2659,7 +2648,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/add?pin=false"</span> 
 <li><code>mhtype</code> <em>[Optional]</em> - multihash hash function. Default: “sha2-256”.</li>
 <li><code>mhlen</code> <em>[Optional]</em> - multihash hash length. Default: “-1”. </li>
 </ul>
-<h4 id='example-81'>EXAMPLE</h4>
+<h4 id='example-66'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// POST
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/put"</span> <span class="se">\</span>
@@ -2689,7 +2678,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/put"</span> <spa
 <li><code>input-enc</code> <em>[Optional]</em> - Format that the input object will be. Default: “json”. </li>
 <li><code>hash</code> <em>[Optional]</em> - Hash function to use.</li>
 </ul>
-<h4 id='example-82'>EXAMPLE</h4>
+<h4 id='example-67'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// POST
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/put?format=cbor&amp;input-enc=json&amp;pin=false"</span> <span class="se">\</span>
@@ -2720,7 +2709,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/put?format=cbor&am
 <li><code>truncate</code> <em>[Optional]</em> - Truncate the file to size zero before writing. </li>
 <li><code>count</code> <em>[Optional]</em> - Maximum number of bytes to read.</li>
 </ul>
-<h4 id='example-83'>EXAMPLE</h4>
+<h4 id='example-68'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// POST
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/write?arg=/ipfs-file-test?create=true"</span> <span class="se">\</span>
@@ -2749,7 +2738,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/write?arg=/ipfs-
 <li><code>datafieldenc</code> <em>[Optional]</em> - Encoding type of the data field, either “text” or “base64”. Default: “text”.</li>
 <li><code>pin</code> <em>[Optional]</em> - Pin this object when adding. Default: “false”.</li>
 </ul>
-<h4 id='example-84'>EXAMPLE</h4>
+<h4 id='example-69'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// POST
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/put?inputenc=json&amp;datafieldenc=text&amp;pin=false"</span> <span class="se">\</span>
