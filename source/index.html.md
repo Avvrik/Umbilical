@@ -651,34 +651,19 @@ But first, you will need to retrieve the value of pos0 (see the right panel).
 
 Retrieving an element of the map is harder. The position of an element in the map is calculated with:
 
-keccack(LeftPad32(key, 0), LeftPad32(map position, 0))
+`keccack(LeftPad32(key, 0), LeftPad32(map position, 0))`
+
+This means to retrieve the storage on pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"] we need to calculate the position with:
+
+`keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))`
+
+To make this calculation, you can use the geth console that comes with a web3 library (see the right panel).
+
+Finally, you can fetch the storage.
+
 
 ***
-
-#### eth_getTransactionCount
-
-Returns the number of transactions *sent* from an address.
-
-
-##### Parameters
-
-1. `DATA`, 20 Bytes - address.
-2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
-
-```js
-params: [
-   '0xc94770007dda54cF92009BFF0dE90c06F603a09f',
-   'latest' // state at the latest block
-]
-```
-
-##### Returns
-
-`QUANTITY` - integer of the number of transactions send from this address.
-
-
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}'
 
@@ -689,31 +674,27 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionCount","params
   "result": "0x1" // 1
 }
 ```
+### eth_getTransactionCount
 
-***
-
-#### eth_getBlockTransactionCountByHash
-
-Returns the number of transactions in a block from a block matching the given block hash.
-
+Returns the number of transactions *sent* from an address.
 
 ##### Parameters
 
-1. `DATA`, 32 Bytes - hash of a block.
+1. `DATA`, 20 Bytes - address.
+2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
 
-```js
 params: [
-   '0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238'
+   '0xc94770007dda54cF92009BFF0dE90c06F603a09f',
+   'latest' // state at the latest block
 ]
-```
 
 ##### Returns
 
-`QUANTITY` - integer of the number of transactions in this block.
+`QUANTITY` - integer of the number of transactions send from this address.
 
+***
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f"],"id":1}'
 
@@ -724,6 +705,24 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHa
   "result": "0xc" // 11
 }
 ```
+### eth_getBlockTransactionCountByHash
+
+Returns the number of transactions in a block from a block matching the given block hash.
+
+##### Parameters
+
+1. `DATA`, 32 Bytes - hash of a block.
+
+params: [
+   '0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238'
+]
+
+
+##### Returns
+
+`QUANTITY` - integer of the number of transactions in this block.
+
+
 
 ***
 
