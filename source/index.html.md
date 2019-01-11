@@ -50,16 +50,6 @@ See the [JavaScript API](https://github.com/ethereum/wiki/wiki/JavaScript-API) f
 
 ## JSON-RPC Endpoint
 
-Default JSON-RPC endpoints:
-
-| Client | URL |
-|-------|:------------:|
-| C++ |  http://localhost:8545 | 
-| Go |http://localhost:8545 | 
-| Py | http://localhost:4000 | 
-| Parity | http://localhost:8545 | 
-
-
 ```go
 1. You can start the HTTP JSON-RPC with the `--rpc` flag
 
@@ -98,6 +88,16 @@ You can change the port and listen address by giving a config option.
 
 `pyethapp -c jsonrpc.listen_port=4002 -c jsonrpc.listen_host=127.0.0.2 run`
 ```
+Default JSON-RPC endpoints:
+
+| Client | URL |
+|-------|:------------:|
+| C++ |  http://localhost:8545 | 
+| Go |http://localhost:8545 | 
+| Py | http://localhost:4000 | 
+| Parity | http://localhost:8545 | 
+
+To get started, see the right panel for instructions.
 
 ## JSON-RPC support
 
@@ -236,8 +236,7 @@ none
 
 `String` - The current client version.
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}'
 
@@ -259,7 +258,7 @@ Returns Keccak-256 (*not* the standardized SHA3-256) of the given data.
 
 1. `DATA` - the data to convert into a SHA3 hash.
 
-```js
+```javascript
 params: [
   "0x68656c6c6f20776f726c64"
 ]
@@ -269,8 +268,7 @@ params: [
 
 `DATA` - The SHA3 result of the given string.
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'
 
@@ -300,8 +298,7 @@ none
 - `"4"`: Rinkeby Testnet
 - `"42"`: Kovan Testnet
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'
 
@@ -326,8 +323,7 @@ none
 
 `Boolean` - `true` when listening, otherwise `false`.
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}'
 
@@ -352,8 +348,8 @@ none
 
 `QUANTITY` - integer of the number of connected peers.
 
-##### Example
-```js
+
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}'
 
@@ -378,8 +374,7 @@ none
 
 `String` - The current ethereum protocol version.
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":67}'
 
@@ -408,8 +403,8 @@ none
   - `currentBlock`: `QUANTITY` - The current block, same as eth_blockNumber
   - `highestBlock`: `QUANTITY` - The estimated highest block
 
-##### Example
-```js
+
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}'
 
@@ -445,8 +440,7 @@ none
 
 `DATA`, 20 bytes - the current coinbase address.
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":64}'
 
@@ -471,8 +465,7 @@ none
 
 `Boolean` - returns `true` of the client is mining, otherwise `false`.
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}'
 
@@ -498,8 +491,7 @@ none
 
 `QUANTITY` - number of hashes per second.
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":71}'
 
@@ -525,8 +517,7 @@ none
 
 `QUANTITY` - integer of the current gas price in wei.
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":73}'
 
@@ -552,8 +543,8 @@ none
 
 `Array of DATA`, 20 Bytes - addresses owned by the client.
 
-##### Example
-```js
+
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}'
 
@@ -578,8 +569,7 @@ none
 
 `QUANTITY` - integer of the current block number the client is on.
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
 
@@ -614,8 +604,7 @@ params: [
 `QUANTITY` - integer of the current balance in wei.
 
 
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}'
 
@@ -643,10 +632,8 @@ Returns the value from a storage position at a given address.
 
 `DATA` - the value at this storage position.
 
-##### Example
-Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
-
-```
+```javascript
+//Calculating the correct position depends on the storage to retrieve. Consider the following contract deployed at `0x295a70b2de5e3953354a6a8344e616ed314d7251` by address `0x391694e7e0b0cce554cb130d723a9d27458f9298`.
 contract Storage {
     uint pos0;
     mapping(address => uint) pos1;
@@ -657,33 +644,34 @@ contract Storage {
     }
 }
 ```
+```javascript
+//Retrieving the value of pos0 is straight forward:
 
-Retrieving the value of pos0 is straight forward:
-
-```js
 curl -X POST --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}' localhost:8545
 
 {"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000000000000000004d2"}
 ```
+```javascript
+//Retrieving an element of the map is harder. The position of an element in the map is calculated with:
 
-Retrieving an element of the map is harder. The position of an element in the map is calculated with:
-```js
 keccack(LeftPad32(key, 0), LeftPad32(map position, 0))
 ```
+```javascript
+//This means to retrieve the storage on pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"] we need to calculate the position with:
 
-This means to retrieve the storage on pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"] we need to calculate the position with:
-```js
 keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
 ```
-The geth console which comes with the web3 library can be used to make the calculation:
-```js
+```javascript
+//The geth console which comes with the web3 library can be used to make the calculation:
+
 > var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
 undefined
 > web3.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
 ```
-Now to fetch the storage:
-```js
+```javascript
+//Now to fetch the storage:
+
 curl -X POST --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' localhost:8545
 
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000162e"}
