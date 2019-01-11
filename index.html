@@ -581,7 +581,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <li><a href="#shh_getfilterchanges">shh_getFilterChanges</a></li>
 <li><a href="#shh_getmessages">shh_getMessages</a></li>
 </ul>
-<h2 id='json-rpc-api-reference'>JSON RPC API Reference</h2><h3 id='web3_clientversion'>web3_clientVersion</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h2 id='json-rpc-api-reference'>JSON RPC API Reference</h2><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -590,7 +590,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"Mist/v0.9.3/darwin/go1.4.1"</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='web3_clientversion'>web3_clientVersion</h3>
 <p>Returns the current client version.</p>
 <h5 id='parameters'>Parameters</h5>
 <p>none</p>
@@ -598,7 +598,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>String</code> - The current client version.</p>
 
 <hr>
-<h3 id='web3_sha3'>web3_sha3</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'</span>
 
 <span class="c1">// Result</span>
@@ -607,7 +607,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc94770007dda54cF92009BFF0dE90c06F603a09f"</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='web3_sha3'>web3_sha3</h3>
 <p>Returns Keccak-256 (<em>not</em> the standardized SHA3-256) of the given data.</p>
 <h5 id='parameters-2'>Parameters</h5>
 <ol>
@@ -621,7 +621,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>DATA</code> - The SHA3 result of the given string.</p>
 
 <hr>
-<h3 id='net_version'>net_version</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -630,7 +630,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"3"</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='net_version'>net_version</h3>
 <p>Returns the current network id.</p>
 <h5 id='parameters-3'>Parameters</h5>
 <p>none</p>
@@ -643,7 +643,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 - <code>&quot;42&quot;</code>: Kovan Testnet</p>
 
 <hr>
-<h3 id='net_listening'>net_listening</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -652,7 +652,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span><span class="kc">true</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='net_listening'>net_listening</h3>
 <p>Returns <code>true</code> if client is actively listening for network connections.</p>
 <h5 id='parameters-4'>Parameters</h5>
 <p>none</p>
@@ -660,7 +660,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>Boolean</code> - <code>true</code> when listening, otherwise <code>false</code>.</p>
 
 <hr>
-<h3 id='net_peercount'>net_peerCount</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}'</span>
 
 <span class="c1">// Result</span>
@@ -669,7 +669,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x2"</span> <span class="c1">// 2</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='net_peercount'>net_peerCount</h3>
 <p>Returns number of peers currently connected to the client.</p>
 <h5 id='parameters-5'>Parameters</h5>
 <p>none</p>
@@ -677,7 +677,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>QUANTITY</code> - integer of the number of connected peers.</p>
 
 <hr>
-<h3 id='eth_protocolversion'>eth_protocolVersion</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -686,7 +686,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"54"</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='eth_protocolversion'>eth_protocolVersion</h3>
 <p>Returns the current ethereum protocol version.</p>
 <h5 id='parameters-6'>Parameters</h5>
 <p>none</p>
@@ -694,7 +694,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>String</code> - The current ethereum protocol version.</p>
 
 <hr>
-<h3 id='eth_syncing'>eth_syncing</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -713,7 +713,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='eth_syncing'>eth_syncing</h3>
 <p>Returns an object with data about the sync status or <code>false</code>.</p>
 <h5 id='parameters-7'>Parameters</h5>
 <p>none</p>
@@ -727,7 +727,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 </ul>
 
 <hr>
-<h3 id='eth_coinbase'>eth_coinbase</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":64}'</span>
 
 <span class="c1">// Result</span>
@@ -736,7 +736,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc94770007dda54cF92009BFF0dE90c06F603a09f"</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='eth_coinbase'>eth_coinbase</h3>
 <p>Returns the client coinbase address.</p>
 <h5 id='parameters-8'>Parameters</h5>
 <p>none</p>
@@ -744,13 +744,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>DATA</code>, 20 bytes - the current coinbase address.</p>
 
 <hr>
-<h3 id='eth_mining'>eth_mining</h3>
-<p>Returns <code>true</code> if client is actively mining new blocks.</p>
-<h5 id='parameters-9'>Parameters</h5>
-<p>none</p>
-<h5 id='returns-9'>Returns</h5>
-<p><code>Boolean</code> - returns <code>true</code> of the client is mining, otherwise <code>false</code>.</p>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_mining'>eth_mining</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}'</span>
 
 <span class="c1">// Result</span>
@@ -761,6 +755,12 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <span class="p">}</span>
 
 </code></pre>
+<p>Returns <code>true</code> if client is actively mining new blocks.</p>
+<h5 id='parameters-9'>Parameters</h5>
+<p>none</p>
+<h5 id='returns-9'>Returns</h5>
+<p><code>Boolean</code> - returns <code>true</code> of the client is mining, otherwise <code>false</code>.</p>
+
 <hr>
 <h4 id='eth_hashrate'>eth_hashrate</h4>
 <p>Returns the number of hashes per second that the node is mining with.</p>
