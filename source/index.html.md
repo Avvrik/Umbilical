@@ -333,17 +333,7 @@ none
 
 ***
 
-#### net_peerCount
-
-Returns number of peers currently connected to the client.
-
-##### Parameters
-none
-
-##### Returns
-
-`QUANTITY` - integer of the number of connected peers.
-
+### net_peerCount
 
 ```javascript
 // Request
@@ -356,19 +346,18 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":
   "result": "0x2" // 2
 }
 ```
-
-***
-
-#### eth_protocolVersion
-
-Returns the current ethereum protocol version.
+Returns number of peers currently connected to the client.
 
 ##### Parameters
 none
 
 ##### Returns
 
-`String` - The current ethereum protocol version.
+`QUANTITY` - integer of the number of connected peers.
+
+***
+
+### eth_protocolVersion
 
 ```javascript
 // Request
@@ -381,24 +370,18 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[]
   "result": "54"
 }
 ```
-
-***
-
-#### eth_syncing
-
-Returns an object with data about the sync status or `false`.
-
+Returns the current ethereum protocol version.
 
 ##### Parameters
 none
 
 ##### Returns
 
-`Object|Boolean`, An object with sync status data or `FALSE`, when not syncing:
-  - `startingBlock`: `QUANTITY` - The block at which the import started (will only be reset, after the sync reached his head)
-  - `currentBlock`: `QUANTITY` - The current block, same as eth_blockNumber
-  - `highestBlock`: `QUANTITY` - The estimated highest block
+`String` - The current ethereum protocol version.
 
+***
+
+### eth_syncing
 
 ```javascript
 // Request
@@ -421,6 +404,19 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}
   "result": false
 }
 ```
+Returns an object with data about the sync status or `false`.
+
+##### Parameters
+none
+
+##### Returns
+
+`Object|Boolean`, An object with sync status data or `FALSE`, when not syncing:
+  - `startingBlock`: `QUANTITY` - The block at which the import started (will only be reset, after the sync reached his head)
+  - `currentBlock`: `QUANTITY` - The current block, same as eth_blockNumber
+  - `highestBlock`: `QUANTITY` - The estimated highest block
+
+
 
 ***
 
