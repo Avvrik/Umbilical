@@ -1054,15 +1054,16 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <li><code>DATA</code>, 20 Bytes - address.</li>
 <li><code>QUANTITY|TAG</code> - integer block number, or the string <code>&quot;latest&quot;</code>, <code>&quot;earliest&quot;</code> or <code>&quot;pending&quot;</code>, see the <a href="#the-default-block-parameter">default block parameter</a>.</li>
 </ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
-   <span class="s1">'0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b'</span><span class="p">,</span>
-   <span class="s1">'0x2'</span>  <span class="c1">// 2</span>
-<span class="p">]</span>
-</code></pre><h5 id='returns-21'>Returns</h5>
+
+<p>params: [
+   &#39;0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b&#39;,
+   &#39;0x2&#39;  // 2
+]</p>
+<h5 id='returns-21'>Returns</h5>
 <p><code>DATA</code> - the code from the given address.</p>
 
 <hr>
-<pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}'</span>
 
 <span class="c1">// Result</span>
