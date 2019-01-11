@@ -744,7 +744,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>DATA</code>, 20 bytes - the current coinbase address.</p>
 
 <hr>
-<h3 id='eth_mining'>eth_mining</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}'</span>
 
 <span class="c1">// Result</span>
@@ -754,7 +754,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
 
-</code></pre>
+</code></pre><h3 id='eth_mining'>eth_mining</h3>
 <p>Returns <code>true</code> if client is actively mining new blocks.</p>
 <h5 id='parameters-9'>Parameters</h5>
 <p>none</p>
@@ -762,13 +762,7 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>Boolean</code> - returns <code>true</code> of the client is mining, otherwise <code>false</code>.</p>
 
 <hr>
-<h4 id='eth_hashrate'>eth_hashrate</h4>
-<p>Returns the number of hashes per second that the node is mining with.</p>
-<h5 id='parameters-10'>Parameters</h5>
-<p>none</p>
-<h5 id='returns-10'>Returns</h5>
-<p><code>QUANTITY</code> - number of hashes per second.</p>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_hashrate'>eth_hashrate</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":71}'</span>
 
 <span class="c1">// Result</span>
@@ -779,13 +773,13 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <span class="p">}</span>
 
 </code></pre>
-<hr>
-<h4 id='eth_gasprice'>eth_gasPrice</h4>
-<p>Returns the current price per gas in wei.</p>
-<h5 id='parameters-11'>Parameters</h5>
+<p>Returns the number of hashes per second that the node is mining with.</p>
+<h5 id='parameters-10'>Parameters</h5>
 <p>none</p>
-<h5 id='returns-11'>Returns</h5>
-<p><code>QUANTITY</code> - integer of the current gas price in wei.</p>
+<h5 id='returns-10'>Returns</h5>
+<p><code>QUANTITY</code> - number of hashes per second.</p>
+
+<hr>
 <pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":73}'</span>
 
@@ -795,14 +789,14 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x09184e72a000"</span> <span class="c1">// 10000000000000</span>
 <span class="p">}</span>
-</code></pre>
-<hr>
-<h4 id='eth_accounts'>eth_accounts</h4>
-<p>Returns a list of addresses owned by client.</p>
-<h5 id='parameters-12'>Parameters</h5>
+</code></pre><h3 id='eth_gasprice'>eth_gasPrice</h3>
+<p>Returns the current price per gas in wei.</p>
+<h5 id='parameters-11'>Parameters</h5>
 <p>none</p>
-<h5 id='returns-12'>Returns</h5>
-<p><code>Array of DATA</code>, 20 Bytes - addresses owned by the client.</p>
+<h5 id='returns-11'>Returns</h5>
+<p><code>QUANTITY</code> - integer of the current gas price in wei.</p>
+
+<hr>
 <pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}'</span>
 
@@ -812,14 +806,14 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"0xc94770007dda54cF92009BFF0dE90c06F603a09f"</span><span class="p">]</span>
 <span class="p">}</span>
-</code></pre>
-<hr>
-<h4 id='eth_blocknumber'>eth_blockNumber</h4>
-<p>Returns the number of most recent block.</p>
-<h5 id='parameters-13'>Parameters</h5>
+</code></pre><h3 id='eth_accounts'>eth_accounts</h3>
+<p>Returns a list of addresses owned by client.</p>
+<h5 id='parameters-12'>Parameters</h5>
 <p>none</p>
-<h5 id='returns-13'>Returns</h5>
-<p><code>QUANTITY</code> - integer of the current block number the client is on.</p>
+<h5 id='returns-12'>Returns</h5>
+<p><code>Array of DATA</code>, 20 Bytes - addresses owned by the client.</p>
+
+<hr>
 <pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'</span>
 
@@ -829,9 +823,24 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc94"</span> <span class="c1">// 1207</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='eth_blocknumber'>eth_blockNumber</h3>
+<p>Returns the number of most recent block.</p>
+<h5 id='parameters-13'>Parameters</h5>
+<p>none</p>
+<h5 id='returns-13'>Returns</h5>
+<p><code>QUANTITY</code> - integer of the current block number the client is on.</p>
+
 <hr>
-<h4 id='eth_getbalance'>eth_getBalance</h4>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}'</span>
+
+<span class="c1">// Result</span>
+<span class="p">{</span>
+  <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
+  <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x0234c8a3397aab58"</span> <span class="c1">// 158972490234375000</span>
+<span class="p">}</span>
+</code></pre><h3 id='eth_getbalance'>eth_getBalance</h3>
 <p>Returns the balance of the account of given address.</p>
 <h5 id='parameters-14'>Parameters</h5>
 <ol>
@@ -844,18 +853,9 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <span class="p">]</span>
 </code></pre><h5 id='returns-14'>Returns</h5>
 <p><code>QUANTITY</code> - integer of the current balance in wei.</p>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}'</span>
 
-<span class="c1">// Result</span>
-<span class="p">{</span>
-  <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x0234c8a3397aab58"</span> <span class="c1">// 158972490234375000</span>
-<span class="p">}</span>
-</code></pre>
 <hr>
-<h4 id='eth_getstorageat'>eth_getStorageAt</h4>
+<h3 id='eth_getstorageat'>eth_getStorageAt</h3>
 <p>Returns the value from a storage position at a given address. </p>
 <h5 id='parameters-15'>Parameters</h5>
 <ol>
@@ -875,24 +875,29 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
         <span class="nx">pos1</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5678</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//Retrieving the value of pos0 is straight forward:</span>
+
+<span class="c1">//Retrieving the value of pos0 is straight forward:</span>
 
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}'</span> <span class="nx">localhost</span><span class="p">:</span><span class="mi">8545</span>
 
 <span class="p">{</span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"0x00000000000000000000000000000000000000000000000000000000000004d2"</span><span class="p">}</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//Retrieving an element of the map is harder. The position of an element in the map is calculated with:</span>
+
+<span class="c1">//Retrieving an element of the map is harder. The position of an element in the map is calculated with:</span>
 
 <span class="nx">keccack</span><span class="p">(</span><span class="nx">LeftPad32</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nx">LeftPad32</span><span class="p">(</span><span class="nx">map</span> <span class="nx">position</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//This means to retrieve the storage on pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"] we need to calculate the position with:</span>
+
+<span class="c1">//This means to retrieve the storage on pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"] we need to calculate the position with:</span>
 
 <span class="nx">keccak</span><span class="p">(</span><span class="nx">decodeHex</span><span class="p">(</span><span class="s2">"000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298"</span> <span class="o">+</span> <span class="s2">"0000000000000000000000000000000000000000000000000000000000000001"</span><span class="p">))</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//The geth console which comes with the web3 library can be used to make the calculation:</span>
+
+<span class="c1">//The geth console which comes with the web3 library can be used to make the calculation:</span>
 
 <span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="s2">"000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298"</span> <span class="o">+</span> <span class="s2">"0000000000000000000000000000000000000000000000000000000000000001"</span>
 <span class="kc">undefined</span>
 <span class="o">&gt;</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">sha3</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="p">{</span><span class="s2">"encoding"</span><span class="p">:</span> <span class="s2">"hex"</span><span class="p">})</span>
 <span class="s2">"0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//Now to fetch the storage:</span>
+
+<span class="c1">//Now to fetch the storage:</span>
 
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}'</span> <span class="nx">localhost</span><span class="p">:</span><span class="mi">8545</span>
 
