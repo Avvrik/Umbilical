@@ -1083,6 +1083,12 @@ params: [
 
 ***
 
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x1b4", true],"id":1}'
+
+//Result see [eth_getBlockByHash](#eth_getblockbyhash)
+```
 ### eth_getBlockByNumber
 
 Returns information about a block by block number.
@@ -1092,61 +1098,17 @@ Returns information about a block by block number.
 1. `QUANTITY|TAG` - integer of a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter).
 2. `Boolean` - If `true` it returns the full transaction objects, if `false` only the hashes of the transactions.
 
-
 params: [
    '0x1b4', // 436
    true
 ]
 
-
 ##### Returns
 
 See [eth_getBlockByHash](#eth_getblockbyhash)
 
-```javascript
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x1b4", true],"id":1}'
-
-//Result see [eth_getBlockByHash](#eth_getblockbyhash)
-```
 ***
-
-#### eth_getTransactionByHash
-
-Returns the information about a transaction requested by transaction hash.
-
-
-##### Parameters
-
-1. `DATA`, 32 Bytes - hash of a transaction
-
-```js
-params: [
-   "0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"
-]
-```
-
-##### Returns
-
-`Object` - A transaction object, or `null` when no transaction was found:
-
-  - `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in. `null` when its pending.
-  - `blockNumber`: `QUANTITY` - block number where this transaction was in. `null` when its pending.
-  - `from`: `DATA`, 20 Bytes - address of the sender.
-  - `gas`: `QUANTITY` - gas provided by the sender.
-  - `gasPrice`: `QUANTITY` - gas price provided by the sender in Wei.
-  - `hash`: `DATA`, 32 Bytes - hash of the transaction.
-  - `input`: `DATA` - the data send along with the transaction.
-  - `nonce`: `QUANTITY` - the number of transactions made by the sender prior to this one.
-  - `to`: `DATA`, 20 Bytes - address of the receiver. `null` when its a contract creation transaction.
-  - `transactionIndex`: `QUANTITY` - integer of the transaction's index position in the block. `null` when its pending.
-  - `value`: `QUANTITY` - value transferred in Wei.
-  - `v`: `QUANTITY` - ECDSA recovery id
-  - `r`: `DATA`, 32 Bytes - ECDSA signature r
-  - `s`: `DATA`, 32 Bytes - ECDSA signature s
-
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"],"id":1}'
 
@@ -1172,10 +1134,42 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","param
   }
 }
 ```
+### eth_getTransactionByHash
+
+Returns the information about a transaction requested by transaction hash.
+
+##### Parameters
+
+1. `DATA`, 32 Bytes - hash of a transaction
+
+
+params: [
+   "0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"
+]
+
+
+##### Returns
+
+`Object` - A transaction object, or `null` when no transaction was found:
+
+  - `blockHash`: `DATA`, 32 Bytes - hash of the block where this transaction was in. `null` when its pending.
+  - `blockNumber`: `QUANTITY` - block number where this transaction was in. `null` when its pending.
+  - `from`: `DATA`, 20 Bytes - address of the sender.
+  - `gas`: `QUANTITY` - gas provided by the sender.
+  - `gasPrice`: `QUANTITY` - gas price provided by the sender in Wei.
+  - `hash`: `DATA`, 32 Bytes - hash of the transaction.
+  - `input`: `DATA` - the data send along with the transaction.
+  - `nonce`: `QUANTITY` - the number of transactions made by the sender prior to this one.
+  - `to`: `DATA`, 20 Bytes - address of the receiver. `null` when its a contract creation transaction.
+  - `transactionIndex`: `QUANTITY` - integer of the transaction's index position in the block. `null` when its pending.
+  - `value`: `QUANTITY` - value transferred in Wei.
+  - `v`: `QUANTITY` - ECDSA recovery id
+  - `r`: `DATA`, 32 Bytes - ECDSA signature r
+  - `s`: `DATA`, 32 Bytes - ECDSA signature s
 
 ***
 
-#### eth_getTransactionByBlockHashAndIndex
+### eth_getTransactionByBlockHashAndIndex
 
 Returns information about a transaction by block hash and transaction index position.
 
