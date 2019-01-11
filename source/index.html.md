@@ -418,19 +418,12 @@ none
 
 
 
+
+
+
 ***
 
-#### eth_coinbase
-
-Returns the client coinbase address.
-
-
-##### Parameters
-none
-
-##### Returns
-
-`DATA`, 20 bytes - the current coinbase address.
+### eth_coinbase
 
 ```javascript
 // Request
@@ -443,10 +436,21 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":6
   "result": "0xc94770007dda54cF92009BFF0dE90c06F603a09f"
 }
 ```
+Returns the client coinbase address.
+
+##### Parameters
+none
+
+##### Returns
+
+`DATA`, 20 bytes - the current coinbase address.
+
+
+
 
 ***
 
-#### eth_mining
+### eth_mining
 
 Returns `true` if client is actively mining new blocks.
 
