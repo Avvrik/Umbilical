@@ -623,7 +623,16 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <p><code>DATA</code> - The SHA3 result of the given string.</p>
 
 <hr>
-<h4 id='net_version'>net_version</h4>
+<h3 id='net_version'>net_version</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'</span>
+
+<span class="c1">// Result</span>
+<span class="p">{</span>
+  <span class="s2">"id"</span><span class="p">:</span><span class="mi">67</span><span class="p">,</span>
+  <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
+  <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"3"</span>
+<span class="p">}</span>
+</code></pre>
 <p>Returns the current network id.</p>
 <h5 id='parameters-3'>Parameters</h5>
 <p>none</p>
@@ -634,24 +643,9 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 - <code>&quot;3&quot;</code>: Ropsten Testnet
 - <code>&quot;4&quot;</code>: Rinkeby Testnet
 - <code>&quot;42&quot;</code>: Kovan Testnet</p>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'</span>
 
-<span class="c1">// Result</span>
-<span class="p">{</span>
-  <span class="s2">"id"</span><span class="p">:</span><span class="mi">67</span><span class="p">,</span>
-  <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"3"</span>
-<span class="p">}</span>
-</code></pre>
 <hr>
-<h4 id='net_listening'>net_listening</h4>
-<p>Returns <code>true</code> if client is actively listening for network connections.</p>
-<h5 id='parameters-4'>Parameters</h5>
-<p>none</p>
-<h5 id='returns-4'>Returns</h5>
-<p><code>Boolean</code> - <code>true</code> when listening, otherwise <code>false</code>.</p>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='net_listening'>net_listening</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -661,6 +655,12 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
   <span class="s2">"result"</span><span class="p">:</span><span class="kc">true</span>
 <span class="p">}</span>
 </code></pre>
+<p>Returns <code>true</code> if client is actively listening for network connections.</p>
+<h5 id='parameters-4'>Parameters</h5>
+<p>none</p>
+<h5 id='returns-4'>Returns</h5>
+<p><code>Boolean</code> - <code>true</code> when listening, otherwise <code>false</code>.</p>
+
 <hr>
 <h4 id='net_peercount'>net_peerCount</h4>
 <p>Returns number of peers currently connected to the client.</p>
