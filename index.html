@@ -388,38 +388,30 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <td style="text-align: center">http://localhost:8545</td>
 </tr>
 </tbody></table>
-<h3 id='go'>Go</h3>
-<p>To start the HTTP JSON-RPC, see the right panel.</p>
-
+<pre class="highlight go tab-go"><code><span class="n">You</span><span class="x"> </span><span class="n">can</span><span class="x"> </span><span class="n">start</span><span class="x"> </span><span class="n">the</span><span class="x"> </span><span class="n">HTTP</span><span class="x"> </span><span class="n">JSON</span><span class="o">-</span><span class="n">RPC</span><span class="x"> </span><span class="n">with</span><span class="x"> </span><span class="n">the</span><span class="x"> </span><span class="s">`--rpc`</span><span class="x"> </span><span class="n">flag</span><span class="x">
+</span></code></pre><pre class="highlight go tab-go"><code><span class="n">geth</span><span class="x"> </span><span class="o">--</span><span class="n">rpc</span><span class="x">
+</span></code></pre><pre class="highlight go tab-go"><code><span class="n">change</span><span class="x"> </span><span class="n">the</span><span class="x"> </span><span class="k">default</span><span class="x"> </span><span class="n">port</span><span class="x"> </span><span class="p">(</span><span class="m">8545</span><span class="p">)</span><span class="x"> </span><span class="n">and</span><span class="x"> </span><span class="n">listing</span><span class="x"> </span><span class="n">address</span><span class="x"> </span><span class="p">(</span><span class="n">localhost</span><span class="p">)</span><span class="x"> </span><span class="n">with</span><span class="o">:</span><span class="x">
+</span></code></pre><pre class="highlight go tab-go"><code><span class="n">geth</span><span class="x"> </span><span class="o">--</span><span class="n">rpc</span><span class="x"> </span><span class="o">--</span><span class="n">rpcaddr</span><span class="x"> </span><span class="o">&lt;</span><span class="n">ip</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">rpcport</span><span class="x"> </span><span class="o">&lt;</span><span class="n">portnumber</span><span class="o">&gt;</span><span class="x">
+</span></code></pre><pre class="highlight go tab-go"><code><span class="n">If</span><span class="x"> </span><span class="n">accessing</span><span class="x"> </span><span class="n">the</span><span class="x"> </span><span class="n">RPC</span><span class="x"> </span><span class="n">from</span><span class="x"> </span><span class="n">a</span><span class="x"> </span><span class="n">browser</span><span class="p">,</span><span class="x"> </span><span class="n">CORS</span><span class="x"> </span><span class="n">will</span><span class="x"> </span><span class="n">need</span><span class="x"> </span><span class="n">to</span><span class="x"> </span><span class="n">be</span><span class="x"> </span><span class="n">enabled</span><span class="x"> </span><span class="n">with</span><span class="x"> </span><span class="n">the</span><span class="x"> </span><span class="n">appropriate</span><span class="x"> </span><span class="n">domain</span><span class="x"> </span><span class="n">set</span><span class="o">.</span><span class="x"> </span><span class="n">Otherwise</span><span class="p">,</span><span class="x"> </span><span class="n">JavaScript</span><span class="x"> </span><span class="n">calls</span><span class="x"> </span><span class="n">are</span><span class="x"> </span><span class="n">limit</span><span class="x"> </span><span class="n">by</span><span class="x"> </span><span class="n">the</span><span class="x"> </span><span class="n">same</span><span class="o">-</span><span class="n">origin</span><span class="x"> </span><span class="n">policy</span><span class="x"> </span><span class="n">and</span><span class="x"> </span><span class="n">requests</span><span class="x"> </span><span class="n">will</span><span class="x"> </span><span class="n">fail</span><span class="o">:</span><span class="x">
+</span></code></pre><pre class="highlight go tab-go"><code><span class="n">geth</span><span class="x"> </span><span class="o">--</span><span class="n">rpc</span><span class="x"> </span><span class="o">--</span><span class="n">rpccorsdomain</span><span class="x"> </span><span class="s">"http://localhost:3000"</span><span class="x">
+</span></code></pre><pre class="highlight go tab-go"><code><span class="n">The</span><span class="x"> </span><span class="n">JSON</span><span class="x"> </span><span class="n">RPC</span><span class="x"> </span><span class="n">can</span><span class="x"> </span><span class="n">also</span><span class="x"> </span><span class="n">be</span><span class="x"> </span><span class="n">started</span><span class="x"> </span><span class="n">from</span><span class="x"> </span><span class="n">the</span><span class="x"> </span><span class="p">[</span><span class="n">geth</span><span class="x"> </span><span class="n">console</span><span class="p">](</span><span class="n">https</span><span class="o">:</span><span class="c">//github.com/ethereum/go-ethereum/wiki/JavaScript-Console) using the `admin.startRPC(addr, port)` command.</span><span class="x">
+</span></code></pre><h3 id='c'>C++</h3>
 <blockquote>
-<p>You can start the HTTP JSON-RPC with the <code>--rpc</code> flag</p>
-</blockquote>
-<pre class="highlight go tab-go"><code><span class="n">geth</span><span class="x"> </span><span class="o">--</span><span class="n">rpc</span><span class="x">
-</span></code></pre>
-<blockquote>
-<p>change the default port (8545) and listing address (localhost) with:</p>
-</blockquote>
-<pre class="highlight go tab-go"><code><span class="n">geth</span><span class="x"> </span><span class="o">--</span><span class="n">rpc</span><span class="x"> </span><span class="o">--</span><span class="n">rpcaddr</span><span class="x"> </span><span class="o">&lt;</span><span class="n">ip</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">rpcport</span><span class="x"> </span><span class="o">&lt;</span><span class="n">portnumber</span><span class="o">&gt;</span><span class="x">
-</span></code></pre>
-<blockquote>
-<p>If accessing the RPC from a browser, CORS will need to be enabled with the appropriate domain set. Otherwise, JavaScript calls are limit by the same-origin policy and requests will fail:</p>
-</blockquote>
-<pre class="highlight go tab-go"><code><span class="n">geth</span><span class="x"> </span><span class="o">--</span><span class="n">rpc</span><span class="x"> </span><span class="o">--</span><span class="n">rpccorsdomain</span><span class="x"> </span><span class="s">"http://localhost:3000"</span><span class="x">
-</span></code></pre>
-<p>The JSON RPC can also be started from the <a href="https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console">geth console</a> using the <code>admin.startRPC(addr, port)</code> command.</p>
-<h3 id='c'>C++</h3>
 <p>First start the node by running <code>aleth</code> application:</p>
+</blockquote>
 <pre class="highlight cpp tab-cpp"><code><span class="n">build</span><span class="o">/</span><span class="n">aleth</span><span class="o">/</span><span class="n">aleth</span>
 </code></pre>
+<blockquote>
 <p>Then start the JSON-RPC proxy (defaults to &#39;~/.ethereum/geth.ipc&#39; and &#39;http://127.0.0.1:8545&#39;): 
 <code>cpp
 scripts/jsonrpcproxy.py
 </code></p>
 
 <p>If you use non-default IPC path or JSON-RPC options, you can specify  :
-<code>bash
+<code>cpp
 scripts/jsonrpcproxy.py &lt;path to your node&#39;s geth.ipc&gt; &lt;URL for this proxy server&gt;
 </code></p>
+</blockquote>
 <h3 id='python'>Python</h3>
 <p>In python the JSONRPC server is currently started by default and listens on <code>127.0.0.1:4000</code></p>
 
