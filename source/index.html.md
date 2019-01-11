@@ -412,13 +412,12 @@ none
 ##### Returns
 
 `Object|Boolean`, An object with sync status data or `FALSE`, when not syncing:
-  - `startingBlock`: `QUANTITY` - The block at which the import started (will only be reset, after the sync reached his head)
-  - `currentBlock`: `QUANTITY` - The current block, same as eth_blockNumber
-  - `highestBlock`: `QUANTITY` - The estimated highest block
 
+- `startingBlock`: `QUANTITY` - The block at which the import started (will only be reset, after the sync reached his head)
 
+- `currentBlock`: `QUANTITY` - The current block, same as eth_blockNumber
 
-
+- `highestBlock`: `QUANTITY` - The estimated highest block
 
 
 ***
