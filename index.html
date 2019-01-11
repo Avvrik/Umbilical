@@ -720,10 +720,13 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <h5 id='parameters-7'>Parameters</h5>
 <p>none</p>
 <h5 id='returns-7'>Returns</h5>
-<p><code>Object|Boolean</code>, An object with sync status data or <code>FALSE</code>, when not syncing:
-  - <code>startingBlock</code>: <code>QUANTITY</code> - The block at which the import started (will only be reset, after the sync reached his head)
-  - <code>currentBlock</code>: <code>QUANTITY</code> - The current block, same as eth_blockNumber
-  - <code>highestBlock</code>: <code>QUANTITY</code> - The estimated highest block</p>
+<p><code>Object|Boolean</code>, An object with sync status data or <code>FALSE</code>, when not syncing:</p>
+
+<ul>
+<li><p><code>startingBlock</code>: <code>QUANTITY</code> - The block at which the import started (will only be reset, after the sync reached his head)</p></li>
+<li><p><code>currentBlock</code>: <code>QUANTITY</code> - The current block, same as eth_blockNumber</p></li>
+<li><p><code>highestBlock</code>: <code>QUANTITY</code> - The estimated highest block</p></li>
+</ul>
 
 <hr>
 <h3 id='eth_coinbase'>eth_coinbase</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
