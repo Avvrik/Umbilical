@@ -2154,306 +2154,270 @@ See [shh_getFilterChanges](#shh_getfilterchanges)
 
 # IPFS API
 
+***
 ## block_get
-
-### /api/v0/block/get
-
+```javascript
+ipfs.block.get(cid, function (err, block) {
+  if (err) {
+    throw err
+  }
+  block.key((err, key) => {
+    if (err) {
+      throw err
+    }
+    console.log(key, block.data)
+  })
+})
+``` 
 Get a raw IPFS block.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/block/get?arg=<key>`
+`ipfs.block.get(cid, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[required]_ - The base58 multihash of an existing block to get.
 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/block/get?arg=QmaYL7E4gDTPNfLxrCEEEcNJgcHBJ55NxxTnxpDKWqMtJ3"
-```
 
-#### RESPONSE
+
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### BODY
-```
-This endpoint returns a `text/plain` response body.
-```
+#### Body
+
+`This endpoint returns a `text/plain` response body.`
+***
 ## block_stat
-
-### /api/v0/block/stat
-
+```javascript
+{
+  key: 'QmPTkMuuL6PD8L2SwTwbcs1NPg14U8mRzerB1ZrrBrkSDD',
+  size: 10
+}
+```
 Print information of a raw IPFS block.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/block/stat?arg=<key>`
+`ipfs.block.stat(cid, [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[required]_ - The base58 multihash of an existing block to stat.
 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/block/stat?arg=QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `Key` - The base58 multihash string of the block
 - `Size` - An integer representing the size in bytes 
 
-#### BODY
-```js
+#### Body
+
 {
     Key: "QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM",
     Size: 18
 }
-```
+***
 ## cat
+```javascript
+ipfs.cat(ipfsPath, function (err, file) {
+  if (err) {
+    throw err
+  }
 
-### /api/v0/cat
-
+  console.log(file.toString('utf8'))
+})
+```
 Show IPFS object data.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/cat?arg=<key>`
+ipfs.cat(ipfsPath, [options], [callback])
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[required]_ - The IPFS object hash
 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/cat?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### BODY
-```
-This endpoint returns a `text/plain` response body.
-```
-## dag_get
+#### Body
 
-### /api/v0/dag/get
+This endpoint returns a `text/plain` response body.
+
+***
+## dag_get
 
 Get a dag node from IPFS.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/dat/get?arg=<key>`
+`ipfs.dag.get(cid, [path], [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[required]_ - The IPFS object hash
 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/dag/get?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `data`
 - `links` - An array of associated link objects
 
-#### BODY
-```js
+#### Body
+
 {
     data: "CAISFXZlcnNpb24gMSBvZiBteSB0ZXh0ChgV",
     links: [ ]
 }
-```
 
-
-## dag_resolve
-
-### /api/v0/dag/resolve
-
-Resolve IPLD block
-
-#### REQUEST
-
-`GET https://ipfs.infura.io:5001/api/v0/dat/resolve?arg=<key>`
-
-#### REQUEST PARAMS
-- `arg` _[required]_ - The IPFS object hash; the path to resolve
-
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/dag/resolve?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
-```
-
-#### RESPONSE
-
-On success, the call to this endpoint will return with 200 and the following body:
-
-#### RESULT FIELDS
-- `Cid` - Content ID (see more [here](https://github.com/ipld/cid)) 
-- `RemPath`
-
-#### BODY
-```js
-{
-    Cid: {
-        /: "QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
-    },
-    RemPath: ""
-}
-```
+***
 ## files_cp
-
-### /api/v0/files/cp
-
+```javascript
+// To copy a file
+ipfs.files.cp('/src-file', '/dst-file', (err) => {
+  if (err) {
+    console.error(err)
+  }
+})
+// To copy multiple files to a directory
+ipfs.files.cp('/src-file1', '/src-file2', '/dst-dir', (err) => {
+  if (err) {
+    console.error(err)
+  }
+})
+```
 Copy files to a MFS (Mutable File System).
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/files/cp?arg=<source>&arg=<dest>`
+`ipfs.files.cp(...from, to, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[Required]_ - Source object to copy. ( the ipfs/[hash] link )
 - `arg` _[Required]_ - Destination to copy object to. ( on the MFS )
  
-#### EXAMPLE
 
-```bash
-// GET
- curl "https://ipfs.infura.io:5001/api/v0/files/cp?arg=/ipfs/QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3&arg=/ipfs-examples-docs-001"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### BODY
-```
+#### Body
+
 This endpoint returns a `text/plain` response body.
-```
+
+***
 ## files_flush
-
-### /api/v0/files/flush
-
+```javascript
+ipfs.files.flush('/', (err) => {
+  if (err) {
+    console.error(err)
+  }
+})
+```
 Flush a given path’s data to disk.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/files/flush?arg=<path>`
+`ipfs.files.flush([...paths], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[required]_ - Path to file to be read.
 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/files/flush?arg=/ipfs-docs-example"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### BODY
-```
+#### Body
+
 This endpoint returns a `text/plain` response body.
-```
+
+***
 ## files_mkdir
-
-### /api/v0/files/mkdir
-
+```javascript
+ipfs.files.mkdir('/my/beautiful/directory', (err) => {
+  if (err) {
+    console.error(err)
+  }
+})
+```
 Make directories on a MFS (Mutable File System).
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/files/mkdir?arg=<path>`
+`ipfs.files.mkdir(path, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[Required]_ - Path to dir to make.
  
-#### EXAMPLE
-
-```bash
-// GET
- curl "https://ipfs.infura.io:5001/api/v0/files/mkdir?arg=/ipfs-examples-dir"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### BODY
-```
+#### Body
+
 This endpoint returns a `text/plain` response body.
-```
+***
 ## files_read
+```javascript
+ipfs.files.read('/hello-world', (error, buf) => {
+  console.log(buf.toString('utf8'))
+})
 
-### /api/v0/files/read
-
+// Hello, World!
+```
 Read a file in a given MFS (mutable file system).
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/files/read?arg=<path>&offset=<value>&count=<value>`
+`ipfs.files.read(path, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[required]_ - Path to file to be read.
 - `offset` _[optional]_ - Byte offset to begin reading from.
 - `count` _[optional]_ - Maximum number of bytes to read.
 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/files/read?arg=/ipfs-docs-example"
-```
 
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### BODY
-```
+#### Body
+
 This endpoint returns a `text/plain` response body.
-```
+***
 ## files_stat
-
-### /api/v0/files/stat
-
+```javascript
+ipfs.files.stat('/file.txt', (err, stats) => {
+  console.log(stats)
+})
+// {
+//   hash: 'QmXmJBmnYqXVuicUfn9uDCC8kxCEEzQpsAbeq1iJvLAmVs',
+//   size: 60,
+//   cumulativeSize: 118,
+//   blocks: 1,
+//   type: 'file'
+// }
+```
 Display file status.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/files/stat?arg=<path>&offset=<value>&count=<value>`
+`ipfs.files.stat(path, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[required]_ - Path to file to be read.
 - `format` _[optional]_ - Print statistics in given format.
 - `hash` _[optional]_ - Print only hash.
 - `size` _[optional]_ - Print only size.
 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/files/stat?arg=/ipfs-docs-example"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `Hash` - Hash of the object
 - `Size` - size of file
 - `CumulativeSize` - size of the tree
@@ -2461,8 +2425,8 @@ On success, the call to this endpoint will return with 200 and the following bod
 - `Type` - node type (file or directory)
 
 
-#### BODY
-```json
+#### Body
+
 {
     Hash: "QmVMvdPwiXvdSTKhDrTpQaW1zjoX5g9w72PWHsnSSTz2F2",
     Size: 29,
@@ -2470,73 +2434,75 @@ On success, the call to this endpoint will return with 200 and the following bod
     Blocks: 1,
     Type: "file"
 }
-```
+***
 ## get
+```javascript
+const validCID = 'QmQ2r6iMNpky5f1m4cnm3Yqw8VSvjuKpTcK1X7dBR1LkJF'
 
-### /api/v0/get
+ipfs.get(validCID, function (err, files) {
+  files.forEach((file) => {
+    console.log(file.path)
+    console.log(file.content.toString('utf8'))
+  })
+})
+```
 
 Download IPFS objects.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/get?arg=<ipfs-path>&output=<value>&archive=false&compress=false&compression-level=-1`
+`ipfs.get(ipfsPath, [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[required]_ - The IPFS object hash
 - `output` _[optional]_ - The path where the output should be stored. 
 - `archive` _[optional]_ - Output a TAR archive. Default: “false”. 
 - `compress` _[optional]_ - Compress the output with GZIP compression. Default is “false”. 
 - `compression-level` _[optional]_ - The level of compression (1-9). Default: “-1”. 
  
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/get?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy&archive=true"
-```
 
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
 
-#### BODY
-```
+#### Body
+
 This endpoint returns a `text/plain` response body.
-```
+
+***
 ## id
-
-### /api/v0/id
-
+```javascript
+ipfs.id(function (err, identity) {
+  if (err) {
+    throw err
+  }
+  console.log(identity)
+})
+```
 Show IPFS node id info.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/id?arg=<peerid>&format=<value>`
+`ipfs.id([callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[optional]_ - Peer ID of node to look up.
 - `format` _[optional]_ - Optional output format
 
- 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/id?arg=Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `ID` - Peer ID hash
 - `PublicKey` - Public Key of the node
 - `Addresses` - Listen addresses of the Host
 - `AgentVersion` - Client version
 - `ProtocolVersion` - holds the current protocol version for a client running this code
 
-#### BODY
-```json
+#### Body
+
 {
     ID: "Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N",
     PublicKey: "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCq1Rc1+JFY1Ds4dHHPs/sshcC/8Oh5dG/kkIK/HmUpib2/kRg242O1hIGDb2yKDN9TFa43TZDYYNNGJbHRRr8Y1J5bBX6jHHGW0i85NEZm74LbU023vVjYUMoOjT7QPnjSUym7zB2vOIydQSLmSSSta2lZi4hPhH+fDzJoL2cQ241i2o6Ay/AoorayJO9vMj3N4ptjrW2aWhLdQZA+Lg6mtpu0GdpnoYJQvki/T40ZCgOvB/9gG/Z1guUvhXzl3DS8TbPrSqUMWe97oyN0J1VLnVw2UKGOW+hyNhJ9oLG0MesRTIa2p9OOKAB55Taf7cBY9tSKzCNDxfi5NP8PEyJNAgMBAAE=",
@@ -2550,92 +2516,108 @@ On success, the call to this endpoint will return with 200 and the following bod
     AgentVersion: "go-ipfs/0.4.14/",
     ProtocolVersion: "ipfs/0.1.0"
 }
-```
+***
 ## object_data
+```javascript
+const multihash = 'QmPb5f92FxKPYdT3QNBd1GKiL4tZUXUrzF4Hkpdr3Gf1gK'
 
-### /api/v0/object/data
-
+ipfs.object.data(multihash, (err, data) => {
+  if (err) {
+    throw err
+  }
+  console.log(data.toString())
+  // Logs:
+  // some data
+})
+```
 Output the raw bytes of an IPFS object.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/object/data?arg=<key>`
+`ipfs.object.data(multihash, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[required]_ - Key of the object to retrieve, in base58-encoded multihash format. 
 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/object/data?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### BODY
-```
+#### Body
+
 This endpoint returns a `text/plain` response body.
-```
+***
 ## object_get
+```javascript
+const multihash = 'QmPb5f92FxKPYdT3QNBd1GKiL4tZUXUrzF4Hkpdr3Gf1gK'
 
-### /api/v0/object/get
-
+ipfs.object.get(multihash, (err, node) => {
+  if (err) {
+    throw err
+  }
+  console.log(node.data)
+  // Logs:
+  // some data
+})
+```
 Get and serialize the DAG node named by key.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/object/get?arg=<key>`
+`ipfs.object.get(multihash, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[required]_ - Key of the object to retrieve, in base58-encoded multihash format. 
 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/object/get?arg=QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `links` - An array of associated link objects
 - `data`
 
-#### BODY
-```
+#### Body
+
 {
     Links: [ ],
     Data: "version 1 of my text "
 }
-```
+***
 ## object_stat
+```javascript
+const multihash = 'QmPTkMuuL6PD8L2SwTwbcs1NPg14U8mRzerB1ZrrBrkSDD'
 
-### /api/v0/object/stat
-
+ipfs.object.stat(multihash, (err, stats) => {
+  if (err) {
+    throw err
+  }
+  console.log(stats)
+  // Logs:
+  // {
+  //   Hash: 'QmPTkMuuL6PD8L2SwTwbcs1NPg14U8mRzerB1ZrrBrkSDD',
+  //   NumLinks: 0,
+  //   BlockSize: 10,
+  //   LinksSize: 2,
+  //   DataSize: 8,
+  //   CumulativeSize: 10
+  // }
+})
+```
 Get stats for the DAG node named by key.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/object/stat?arg=<key>`
+`ipfs.object.stat(multihash, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[required]_ - Key of the object to retrieve, in base58-encoded multihash format. 
 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/object/stat?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `Hash` - Hash of the object
 - `NumLinks` - number of links the node contains
 - `BlockSize` - size of the raw serialized node
@@ -2643,8 +2625,8 @@ On success, the call to this endpoint will return with 200 and the following bod
 - `DataSize` - size of data block section
 - `CumulativeSize` - size of the tree (BlockSize + link sizes)
 
-#### BODY
-```json
+#### Body
+
 {
     Hash: "QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy",
     NumLinks: 0,
@@ -2653,82 +2635,71 @@ On success, the call to this endpoint will return with 200 and the following bod
     DataSize: 27,
     CumulativeSize: 29
 }
-```
+***
 ## pin_add
-
-### /api/v0/pin/add
-
+```javascript
+ipfs.pin.add(hash, function (err) {})
+```
 Pin objects to local storage.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/pin/add?arg=<ipfs-path>&recursive=true&progress=<value>`
+`ipfs.pin.add(hash, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `arg` _[Required]_ - Path to object(s) to be pinned.
 - `recursive` _[Optional]_ - Recursively pin the object linked to by the specified object(s). Default: “true”
 - `progress` _[Optional]_ - Show progress. 
 
-#### EXAMPLE
-Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
-
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/pin/add?arg=/ipfs/QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3" 
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `Pins` - An array of Pin hashes
 
+#### Body
 
-#### BODY
-```json
 {
     "Pins": [
         "QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3"
     ],
 }
-```
+***
 ## version
-
-### /api/v0/version
-
+```javascript
+ipfs.version((err, version) => {
+  if (err) {
+    throw err
+  }
+  console.log(version)
+})
+```
 Show IPFS version information.
 
-#### REQUEST
+#### Request
 
-`GET https://ipfs.infura.io:5001/api/v0/version?number=false&commit=false&repo=false&all=false`
+`ipfs.version([callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `number` _[optional]_ - Only show the version number. Default is false
 - `commit` _[optional]_ - Show the commit hash. Default is false
 - `repo` _[optional]_ - Show repo version. Default is false
 - `all` _[optional]_ - Show all version information. Default is false
 
- 
-#### EXAMPLE
-```bash
-// GET
-curl "https://ipfs.infura.io:5001/api/v0/version"
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `Version` - Current version number
 - `Commit` - Current commit id
 - `Repo` - Version number of the repo
 - `System` - System information
 - `Golang` - GoLang runtime version
 
-#### BODY
-```json
+#### Body
+
 {
     Version: "0.4.14",
     Commit: "",
@@ -2736,16 +2707,30 @@ On success, the call to this endpoint will return with 200 and the following bod
     System: "amd64/linux",
     Golang: "go1.10"
 }
-```
+***
 ## add
+```javascript
+//In the browser, assuming ipfs = new Ipfs(...):
 
-### /api/v0/add
+let content = ipfs.types.Buffer.from('ABC');
+let results = await ipfs.files.add(content);
+let hash = results[0].hash; // "Qm...WW"
+//The following allows you to add multiple files at once.
+const files = [
+  {
+    path: '/tmp/myfile.txt',
+    content:  ipfs.types.Buffer.from('ABC')
+  }
+]
+
+const results = await ipfs.files.add(files);
+```
 
 Add a file or directory to IPFS.
 
-#### REQUEST
+#### Request
 
-`POST https://ipfs.infura.io:5001/api/v0/add?recursive=false&quiet=<value>&quieter=<value>&silent=<value>&progress=<value>&trickle=<value>&only-hash=<value>&wrap-with-directory=<value>&hidden=<value>&chunker=<value>&pin=true&raw-leaves=<value>&nocopy=<value>&fscache=<value>&cid-version=0&hash=sha2-256`
+`ipfs.add(data, [options], [callback])`
 
 #### REQUEST PARAMS
 - `file` _[Required]_ - The path to a file to be added to IPFS.
@@ -2766,136 +2751,117 @@ chunker [string]: Chunking algorithm to use.
 - `cid-version` [int]: Cid version. Non-zero value will change default of ‘raw-leaves’ to true. (experimental). Default: “0”.
 - `hash` [string]: Hash function to use. Will set Cid version to 1 if used. (experimental). Default: “sha2-256”.
 
- 
-#### EXAMPLE
-Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
-
-```bash
-// POST
-curl "https://ipfs.infura.io:5001/api/v0/add?pin=false" \
-    -X POST \
-    -H "Content-Type: multipart/form-data" \
-    -F file=@"/sample-result.json" 
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `Name` - Name of the object
 - `Hash` - Hash  of the uploaded object
 - `Size` - integer indication size in bytes
 
+#### Body
 
-#### BODY
-```json
 {
     "Name": "sample-result.json",
     "Hash": "QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3",
     "Size": "2120"
 }
-```
+***
 ## block_put
+```javascript
+const buf = new Buffer('a serialized object')
 
-### /api/v0/block/put
+ipfs.block.put(buf, (err, block) => {
+  if (err) { throw err }
+  // Block has been stored
 
+  console.log(block.data.toString())
+  // Logs:
+  // a serialized object
+  console.log(block.cid.toBaseEncodedString())
+  // Logs:
+  // the CID of the object
+})
+```
 Store input as an IPFS block.
 
-#### REQUEST
+#### Request
 
-`POST https://ipfs.infura.io::5001/api/v0/block/put?format=v0&mhtype=sha2-256&mhlen=-1`
+`ipfs.block.put(block, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `file` _[Required]_ - The path to a file to be added to IPFS.
 - `format` _[Optional]_ - cid format for blocks to be created with. Default: “v0”. 
 - `mhtype` _[Optional]_ - multihash hash function. Default: “sha2-256”.
 - `mhlen` _[Optional]_ - multihash hash length. Default: “-1”. 
  
-#### EXAMPLE
-Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
 
-```bash
-// POST
-curl "https://ipfs.infura.io:5001/api/v0/block/put" \
-    -X POST \
-    -H "Content-Type: multipart/form-data" \
-    -F file=@"/purpink.jpeg" 
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `Key` - Key of the block
 - `Size` - integer indication size in bytes
 
+#### Body
 
-#### BODY
-```json
 {
     "Key": "QmaYL7E4gDTPNfLxrCEEEcNJgcHBJ55NxxTnxpDKWqMtJ3",
     "Size": 2392
 }
-```
-
+***
 ## dag_put
+```javascript
+const obj = { simple: 'object' }
 
-### /api/v0/dag/put
-
+ipfs.dag.put(obj, { format: 'dag-cbor', hashAlg: 'sha3-512' }, (err, cid) => {
+  console.log(cid.toBaseEncodedString())
+  // zBwWX9ecx5F4X54WAjmFLErnBT6ByfNxStr5ovowTL7AhaUR98RWvXPS1V3HqV1qs3r5Ec5ocv7eCdbqYQREXNUfYNuKG
+})
+```
 Add a dag node to IPFS.
 
-#### REQUEST
+#### Request
 
-`POST https://ipfs.infura.io:5001/api/v0/dag/put?format=cbor&input-enc=json&pin=false&hash=<value>`
+`ipfs.dag.put(dagNode, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `file` _[Required]_ - The path to a file to be added to IPFS.
 - `format` _[Optional]_ - cid format for blocks to be created
 - `pin` _[Optional]_ - Pin this object when adding. Default: “true”.
 - `input-enc` _[Optional]_ - Format that the input object will be. Default: “json”. 
 - `hash` _[Optional]_ - Hash function to use.
  
-#### EXAMPLE
-Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
-
-```bash
-// POST
-curl "https://ipfs.infura.io:5001/api/v0/dag/put?format=cbor&input-enc=json&pin=false" \
-    -X POST \
-    -H "Content-Type: multipart/form-data" \
-    -F file=@"/sample-result.json" 
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `Cid` - Content ID (see more [here](https://github.com/ipld/cid)) 
 
+#### Body
 
-#### BODY
-```json
 {
     "Cid": {
         "/": "zdpuAzaZNBehCV84L76P6Zr5APxN8bbGdqvrqPfvX6XKMBYpK"
     }
 }
-```
-
+***
 ## files_write
-
-### /api/v0/files/write
-
+```javascript
+ipfs.files.write('/hello-world', Buffer.from('Hello, world!'), (err) => {
+  console.log(err)
+})
+```
 Write to a mutable file in a given filesystem.
 
-#### REQUEST
+#### Request
 
-`POST https://ipfs.infura.io:5001/api/v0/files/write?format=cbor&input-enc=json&pin=false&hash=<value>`
+`ipfs.files.write(path, content, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `file` _[Required]_ - The file to be added to IPFS.
 - `path` _[Required]_ - The path to write the file to.
 - `offset` _[Optional]_ - Byte offset to begin writing at.
@@ -2903,72 +2869,60 @@ Write to a mutable file in a given filesystem.
 - `truncate` _[Optional]_ - Truncate the file to size zero before writing. 
 - `count` _[Optional]_ - Maximum number of bytes to read.
  
-#### EXAMPLE
-Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
-
-```bash
-// POST
-curl "https://ipfs.infura.io:5001/api/v0/files/write?arg=/ipfs-file-test?create=true" \
-    -X POST \
-    -H "Content-Type: multipart/form-data" \
-    -F file=@"/readme.txt" 
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `Cid` - Content ID (see more [here](https://github.com/ipld/cid)) 
 
+#### Body
 
-#### BODY
-```json
 {
     "Cid": {
         "/": "zdpuAzaZNBehCV84L76P6Zr5APxN8bbGdqvrqPfvX6XKMBYpK"
     }
 }
-```
 
+***
 ## object_put
+```javascript
+const obj = {
+  Data: new Buffer('Some data'),
+  Links: []
+}
 
-### /api/v0/object/put
-
+ipfs.object.put(obj, (err, cid) => {
+  if (err) {
+    throw err
+  }
+  console.log(cid.toString())
+  // Logs:
+  // QmPb5f92FxKPYdT3QNBd1GKiL4tZUXUrzF4Hkpdr3Gf1gK
+})
+```
 Store input as a DAG object, print its key.
 
-#### REQUEST
+#### Request
 
-`POST http://ipfs.infura:5001/api/v0/object/put?inputenc=json&datafieldenc=text&pin=false`
+`ipfs.object.put(obj, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `file` _[Required]_ - the file to be stored as a DAG object.
 - `inputenc` _[Optional]_ - Encoding type of input data. One of: {“protobuf”, “json”}. Default: “json”. 
 - `datafieldenc` _[Optional]_ - Encoding type of the data field, either “text” or “base64”. Default: “text”.
 - `pin` _[Optional]_ - Pin this object when adding. Default: “false”.
  
-#### EXAMPLE
-Argument 'file' is of file type. This endpoint expects a file in the body of the request as `multipart/form-data`.
 
-```bash
-// POST
-curl "https://ipfs.infura.io:5001/api/v0/object/put?inputenc=json&datafieldenc=text&pin=false" \
-    -X POST \
-    -H "Content-Type: multipart/form-data" \
-    -F file=@"node.json" 
-```
-
-#### RESPONSE
+#### Response
 
 On success, the call to this endpoint will return with 200 and the following body:
 
-#### RESULT FIELDS
+#### Result fields
 - `Hash` - Hash of the object
 
+#### Body
 
-#### BODY
-```json
 {
     "Hash": "QmZZmY4KCu9r3e7M2Pcn46Fc5qbn6NpzaAGaYb22kbfTqm"
 }
-```
