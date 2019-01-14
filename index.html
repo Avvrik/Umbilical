@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;cpp&quot;,&quot;go&quot;,&quot;python&quot;,&quot;shell&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;javascript&quot;,&quot;cpp&quot;,&quot;go&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,11 +211,10 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="cpp">cpp</a>
               <a href="#" data-language-name="go">go</a>
               <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -754,7 +753,7 @@ See all examples in the javascript section of the right panel.
 <li><a href="#shh_getfilterchanges">shh_getFilterChanges</a></li>
 <li><a href="#shh_getmessages">shh_getMessages</a></li>
 </ul>
-<h2 id='json-rpc-api-reference'>JSON RPC API Reference</h2><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h2 id='json-rpc-api-reference'>JSON RPC API Reference</h2><h3 id='web3_clientversion'>web3_clientVersion</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -763,7 +762,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"Mist/v0.9.3/darwin/go1.4.1"</span>
 <span class="p">}</span>
-</code></pre><h3 id='web3_clientversion'>web3_clientVersion</h3>
+</code></pre>
 <p>Returns the current client version.</p>
 <h5 id='parameters'>Parameters</h5>
 <p>none</p>
@@ -771,7 +770,7 @@ See all examples in the javascript section of the right panel.
 <p><code>String</code> - The current client version.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='web3_sha3'>web3_sha3</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}'</span>
 
 <span class="c1">// Result</span>
@@ -780,7 +779,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc94770007dda54cF92009BFF0dE90c06F603a09f"</span>
 <span class="p">}</span>
-</code></pre><h3 id='web3_sha3'>web3_sha3</h3>
+</code></pre>
 <p>Returns Keccak-256 (<em>not</em> the standardized SHA3-256) of the given data.</p>
 <h5 id='parameters-2'>Parameters</h5>
 <ol>
@@ -794,7 +793,7 @@ See all examples in the javascript section of the right panel.
 <p><code>DATA</code> - The SHA3 result of the given string.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='net_version'>net_version</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -803,7 +802,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"3"</span>
 <span class="p">}</span>
-</code></pre><h3 id='net_version'>net_version</h3>
+</code></pre>
 <p>Returns the current network id.</p>
 <h5 id='parameters-3'>Parameters</h5>
 <p>none</p>
@@ -816,7 +815,7 @@ See all examples in the javascript section of the right panel.
 - <code>&quot;42&quot;</code>: Kovan Testnet</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='net_listening'>net_listening</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_listening","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -825,7 +824,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span><span class="kc">true</span>
 <span class="p">}</span>
-</code></pre><h3 id='net_listening'>net_listening</h3>
+</code></pre>
 <p>Returns <code>true</code> if client is actively listening for network connections.</p>
 <h5 id='parameters-4'>Parameters</h5>
 <p>none</p>
@@ -833,7 +832,7 @@ See all examples in the javascript section of the right panel.
 <p><code>Boolean</code> - <code>true</code> when listening, otherwise <code>false</code>.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='net_peercount'>net_peerCount</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}'</span>
 
 <span class="c1">// Result</span>
@@ -842,7 +841,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x2"</span> <span class="c1">// 2</span>
 <span class="p">}</span>
-</code></pre><h3 id='net_peercount'>net_peerCount</h3>
+</code></pre>
 <p>Returns number of peers currently connected to the client.</p>
 <h5 id='parameters-5'>Parameters</h5>
 <p>none</p>
@@ -850,7 +849,7 @@ See all examples in the javascript section of the right panel.
 <p><code>QUANTITY</code> - integer of the number of connected peers.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_protocolversion'>eth_protocolVersion</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_protocolVersion","params":[],"id":67}'</span>
 
 <span class="c1">// Result</span>
@@ -859,7 +858,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"54"</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_protocolversion'>eth_protocolVersion</h3>
+</code></pre>
 <p>Returns the current ethereum protocol version.</p>
 <h5 id='parameters-6'>Parameters</h5>
 <p>none</p>
@@ -867,7 +866,7 @@ See all examples in the javascript section of the right panel.
 <p><code>String</code> - The current ethereum protocol version.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_syncing'>eth_syncing</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -885,7 +884,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_syncing'>eth_syncing</h3>
+</code></pre>
 <p>Returns an object with data about the sync status or <code>false</code>.</p>
 <h5 id='parameters-7'>Parameters</h5>
 <p>none</p>
@@ -901,7 +900,7 @@ See all examples in the javascript section of the right panel.
 </ul>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_coinbase'>eth_coinbase</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_coinbase","params":[],"id":64}'</span>
 
 <span class="c1">// Result</span>
@@ -910,7 +909,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc94770007dda54cF92009BFF0dE90c06F603a09f"</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_coinbase'>eth_coinbase</h3>
+</code></pre>
 <p>Returns the client coinbase address.</p>
 <h5 id='parameters-8'>Parameters</h5>
 <p>none</p>
@@ -918,7 +917,7 @@ See all examples in the javascript section of the right panel.
 <p><code>DATA</code>, 20 bytes - the current coinbase address.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_mining'>eth_mining</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}'</span>
 
 <span class="c1">// Result</span>
@@ -927,7 +926,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_mining'>eth_mining</h3>
+</code></pre>
 <p>Returns <code>true</code> if client is actively mining new blocks.</p>
 <h5 id='parameters-9'>Parameters</h5>
 <p>none</p>
@@ -952,7 +951,7 @@ See all examples in the javascript section of the right panel.
 <p><code>QUANTITY</code> - number of hashes per second.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_gasprice'>eth_gasPrice</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -961,7 +960,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x09184e72a000"</span> <span class="c1">// 10000000000000</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_gasprice'>eth_gasPrice</h3>
+</code></pre>
 <p>Returns the current price per gas in wei.</p>
 <h5 id='parameters-11'>Parameters</h5>
 <p>none</p>
@@ -969,7 +968,7 @@ See all examples in the javascript section of the right panel.
 <p><code>QUANTITY</code> - integer of the current gas price in wei.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_accounts'>eth_accounts</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -978,7 +977,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"0xc94770007dda54cF92009BFF0dE90c06F603a09f"</span><span class="p">]</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_accounts'>eth_accounts</h3>
+</code></pre>
 <p>Returns a list of addresses owned by client.</p>
 <h5 id='parameters-12'>Parameters</h5>
 <p>none</p>
@@ -986,7 +985,7 @@ See all examples in the javascript section of the right panel.
 <p><code>Array of DATA</code>, 20 Bytes - addresses owned by the client.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_blocknumber'>eth_blockNumber</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -995,7 +994,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc94"</span> <span class="c1">// 1207</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_blocknumber'>eth_blockNumber</h3>
+</code></pre>
 <p>Returns the number of most recent block.</p>
 <h5 id='parameters-13'>Parameters</h5>
 <p>none</p>
@@ -1003,7 +1002,7 @@ See all examples in the javascript section of the right panel.
 <p><code>QUANTITY</code> - integer of the current block number the client is on.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getbalance'>eth_getBalance</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1012,7 +1011,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x0234c8a3397aab58"</span> <span class="c1">// 158972490234375000</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_getbalance'>eth_getBalance</h3>
+</code></pre>
 <p>Returns the balance of the account of given address.</p>
 <h5 id='parameters-14'>Parameters</h5>
 <ol>
@@ -1028,7 +1027,7 @@ See all examples in the javascript section of the right panel.
 <p><code>QUANTITY</code> - integer of the current balance in wei.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="nx">contract</span> <span class="nx">Storage</span> <span class="p">{</span>
+<h3 id='eth_getstorageat'>eth_getStorageAt</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">contract</span> <span class="nx">Storage</span> <span class="p">{</span>
     <span class="nx">uint</span> <span class="nx">pos0</span><span class="p">;</span>
     <span class="nx">mapping</span><span class="p">(</span><span class="nx">address</span> <span class="o">=&gt;</span> <span class="nx">uint</span><span class="p">)</span> <span class="nx">pos1</span><span class="p">;</span>
 
@@ -1055,7 +1054,7 @@ See all examples in the javascript section of the right panel.
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}'</span> <span class="nx">localhost</span><span class="p">:</span><span class="mi">8545</span>
 
 <span class="p">{</span><span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"0x000000000000000000000000000000000000000000000000000000000000162e"</span><span class="p">}</span>
-</code></pre><h3 id='eth_getstorageat'>eth_getStorageAt</h3>
+</code></pre>
 <p>Returns the value from a storage position at a given address. </p>
 <h5 id='parameters-15'>Parameters</h5>
 <ol>
@@ -1083,7 +1082,7 @@ See all examples in the javascript section of the right panel.
 <p>Finally, you can fetch the storage.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_gettransactioncount'>eth_getTransactionCount</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f","latest"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1092,7 +1091,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x1"</span> <span class="c1">// 1</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_gettransactioncount'>eth_getTransactionCount</h3>
+</code></pre>
 <p>Returns the number of transactions <em>sent</em> from an address.</p>
 <h5 id='parameters-16'>Parameters</h5>
 <ol>
@@ -1108,7 +1107,7 @@ See all examples in the javascript section of the right panel.
 <p><code>QUANTITY</code> - integer of the number of transactions send from this address.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getblocktransactioncountbyhash'>eth_getBlockTransactionCountByHash</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1117,7 +1116,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc"</span> <span class="c1">// 11</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_getblocktransactioncountbyhash'>eth_getBlockTransactionCountByHash</h3>
+</code></pre>
 <p>Returns the number of transactions in a block from a block matching the given block hash.</p>
 <h5 id='parameters-17'>Parameters</h5>
 <ol>
@@ -1131,7 +1130,7 @@ See all examples in the javascript section of the right panel.
 <p><code>QUANTITY</code> - integer of the number of transactions in this block.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getblocktransactioncountbynumber'>eth_getBlockTransactionCountByNumber</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1140,7 +1139,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xa"</span> <span class="c1">// 10</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_getblocktransactioncountbynumber'>eth_getBlockTransactionCountByNumber</h3>
+</code></pre>
 <p>Returns the number of transactions in a block matching the given block number.</p>
 <h5 id='parameters-18'>Parameters</h5>
 <ol>
@@ -1154,7 +1153,7 @@ See all examples in the javascript section of the right panel.
 <p><code>QUANTITY</code> - integer of the number of transactions in this block.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getunclecountbyblockhash'>eth_getUncleCountByBlockHash</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockHash","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1163,7 +1162,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc"</span> <span class="c1">// 1</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_getunclecountbyblockhash'>eth_getUncleCountByBlockHash</h3>
+</code></pre>
 <p>Returns the number of uncles in a block from a block matching the given block hash.</p>
 <h5 id='parameters-19'>Parameters</h5>
 <ol>
@@ -1177,7 +1176,7 @@ See all examples in the javascript section of the right panel.
 <p><code>QUANTITY</code> - integer of the number of uncles in this block.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getunclecountbyblocknumber'>eth_getUncleCountByBlockNumber</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getUncleCountByBlockNumber","params":["0xe8"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1186,7 +1185,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x1"</span> <span class="c1">// 1</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_getunclecountbyblocknumber'>eth_getUncleCountByBlockNumber</h3>
+</code></pre>
 <p>Returns the number of uncles in a block from a block matching the given block number.</p>
 <h5 id='parameters-20'>Parameters</h5>
 <ol>
@@ -1200,7 +1199,7 @@ See all examples in the javascript section of the right panel.
 <p><code>QUANTITY</code> - integer of the number of uncles in this block.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getcode'>eth_getCode</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1209,7 +1208,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056"</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_getcode'>eth_getCode</h3>
+</code></pre>
 <p>Returns code at a given address.</p>
 <h5 id='parameters-21'>Parameters</h5>
 <ol>
@@ -1225,7 +1224,7 @@ See all examples in the javascript section of the right panel.
 <p><code>DATA</code> - the code from the given address.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_sign'>eth_sign</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_sign","params":["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1234,7 +1233,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_sign'>eth_sign</h3>
+</code></pre>
 <p>The sign method calculates an Ethereum specific signature with: <code>sign(keccak256(&quot;\x19Ethereum Signed Message:\n&quot; + len(message) + message)))</code>.</p>
 
 <p>By adding a prefix to the message makes the calculated signature recognisable as an Ethereum specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (e.g. transaction) and use the signature to impersonate the victim.</p>
@@ -1253,7 +1252,7 @@ See all examples in the javascript section of the right panel.
 <p>An example how to use solidity ecrecover to verify the signature calculated with <code>eth_sign</code> can be found <a href="https://gist.github.com/bas-vk/d46d83da2b2b4721efb0907aecdb7ebd">here</a>. The contract is deployed on the testnet Ropsten and Rinkeby.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_sendtransaction'>eth_sendTransaction</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{see above}],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1262,7 +1261,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_sendtransaction'>eth_sendTransaction</h3>
+</code></pre>
 <p>Creates new message call transaction or a contract creation, if the data field contains code.</p>
 <h5 id='parameters-23'>Parameters</h5>
 <ol>
@@ -1293,7 +1292,7 @@ See all examples in the javascript section of the right panel.
 <p>Use <a href="#eth_gettransactionreceipt">eth_getTransactionReceipt</a> to get the contract address, after the transaction was mined, when you created a contract.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_sendrawtransaction'>eth_sendRawTransaction</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":[{see above}],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1302,7 +1301,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_sendrawtransaction'>eth_sendRawTransaction</h3>
+</code></pre>
 <p>Creates new message call transaction or a contract creation for signed transactions.</p>
 <h5 id='parameters-24'>Parameters</h5>
 <ol>
@@ -1316,7 +1315,7 @@ See all examples in the javascript section of the right panel.
 <p>Use <a href="#eth_gettransactionreceipt">eth_getTransactionReceipt</a> to get the contract address, after the transaction was mined, when you created a contract.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_call'>eth_call</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_call","params":[{see above}],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1325,7 +1324,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x"</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_call'>eth_call</h3>
+</code></pre>
 <p>Executes a new message call immediately without creating a transaction on the block chain.</p>
 <h5 id='parameters-25'>Parameters</h5>
 <ol>
@@ -1345,7 +1344,7 @@ See all examples in the javascript section of the right panel.
 <p><code>DATA</code> - the return value of executed contract.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_estimategas'>eth_estimateGas</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_estimateGas","params":[{see above}],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1354,7 +1353,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x5208"</span> <span class="c1">// 21000</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_estimategas'>eth_estimateGas</h3>
+</code></pre>
 <p>Generates and returns an estimate of how much gas is necessary to allow the transaction to complete. The transaction will not be added to the blockchain. Note that the estimate may be significantly more than the amount of gas actually used by the transaction, for a variety of reasons including EVM mechanics and node performance.</p>
 <h5 id='parameters-26'>Parameters</h5>
 <p>See <a href="#eth_call">eth_call</a> parameters, expect that all properties are optional. If no gas limit is specified geth uses the block gas limit from the pending block as an upper bound. As a result the returned estimate might not be enough to executed the call/transaction when the amount of gas is higher than the pending block gas limit.</p>
@@ -1362,7 +1361,7 @@ See all examples in the javascript section of the right panel.
 <p><code>QUANTITY</code> - the amount of gas used.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getblockbyhash'>eth_getBlockByHash</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", true],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1390,7 +1389,7 @@ See all examples in the javascript section of the right panel.
     <span class="s2">"uncles"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"0x1606e5..."</span><span class="p">,</span> <span class="s2">"0xd5145a9..."</span><span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_getblockbyhash'>eth_getBlockByHash</h3>
+</code></pre>
 <p>Returns information about a block by hash.</p>
 <h5 id='parameters-27'>Parameters</h5>
 <ol>
@@ -1428,11 +1427,11 @@ See all examples in the javascript section of the right panel.
 </ul>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getblockbynumber'>eth_getBlockByNumber</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x1b4", true],"id":1}'</span>
 
 <span class="c1">//Result see [eth_getBlockByHash](#eth_getblockbyhash)</span>
-</code></pre><h3 id='eth_getblockbynumber'>eth_getBlockByNumber</h3>
+</code></pre>
 <p>Returns information about a block by block number.</p>
 <h5 id='parameters-28'>Parameters</h5>
 <ol>
@@ -1448,7 +1447,7 @@ See all examples in the javascript section of the right panel.
 <p>See <a href="#eth_getblockbyhash">eth_getBlockByHash</a></p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_gettransactionbyhash'>eth_getTransactionByHash</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"],"id":1}'</span>
 
 <span class="c1">// Result</span>
@@ -1472,7 +1471,7 @@ See all examples in the javascript section of the right panel.
     <span class="s2">"s"</span><span class="p">:</span><span class="s2">"0x4ba69724e8f69de52f0125ad8b3c5c2cef33019bac3249e2c0a2192766d1721c"</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_gettransactionbyhash'>eth_getTransactionByHash</h3>
+</code></pre>
 <p>Returns the information about a transaction requested by transaction hash.</p>
 <h5 id='parameters-29'>Parameters</h5>
 <ol>
@@ -1503,9 +1502,9 @@ See all examples in the javascript section of the right panel.
 </ul>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_gettransactionbyblockhashandindex'>eth_getTransactionByBlockHashAndIndex</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'</span>
-</code></pre><h3 id='eth_gettransactionbyblockhashandindex'>eth_getTransactionByBlockHashAndIndex</h3>
+</code></pre>
 <p>Returns information about a transaction by block hash and transaction index position.</p>
 <h5 id='parameters-30'>Parameters</h5>
 <ol>
@@ -1521,9 +1520,9 @@ See all examples in the javascript section of the right panel.
 <p>See <a href="#eth_gettransactionbyhash">eth_getTransactionByHash</a></p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_gettransactionbyblocknumberandindex'>eth_getTransactionByBlockNumberAndIndex</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'</span>
-</code></pre><h3 id='eth_gettransactionbyblocknumberandindex'>eth_getTransactionByBlockNumberAndIndex</h3>
+</code></pre>
 <p>Returns information about a transaction by block number and transaction index position.</p>
 <h5 id='parameters-31'>Parameters</h5>
 <ol>
@@ -1539,7 +1538,7 @@ See all examples in the javascript section of the right panel.
 <p>See <a href="#eth_gettransactionbyhash">eth_getTransactionByHash</a></p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_gettransactionreceipt'>eth_getTransactionReceipt</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -1560,7 +1559,7 @@ See all examples in the javascript section of the right panel.
      <span class="nx">status</span><span class="p">:</span> <span class="s1">'0x1'</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_gettransactionreceipt'>eth_getTransactionReceipt</h3>
+</code></pre>
 <p>Returns the receipt of a transaction by transaction hash.</p>
 
 <p><strong>Note</strong> That the receipt is not available for pending transactions.</p>
@@ -1597,9 +1596,9 @@ See all examples in the javascript section of the right panel.
 </ul>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getunclebyblockhashandindex'>eth_getUncleByBlockHashAndIndex</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'</span>
-</code></pre><h3 id='eth_getunclebyblockhashandindex'>eth_getUncleByBlockHashAndIndex</h3>
+</code></pre>
 <p>Returns information about a uncle of a block by hash and uncle index position.</p>
 <h5 id='parameters-33'>Parameters</h5>
 <ol>
@@ -1619,9 +1618,9 @@ See all examples in the javascript section of the right panel.
 <p><strong>Note</strong>: An uncle doesn&#39;t contain individual transactions.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getunclebyblocknumberandindex'>eth_getUncleByBlockNumberAndIndex</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'</span>
-</code></pre><h3 id='eth_getunclebyblocknumberandindex'>eth_getUncleByBlockNumberAndIndex</h3>
+</code></pre>
 <p>Returns information about a uncle of a block by number and uncle index position.</p>
 <h5 id='parameters-34'>Parameters</h5>
 <ol>
@@ -1641,7 +1640,7 @@ See all examples in the javascript section of the right panel.
 <p>Result see <a href="#eth_getblockbyhash">eth_getBlockByHash</a></p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_newfilter'>eth_newFilter</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"topics":["0x0000000000000000000000000000000000000000000000000000000012341234"]}],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1650,7 +1649,7 @@ See all examples in the javascript section of the right panel.
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x1"</span> <span class="c1">// 1</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_newfilter'>eth_newFilter</h3>
+</code></pre>
 <p>Creates a filter object, based on filter options, to notify when the state changes (logs).
 To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getFilterChanges</a>.</p>
 <h5 id='a-note-on-specifying-topic-filters'>A note on specifying topic filters:</h5>
@@ -1682,7 +1681,7 @@ To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getF
 <p><code>QUANTITY</code> - A filter id.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_newblockfilter'>eth_newBlockFilter</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1691,7 +1690,7 @@ To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getF
   <span class="s2">"jsonrpc"</span><span class="p">:</span>  <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x1"</span> <span class="c1">// 1</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_newblockfilter'>eth_newBlockFilter</h3>
+</code></pre>
 <p>Creates a filter in the node, to notify when a new block arrives.
 To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getFilterChanges</a>.</p>
 <h5 id='parameters-36'>Parameters</h5>
@@ -1700,7 +1699,7 @@ To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getF
 <p><code>QUANTITY</code> - A filter id.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_newpendingtransactionfilter'>eth_newPendingTransactionFilter</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -1708,7 +1707,7 @@ To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getF
   <span class="s2">"jsonrpc"</span><span class="p">:</span>  <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x1"</span> <span class="c1">// 1</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_newpendingtransactionfilter'>eth_newPendingTransactionFilter</h3>
+</code></pre>
 <p>Creates a filter in the node, to notify when new pending transactions arrive.
 To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getFilterChanges</a>.</p>
 <h5 id='parameters-37'>Parameters</h5>
@@ -1717,7 +1716,7 @@ To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getF
 <p><code>QUANTITY</code> - A filter id.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_uninstallfilter'>eth_uninstallFilter</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0xb"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1726,7 +1725,7 @@ To check if the state has changed, call <a href="#eth_getfilterchanges">eth_getF
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_uninstallfilter'>eth_uninstallFilter</h3>
+</code></pre>
 <p>Uninstalls a filter with given id. Should always be called when watch is no longer needed.
 Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_getfilterchanges">eth_getFilterChanges</a> for a period of time.</p>
 <h5 id='parameters-38'>Parameters</h5>
@@ -1741,7 +1740,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p><code>Boolean</code> - <code>true</code> if the filter was successfully uninstalled, otherwise <code>false</code>.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getfilterchanges'>eth_getFilterChanges</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0x16"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1761,7 +1760,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
       <span class="p">...</span>
     <span class="p">}]</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_getfilterchanges'>eth_getFilterChanges</h3>
+</code></pre>
 <p>Polling method for a filter, which returns an array of logs which occurred since last poll.</p>
 <h5 id='parameters-39'>Parameters</h5>
 <ol>
@@ -1793,9 +1792,9 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 </ul>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getfilterlogs'>eth_getFilterLogs</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x16"],"id":74}'</span>
-</code></pre><h3 id='eth_getfilterlogs'>eth_getFilterLogs</h3>
+</code></pre>
 <p>Returns an array of all logs matching filter with given id.</p>
 <h5 id='parameters-40'>Parameters</h5>
 <ol>
@@ -1809,9 +1808,9 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p>See <a href="#eth_getfilterchanges">eth_getFilterChanges</a></p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getlogs'>eth_getLogs</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}'</span>
-</code></pre><h3 id='eth_getlogs'>eth_getLogs</h3>
+</code></pre>
 <p>Returns an array of all logs matching a given filter object.</p>
 <h5 id='parameters-41'>Parameters</h5>
 <ol>
@@ -1833,7 +1832,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p>See <a href="#eth_getfilterchanges">eth_getFilterChanges</a></p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getwork'>eth_getWork</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -1845,7 +1844,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
       <span class="s2">"0xd1ff1c01710000000000000000000000d1ff1c01710000000000000000000000"</span>
     <span class="p">]</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_getwork'>eth_getWork</h3>
+</code></pre>
 <p>Returns the hash of the current block, the seedHash, and the boundary condition to be met (&quot;target&quot;).</p>
 <h5 id='parameters-42'>Parameters</h5>
 <p>none</p>
@@ -1856,7 +1855,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
   3. <code>DATA</code>, 32 Bytes - the boundary condition (&quot;target&quot;), 2^256 / difficulty.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_submitwork'>eth_submitWork</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -1865,7 +1864,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_submitwork'>eth_submitWork</h3>
+</code></pre>
 <p>Used for submitting a proof-of-work solution.</p>
 <h5 id='parameters-43'>Parameters</h5>
 <ol>
@@ -1883,7 +1882,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p><code>Boolean</code> - returns <code>true</code> if the provided solution is valid, otherwise <code>false</code>.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_submithashrate'>eth_submitHashrate</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -1891,7 +1890,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_submithashrate'>eth_submitHashrate</h3>
+</code></pre>
 <p>Used for submitting mining hashrate.</p>
 <h5 id='parameters-44'>Parameters</h5>
 <ol>
@@ -1907,7 +1906,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p><code>Boolean</code> - returns <code>true</code> if submitting went through succesfully and <code>false</code> otherwise.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='eth_getproof'>eth_getProof</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_getProof","params":["0x1234567890123456789012345678901234567890",["0x0000000000000000000000000000000000000000000000000000000000000000","0x0000000000000000000000000000000000000000000000000000000000000001"],"latest"],"id":1}'</span> <span class="o">-</span><span class="nx">H</span> <span class="s2">"Content-type:application/json"</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//localhost:8545</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -1939,7 +1938,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre><h3 id='eth_getproof'>eth_getProof</h3>
+</code></pre>
 <p>Returns the account- and storage-values of the specified account including the Merkle-proof.</p>
 <h5 id='parameters-45'>Parameters</h5>
 <ol>
@@ -1973,7 +1972,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 </ul>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='db_putstring'>db_putString</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_putString","params":["testDB","myKey","myString"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -1981,7 +1980,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre><h3 id='db_putstring'>db_putString</h3>
+</code></pre>
 <p>Stores a string in the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
@@ -2001,7 +2000,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p><code>Boolean</code> - returns <code>true</code> if the value was stored, otherwise <code>false</code>.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='db_getstring'>db_getString</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_getString","params":["testDB","myKey"],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -2010,7 +2009,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"myString"</span>
 <span class="p">}</span>
-</code></pre><h3 id='db_getstring'>db_getString</h3>
+</code></pre>
 <p>Returns string from the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
@@ -2028,7 +2027,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p><code>String</code> - The previously stored string.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='db_puthex'>db_putHex</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_putHex","params":["testDB","myKey","0x68656c6c6f20776f726c64"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -2036,7 +2035,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre><h3 id='db_puthex'>db_putHex</h3>
+</code></pre>
 <p>Stores binary data in the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
@@ -2056,7 +2055,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p><code>Boolean</code> - returns <code>true</code> if the value was stored, otherwise <code>false</code>.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='db_gethex'>db_getHex</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_getHex","params":["testDB","myKey"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -2064,7 +2063,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x68656c6c6f20776f726c64"</span>
 <span class="p">}</span>
-</code></pre><h3 id='db_gethex'>db_getHex</h3>
+</code></pre>
 <p>Returns binary data from the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
@@ -2082,7 +2081,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p><code>DATA</code> - The previously stored data.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='shh_version'>shh_version</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_version","params":[],"id":67}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -2090,7 +2089,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"2"</span>
 <span class="p">}</span>
-</code></pre><h3 id='shh_version'>shh_version</h3>
+</code></pre>
 <p>Returns the current whisper protocol version.</p>
 <h5 id='parameters-50'>Parameters</h5>
 <p>none</p>
@@ -2098,7 +2097,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p><code>String</code> - The current whisper protocol version</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='shh_post'>shh_post</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_post","params":[{"from":"0xc931d93e97ab07fe42d923478ba2465f2..","topics": ["0x68656c6c6f20776f726c64"],"payload":"0x68656c6c6f20776f726c64","ttl":0x64,"priority":0x64}],"id":73}'</span>
 
 <span class="c1">// Result</span>
@@ -2107,7 +2106,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre><h3 id='shh_post'>shh_post</h3>
+</code></pre>
 <p>Sends a whisper message.</p>
 <h5 id='parameters-51'>Parameters</h5>
 <ol>
@@ -2135,7 +2134,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p><code>Boolean</code> - returns <code>true</code> if the message was send, otherwise <code>false</code>.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h4 id='shh_newidentity'>shh_newIdentity</h4><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_newIdentity","params":[],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -2143,7 +2142,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc931d93e97ab07fe42d923478ba2465f283f440fd6cabea4dd7a2c807108f651b7135d1d6ca9007d5b68aa497e4619ac10aa3b27726e1863c1fd9b570d99bbaf"</span>
 <span class="p">}</span>
-</code></pre><h4 id='shh_newidentity'>shh_newIdentity</h4>
+</code></pre>
 <p>Creates new whisper identity in the client.</p>
 <h5 id='parameters-52'>Parameters</h5>
 <p>none</p>
@@ -2151,7 +2150,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <p><code>DATA</code>, 60 Bytes - the address of the new identiy.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='shh_hasidentity'>shh_hasIdentity</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_hasIdentity","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -2159,7 +2158,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre><h3 id='shh_hasidentity'>shh_hasIdentity</h3>
+</code></pre>
 <p>Checks if the client hold the private keys for a given identity.</p>
 <h5 id='parameters-53'>Parameters</h5>
 <ol>
@@ -2174,7 +2173,7 @@ e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;
 <p><code>Boolean</code> - returns <code>true</code> if the client holds the privatekey for that identity, otherwise <code>false</code>.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='shh_newgroup'>shh_newGroup</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_newGroup","params":[],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -2182,7 +2181,7 @@ e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc65f283f440fd6cabea4dd7a2c807108f651b7135d1d6ca90931d93e97ab07fe42d923478ba2407d5b68aa497e4619ac10aa3b27726e1863c1fd9b570d99bbaf"</span>
 <span class="p">}</span>
-</code></pre><h3 id='shh_newgroup'>shh_newGroup</h3>
+</code></pre>
 <p>Creates a new group.</p>
 <h5 id='parameters-54'>Parameters</h5>
 <p>none</p>
@@ -2190,7 +2189,7 @@ e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;
 <p><code>DATA</code>, 60 Bytes - the address of the new group.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='shh_addtogroup'>shh_addToGroup</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_addToGroup","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -2198,7 +2197,7 @@ e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre><h3 id='shh_addtogroup'>shh_addToGroup</h3>
+</code></pre>
 <p>Adds a whisper identity to the group.</p>
 <h5 id='parameters-55'>Parameters</h5>
 <ol>
@@ -2213,7 +2212,7 @@ e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;
 <p><code>Boolean</code> - returns <code>true</code> if the identity was successfully added to the group, otherwise <code>false</code>.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='shh_newfilter'>shh_newFilter</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_newFilter","params":[{"topics": ['</span><span class="mh">0x12341234bf4b564f</span><span class="s1">'],"to": "0x2341234bf4b2341234bf4b564f..."}],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -2221,7 +2220,7 @@ e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x7"</span> <span class="c1">// 7</span>
 <span class="p">}</span>
-</code></pre><h3 id='shh_newfilter'>shh_newFilter</h3>
+</code></pre>
 <p>Creates filter to notify, when client receives whisper message matching the filter options.</p>
 <h5 id='parameters-56'>Parameters</h5>
 <ol>
@@ -2245,7 +2244,7 @@ e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;
 <p><code>QUANTITY</code> - The newly created filter.</p>
 
 <hr>
-<pre class="highlight javascript"><code><span class="c1">// Request</span>
+<h3 id='shh_uninstallfilter'>shh_uninstallFilter</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_uninstallFilter","params":["0x7"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -2253,7 +2252,7 @@ e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre><h3 id='shh_uninstallfilter'>shh_uninstallFilter</h3>
+</code></pre>
 <p>Uninstalls a filter with given id. Should always be called when watch is no longer needed.
 Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_getfilterchanges">shh_getFilterChanges</a> for a period of time.</p>
 <h5 id='parameters-57'>Parameters</h5>
@@ -2268,7 +2267,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <p><code>Boolean</code> - <code>true</code> if the filter was successfully uninstalled, otherwise <code>false</code>.</p>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='shh_getfilterchanges'>shh_getFilterChanges</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_getFilterChanges","params":["0x7"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
@@ -2286,7 +2285,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
     <span class="s2">"workProved"</span><span class="p">:</span> <span class="s2">"0x0"</span>
     <span class="p">}]</span>
 <span class="p">}</span>
-</code></pre><h3 id='shh_getfilterchanges'>shh_getFilterChanges</h3>
+</code></pre>
 <p>Polling method for whisper filters. Returns new messages since the last call of this method.</p>
 
 <p><strong>Note</strong> calling the <a href="#shh_getmessages">shh_getMessages</a> method, will reset the buffer for this method, so that you won&#39;t receive duplicate messages.</p>
@@ -2314,9 +2313,9 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 </ul>
 
 <hr>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<h3 id='shh_getmessages'>shh_getMessages</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_getMessages","params":["0x7"],"id":73}'</span>
-</code></pre><h3 id='shh_getmessages'>shh_getMessages</h3>
+</code></pre>
 <p>Get all messages matching a filter. Unlike <code>shh_getFilterChanges</code> this returns all messages.</p>
 <h5 id='parameters-59'>Parameters</h5>
 <ol>
@@ -2975,11 +2974,10 @@ chunker [string]: Chunking algorithm to use.</li>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
                 <a href="#" data-language-name="cpp">cpp</a>
                 <a href="#" data-language-name="go">go</a>
                 <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
