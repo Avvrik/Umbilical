@@ -377,7 +377,6 @@ none
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}'
-
 // Result
 {
   "id":1,
@@ -404,7 +403,9 @@ none
 
 ##### Returns
 
-`Object|Boolean`, An object with sync status data or `FALSE`, when not syncing:
+`Object|Boolean`, 
+
+An object with sync status data or `FALSE`, when not syncing:
 
 - `startingBlock`: `QUANTITY` - The block at which the import started (will only be reset, after the sync reached his head)
 
