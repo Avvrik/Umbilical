@@ -157,6 +157,10 @@ The examples also do not include the URL/IP & port combination which must be the
 
 ## JSON-RPC methods
 
+<aside class="notice">
+See all examples in the javascript section of the right panel.
+</aside>
+
 * [web3_clientVersion](#web3_clientversion)
 * [web3_sha3](#web3_sha3)
 * [net_version](#net_version)
@@ -1944,7 +1948,8 @@ Checks if the client hold the private keys for a given identity.
 
 
 params: [
-  "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"
+  "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03
+e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"
 ]
 
 
@@ -1996,7 +2001,8 @@ Adds a whisper identity to the group.
 
 
 params: [
-  "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"
+  "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03
+e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"
 ]
 
 
@@ -2031,7 +2037,8 @@ Creates filter to notify, when client receives whisper message matching the filt
 
 params: [{
    "topics": ['0x12341234bf4b564f'],
-   "to": "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"
+   "to": "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03
+e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"
 }]
 
 
