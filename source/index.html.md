@@ -2154,7 +2154,7 @@ See [shh_getFilterChanges](#shh_getfilterchanges)
 # IPFS API
 
 ***
-## block_get
+### block_get
 ```javascript
 ipfs.block.get(cid, function (err, block) {
   if (err) {
@@ -2187,7 +2187,7 @@ On success, the call to this endpoint will return with 200 and the following bod
 
 `This endpoint returns a `text/plain` response body.`
 ***
-## block_stat
+### block_stat
 ```javascript
 {
   key: 'QmPTkMuuL6PD8L2SwTwbcs1NPg14U8mRzerB1ZrrBrkSDD',
@@ -2218,7 +2218,7 @@ On success, the call to this endpoint will return with 200 and the following bod
     Size: 18
 }
 ***
-## cat
+### cat
 ```javascript
 ipfs.cat(ipfsPath, function (err, file) {
   if (err) {
@@ -2246,7 +2246,7 @@ On success, the call to this endpoint will return with 200 and the following bod
 This endpoint returns a `text/plain` response body.
 
 ***
-## dag_get
+### dag_get
 
 Get a dag node from IPFS.
 
@@ -2273,7 +2273,7 @@ On success, the call to this endpoint will return with 200 and the following bod
 }
 
 ***
-## files_cp
+### files_cp
 ```javascript
 // To copy a file
 ipfs.files.cp('/src-file', '/dst-file', (err) => {
@@ -2308,7 +2308,7 @@ On success, the call to this endpoint will return with 200 and the following bod
 This endpoint returns a `text/plain` response body.
 
 ***
-## files_flush
+### files_flush
 ```javascript
 ipfs.files.flush('/', (err) => {
   if (err) {
@@ -2334,7 +2334,7 @@ On success, the call to this endpoint will return with 200 and the following bod
 This endpoint returns a `text/plain` response body.
 
 ***
-## files_mkdir
+### files_mkdir
 ```javascript
 ipfs.files.mkdir('/my/beautiful/directory', (err) => {
   if (err) {
@@ -2359,7 +2359,7 @@ On success, the call to this endpoint will return with 200 and the following bod
 
 This endpoint returns a `text/plain` response body.
 ***
-## files_read
+### files_read
 ```javascript
 ipfs.files.read('/hello-world', (error, buf) => {
   console.log(buf.toString('utf8'))
@@ -2434,7 +2434,7 @@ On success, the call to this endpoint will return with 200 and the following bod
     Type: "file"
 }
 ***
-## get
+### get
 ```javascript
 const validCID = 'QmQ2r6iMNpky5f1m4cnm3Yqw8VSvjuKpTcK1X7dBR1LkJF'
 
@@ -2470,7 +2470,7 @@ On success, the call to this endpoint will return with 200 and the following bod
 This endpoint returns a `text/plain` response body.
 
 ***
-## id
+### id
 ```javascript
 ipfs.id(function (err, identity) {
   if (err) {
@@ -2516,7 +2516,7 @@ On success, the call to this endpoint will return with 200 and the following bod
     ProtocolVersion: "ipfs/0.1.0"
 }
 ***
-## object_data
+### object_data
 ```javascript
 const multihash = 'QmPb5f92FxKPYdT3QNBd1GKiL4tZUXUrzF4Hkpdr3Gf1gK'
 
@@ -2546,7 +2546,7 @@ On success, the call to this endpoint will return with 200 and the following bod
 
 This endpoint returns a `text/plain` response body.
 ***
-## object_get
+### object_get
 ```javascript
 const multihash = 'QmPb5f92FxKPYdT3QNBd1GKiL4tZUXUrzF4Hkpdr3Gf1gK'
 
@@ -2583,7 +2583,7 @@ On success, the call to this endpoint will return with 200 and the following bod
     Data: "version 1 of my text "
 }
 ***
-## object_stat
+### object_stat
 ```javascript
 const multihash = 'QmPTkMuuL6PD8L2SwTwbcs1NPg14U8mRzerB1ZrrBrkSDD'
 
@@ -2635,7 +2635,7 @@ On success, the call to this endpoint will return with 200 and the following bod
     CumulativeSize: 29
 }
 ***
-## pin_add
+### pin_add
 ```javascript
 ipfs.pin.add(hash, function (err) {})
 ```
@@ -2665,7 +2665,7 @@ On success, the call to this endpoint will return with 200 and the following bod
     ],
 }
 ***
-## version
+### version
 ```javascript
 ipfs.version((err, version) => {
   if (err) {
@@ -2707,7 +2707,7 @@ On success, the call to this endpoint will return with 200 and the following bod
     Golang: "go1.10"
 }
 ***
-## add
+### add
 ```javascript
 //In the browser, assuming ipfs = new Ipfs(...):
 
@@ -2767,7 +2767,7 @@ On success, the call to this endpoint will return with 200 and the following bod
     "Size": "2120"
 }
 ***
-## block_put
+### block_put
 ```javascript
 const buf = new Buffer('a serialized object')
 
@@ -2811,7 +2811,7 @@ On success, the call to this endpoint will return with 200 and the following bod
     "Size": 2392
 }
 ***
-## dag_put
+### dag_put
 ```javascript
 const obj = { simple: 'object' }
 
@@ -2848,7 +2848,7 @@ On success, the call to this endpoint will return with 200 and the following bod
     }
 }
 ***
-## files_write
+### files_write
 ```javascript
 ipfs.files.write('/hello-world', Buffer.from('Hello, world!'), (err) => {
   console.log(err)
@@ -2884,7 +2884,7 @@ On success, the call to this endpoint will return with 200 and the following bod
 }
 
 ***
-## object_put
+### object_put
 ```javascript
 const obj = {
   Data: new Buffer('Some data'),
