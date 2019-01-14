@@ -1796,7 +1796,15 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 </ul>
 
 <hr>
-<h4 id='db_putstring'>db_putString</h4>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_putString","params":["testDB","myKey","myString"],"id":73}'</span>
+<span class="c1">// Result</span>
+<span class="p">{</span>
+  <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
+  <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre><h3 id='db_putstring'>db_putString</h3>
 <p>Stores a string in the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
@@ -1806,25 +1814,26 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <li><code>String</code> - Key name.</li>
 <li><code>String</code> - String to store.</li>
 </ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">"testDB"</span><span class="p">,</span>
-  <span class="s2">"myKey"</span><span class="p">,</span>
-  <span class="s2">"myString"</span>
-<span class="p">]</span>
-</code></pre><h5 id='returns-46'>Returns</h5>
+
+<p>params: [
+  &quot;testDB&quot;,
+  &quot;myKey&quot;,
+  &quot;myString&quot;
+]</p>
+<h5 id='returns-46'>Returns</h5>
 <p><code>Boolean</code> - returns <code>true</code> if the value was stored, otherwise <code>false</code>.</p>
-<h5 id='example'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_putString","params":["testDB","myKey","myString"],"id":73}'</span>
+
+<hr>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_getString","params":["testDB","myKey"],"id":73}'</span>
 
 <span class="c1">// Result</span>
 <span class="p">{</span>
   <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"myString"</span>
 <span class="p">}</span>
-</code></pre>
-<hr>
-<h4 id='db_getstring'>db_getString</h4>
+</code></pre><h3 id='db_getstring'>db_getString</h3>
 <p>Returns string from the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
@@ -1839,18 +1848,17 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <span class="p">]</span>
 </code></pre><h5 id='returns-47'>Returns</h5>
 <p><code>String</code> - The previously stored string.</p>
-<h5 id='example-2'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_getString","params":["testDB","myKey"],"id":73}'</span>
 
+<hr>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_putHex","params":["testDB","myKey","0x68656c6c6f20776f726c64"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
   <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"myString"</span>
+  <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre>
-<hr>
-<h4 id='db_puthex'>db_putHex</h4>
+</code></pre><h3 id='db_puthex'>db_putHex</h3>
 <p>Stores binary data in the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
@@ -1860,25 +1868,25 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <li><code>String</code> - Key name.</li>
 <li><code>DATA</code> - The data to store.</li>
 </ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">"testDB"</span><span class="p">,</span>
-  <span class="s2">"myKey"</span><span class="p">,</span>
-  <span class="s2">"0x68656c6c6f20776f726c64"</span>
-<span class="p">]</span>
-</code></pre><h5 id='returns-48'>Returns</h5>
-<p><code>Boolean</code> - returns <code>true</code> if the value was stored, otherwise <code>false</code>.</p>
-<h5 id='example-3'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_putHex","params":["testDB","myKey","0x68656c6c6f20776f726c64"],"id":73}'</span>
 
+<p>params: [
+  &quot;testDB&quot;,
+  &quot;myKey&quot;,
+  &quot;0x68656c6c6f20776f726c64&quot;
+]</p>
+<h5 id='returns-48'>Returns</h5>
+<p><code>Boolean</code> - returns <code>true</code> if the value was stored, otherwise <code>false</code>.</p>
+
+<hr>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_getHex","params":["testDB","myKey"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
   <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x68656c6c6f20776f726c64"</span>
 <span class="p">}</span>
-</code></pre>
-<hr>
-<h4 id='db_gethex'>db_getHex</h4>
+</code></pre><h3 id='db_gethex'>db_getHex</h3>
 <p>Returns binary data from the local database.</p>
 
 <p><strong>Note</strong> this function is deprecated and will be removed in the future.</p>
@@ -1887,41 +1895,41 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <li><code>String</code> - Database name.</li>
 <li><code>String</code> - Key name.</li>
 </ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">"testDB"</span><span class="p">,</span>
-  <span class="s2">"myKey"</span><span class="p">,</span>
-<span class="p">]</span>
-</code></pre><h5 id='returns-49'>Returns</h5>
+
+<p>params: [
+  &quot;testDB&quot;,
+  &quot;myKey&quot;,
+]</p>
+<h5 id='returns-49'>Returns</h5>
 <p><code>DATA</code> - The previously stored data.</p>
-<h5 id='example-4'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"db_getHex","params":["testDB","myKey"],"id":73}'</span>
 
-<span class="c1">// Result</span>
-<span class="p">{</span>
-  <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x68656c6c6f20776f726c64"</span>
-<span class="p">}</span>
-</code></pre>
 <hr>
-<h4 id='shh_version'>shh_version</h4>
-<p>Returns the current whisper protocol version.</p>
-<h5 id='parameters-50'>Parameters</h5>
-<p>none</p>
-<h5 id='returns-50'>Returns</h5>
-<p><code>String</code> - The current whisper protocol version</p>
-<h5 id='example-5'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_version","params":[],"id":67}'</span>
-
 <span class="c1">// Result</span>
 <span class="p">{</span>
   <span class="s2">"id"</span><span class="p">:</span><span class="mi">67</span><span class="p">,</span>
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"2"</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='shh_version'>shh_version</h3>
+<p>Returns the current whisper protocol version.</p>
+<h5 id='parameters-50'>Parameters</h5>
+<p>none</p>
+<h5 id='returns-50'>Returns</h5>
+<p><code>String</code> - The current whisper protocol version</p>
+
 <hr>
-<h4 id='shh_post'>shh_post</h4>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_post","params":[{"from":"0xc931d93e97ab07fe42d923478ba2465f2..","topics": ["0x68656c6c6f20776f726c64"],"payload":"0x68656c6c6f20776f726c64","ttl":0x64,"priority":0x64}],"id":73}'</span>
+
+<span class="c1">// Result</span>
+<span class="p">{</span>
+  <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
+  <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre><h3 id='shh_post'>shh_post</h3>
 <p>Sends a whisper message.</p>
 <h5 id='parameters-51'>Parameters</h5>
 <ol>
@@ -1936,106 +1944,104 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <li><code>ttl</code>: <code>QUANTITY</code> - integer of the time to live in seconds.</li>
 </ul></li>
 </ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[{</span>
-  <span class="na">from</span><span class="p">:</span> <span class="s2">"0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"</span><span class="p">,</span>
-  <span class="na">to</span><span class="p">:</span> <span class="s2">"0x3e245533f97284d442460f2998cd41858798ddf04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a0d4d661997d3940272b717b1"</span><span class="p">,</span>
-  <span class="na">topics</span><span class="p">:</span> <span class="p">[</span><span class="s2">"0x776869737065722d636861742d636c69656e74"</span><span class="p">,</span> <span class="s2">"0x4d5a695276454c39425154466b61693532"</span><span class="p">],</span>
-  <span class="na">payload</span><span class="p">:</span> <span class="s2">"0x7b2274797065223a226d6"</span><span class="p">,</span>
-  <span class="na">priority</span><span class="p">:</span> <span class="s2">"0x64"</span><span class="p">,</span>
-  <span class="na">ttl</span><span class="p">:</span> <span class="s2">"0x64"</span><span class="p">,</span>
-<span class="p">}]</span>
-</code></pre><h5 id='returns-51'>Returns</h5>
+
+<p>params: [{
+  from: &quot;0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;,
+  to: &quot;0x3e245533f97284d442460f2998cd41858798ddf04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a0d4d661997d3940272b717b1&quot;,
+  topics: [&quot;0x776869737065722d636861742d636c69656e74&quot;, &quot;0x4d5a695276454c39425154466b61693532&quot;],
+  payload: &quot;0x7b2274797065223a226d6&quot;,
+  priority: &quot;0x64&quot;,
+  ttl: &quot;0x64&quot;,
+}]</p>
+<h5 id='returns-51'>Returns</h5>
 <p><code>Boolean</code> - returns <code>true</code> if the message was send, otherwise <code>false</code>.</p>
-<h5 id='example-6'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_post","params":[{"from":"0xc931d93e97ab07fe42d923478ba2465f2..","topics": ["0x68656c6c6f20776f726c64"],"payload":"0x68656c6c6f20776f726c64","ttl":0x64,"priority":0x64}],"id":73}'</span>
 
-<span class="c1">// Result</span>
-<span class="p">{</span>
-  <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
-<span class="p">}</span>
-</code></pre>
 <hr>
-<h4 id='shh_newidentity'>shh_newIdentity</h4>
-<p>Creates new whisper identity in the client.</p>
-<h5 id='parameters-52'>Parameters</h5>
-<p>none</p>
-<h5 id='returns-52'>Returns</h5>
-<p><code>DATA</code>, 60 Bytes - the address of the new identiy.</p>
-<h5 id='example-7'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_newIdentity","params":[],"id":73}'</span>
-
 <span class="c1">// Result</span>
 <span class="p">{</span>
   <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc931d93e97ab07fe42d923478ba2465f283f440fd6cabea4dd7a2c807108f651b7135d1d6ca9007d5b68aa497e4619ac10aa3b27726e1863c1fd9b570d99bbaf"</span>
 <span class="p">}</span>
-</code></pre>
-<hr>
-<h4 id='shh_hasidentity'>shh_hasIdentity</h4>
-<p>Checks if the client hold the private keys for a given identity.</p>
-<h5 id='parameters-53'>Parameters</h5>
-<ol>
-<li><code>DATA</code>, 60 Bytes - The identity address to check.</li>
-</ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">"0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"</span>
-<span class="p">]</span>
-</code></pre><h5 id='returns-53'>Returns</h5>
-<p><code>Boolean</code> - returns <code>true</code> if the client holds the privatekey for that identity, otherwise <code>false</code>.</p>
-<h5 id='example-8'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_hasIdentity","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'</span>
+</code></pre><h4 id='shh_newidentity'>shh_newIdentity</h4>
+<p>Creates new whisper identity in the client.</p>
+<h5 id='parameters-52'>Parameters</h5>
+<p>none</p>
+<h5 id='returns-52'>Returns</h5>
+<p><code>DATA</code>, 60 Bytes - the address of the new identiy.</p>
 
+<hr>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_hasIdentity","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
   <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre>
-<hr>
-<h4 id='shh_newgroup'>shh_newGroup</h4>
-<p>Creates a new group.</p>
-<h5 id='parameters-54'>Parameters</h5>
-<p>none</p>
-<h5 id='returns-54'>Returns</h5>
-<p><code>DATA</code>, 60 Bytes - the address of the new group.</p>
-<h5 id='example-9'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_newGroup","params":[],"id":73}'</span>
+</code></pre><h3 id='shh_hasidentity'>shh_hasIdentity</h3>
+<p>Checks if the client hold the private keys for a given identity.</p>
+<h5 id='parameters-53'>Parameters</h5>
+<ol>
+<li><code>DATA</code>, 60 Bytes - The identity address to check.</li>
+</ol>
 
+<p>params: [
+  &quot;0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;
+]</p>
+<h5 id='returns-53'>Returns</h5>
+<p><code>Boolean</code> - returns <code>true</code> if the client holds the privatekey for that identity, otherwise <code>false</code>.</p>
+
+<hr>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_newGroup","params":[],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
   <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0xc65f283f440fd6cabea4dd7a2c807108f651b7135d1d6ca90931d93e97ab07fe42d923478ba2407d5b68aa497e4619ac10aa3b27726e1863c1fd9b570d99bbaf"</span>
 <span class="p">}</span>
-</code></pre>
-<hr>
-<h4 id='shh_addtogroup'>shh_addToGroup</h4>
-<p>Adds a whisper identity to the group.</p>
-<h5 id='parameters-55'>Parameters</h5>
-<ol>
-<li><code>DATA</code>, 60 Bytes - The identity address to add to a group.</li>
-</ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">"0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"</span>
-<span class="p">]</span>
-</code></pre><h5 id='returns-55'>Returns</h5>
-<p><code>Boolean</code> - returns <code>true</code> if the identity was successfully added to the group, otherwise <code>false</code>.</p>
-<h5 id='example-10'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_addToGroup","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'</span>
+</code></pre><h3 id='shh_newgroup'>shh_newGroup</h3>
+<p>Creates a new group.</p>
+<h5 id='parameters-54'>Parameters</h5>
+<p>none</p>
+<h5 id='returns-54'>Returns</h5>
+<p><code>DATA</code>, 60 Bytes - the address of the new group.</p>
 
+<hr>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_addToGroup","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'</span>
 <span class="c1">// Result</span>
 <span class="p">{</span>
   <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
   <span class="s2">"jsonrpc"</span><span class="p">:</span> <span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='shh_addtogroup'>shh_addToGroup</h3>
+<p>Adds a whisper identity to the group.</p>
+<h5 id='parameters-55'>Parameters</h5>
+<ol>
+<li><code>DATA</code>, 60 Bytes - The identity address to add to a group.</li>
+</ol>
+
+<p>params: [
+  &quot;0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;
+]</p>
+<h5 id='returns-55'>Returns</h5>
+<p><code>Boolean</code> - returns <code>true</code> if the identity was successfully added to the group, otherwise <code>false</code>.</p>
+
 <hr>
-<h4 id='shh_newfilter'>shh_newFilter</h4>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_newFilter","params":[{"topics": ['</span><span class="mh">0x12341234bf4b564f</span><span class="s1">'],"to": "0x2341234bf4b2341234bf4b564f..."}],"id":73}'</span>
+<span class="c1">// Result</span>
+<span class="p">{</span>
+  <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
+  <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x7"</span> <span class="c1">// 7</span>
+<span class="p">}</span>
+</code></pre><h3 id='shh_newfilter'>shh_newFilter</h3>
 <p>Creates filter to notify, when client receives whisper message matching the filter options.</p>
 <h5 id='parameters-56'>Parameters</h5>
 <ol>
@@ -2049,74 +2055,40 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#eth_ge
 <li><code>[null, A, B] = ANYTHING &amp;&amp; A &amp;&amp; B</code> <code>null</code> works as a wildcard</li>
 </ul></li>
 </ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[{</span>
-   <span class="s2">"topics"</span><span class="p">:</span> <span class="p">[</span><span class="s1">'0x12341234bf4b564f'</span><span class="p">],</span>
-   <span class="s2">"to"</span><span class="p">:</span> <span class="s2">"0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"</span>
-<span class="p">}]</span>
-</code></pre><h5 id='returns-56'>Returns</h5>
+
+<p>params: [{
+   &quot;topics&quot;: [&#39;0x12341234bf4b564f&#39;],
+   &quot;to&quot;: &quot;0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1&quot;
+}]</p>
+<h5 id='returns-56'>Returns</h5>
 <p><code>QUANTITY</code> - The newly created filter.</p>
-<h5 id='example-11'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_newFilter","params":[{"topics": ['</span><span class="mh">0x12341234bf4b564f</span><span class="s1">'],"to": "0x2341234bf4b2341234bf4b564f..."}],"id":73}'</span>
 
-<span class="c1">// Result</span>
-<span class="p">{</span>
-  <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="p">:</span> <span class="s2">"0x7"</span> <span class="c1">// 7</span>
-<span class="p">}</span>
-</code></pre>
 <hr>
-<h4 id='shh_uninstallfilter'>shh_uninstallFilter</h4>
-<p>Uninstalls a filter with given id. Should always be called when watch is no longer needed.
-Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_getfilterchanges">shh_getFilterChanges</a> for a period of time.</p>
-<h5 id='parameters-57'>Parameters</h5>
-<ol>
-<li><code>QUANTITY</code> - The filter id.</li>
-</ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">"0x7"</span> <span class="c1">// 7</span>
-<span class="p">]</span>
-</code></pre><h5 id='returns-57'>Returns</h5>
-<p><code>Boolean</code> - <code>true</code> if the filter was successfully uninstalled, otherwise <code>false</code>.</p>
-<h5 id='example-12'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<pre class="highlight javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_uninstallFilter","params":["0x7"],"id":73}'</span>
-
 <span class="c1">// Result</span>
 <span class="p">{</span>
   <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
   <span class="s2">"jsonrpc"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-</code></pre>
-<hr>
-<h4 id='shh_getfilterchanges'>shh_getFilterChanges</h4>
-<p>Polling method for whisper filters. Returns new messages since the last call of this method.</p>
-
-<p><strong>Note</strong> calling the <a href="#shh_getmessages">shh_getMessages</a> method, will reset the buffer for this method, so that you won&#39;t receive duplicate messages.</p>
-<h5 id='parameters-58'>Parameters</h5>
+</code></pre><h3 id='shh_uninstallfilter'>shh_uninstallFilter</h3>
+<p>Uninstalls a filter with given id. Should always be called when watch is no longer needed.
+Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_getfilterchanges">shh_getFilterChanges</a> for a period of time.</p>
+<h5 id='parameters-57'>Parameters</h5>
 <ol>
 <li><code>QUANTITY</code> - The filter id.</li>
 </ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">"0x7"</span> <span class="c1">// 7</span>
-<span class="p">]</span>
-</code></pre><h5 id='returns-58'>Returns</h5>
-<p><code>Array</code> - Array of messages received since last poll:</p>
 
-<ul>
-<li><code>hash</code>: <code>DATA</code>, 32 Bytes (?) - The hash of the message.</li>
-<li><code>from</code>: <code>DATA</code>, 60 Bytes - The sender of the message, if a sender was specified.</li>
-<li><code>to</code>: <code>DATA</code>, 60 Bytes - The receiver of the message, if a receiver was specified.</li>
-<li><code>expiry</code>: <code>QUANTITY</code> - Integer of the time in seconds when this message should expire (?).</li>
-<li><code>ttl</code>: <code>QUANTITY</code> -  Integer of the time the message should float in the system in seconds (?).</li>
-<li><code>sent</code>: <code>QUANTITY</code> -  Integer of the unix timestamp when the message was sent.</li>
-<li><code>topics</code>: <code>Array of DATA</code> - Array of <code>DATA</code> topics the message contained.</li>
-<li><code>payload</code>: <code>DATA</code> - The payload of the message.</li>
-<li><code>workProved</code>: <code>QUANTITY</code> - Integer of the work this message required before it was send (?).</li>
-</ul>
-<h5 id='example-13'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
+<p>params: [
+  &quot;0x7&quot; // 7
+]</p>
+<h5 id='returns-57'>Returns</h5>
+<p><code>Boolean</code> - <code>true</code> if the filter was successfully uninstalled, otherwise <code>false</code>.</p>
+
+<hr>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_getFilterChanges","params":["0x7"],"id":73}'</span>
-
 <span class="c1">// Result</span>
 <span class="p">{</span>
   <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
@@ -2133,23 +2105,48 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
     <span class="s2">"workProved"</span><span class="p">:</span> <span class="s2">"0x0"</span>
     <span class="p">}]</span>
 <span class="p">}</span>
-</code></pre>
+</code></pre><h3 id='shh_getfilterchanges'>shh_getFilterChanges</h3>
+<p>Polling method for whisper filters. Returns new messages since the last call of this method.</p>
+
+<p><strong>Note</strong> calling the <a href="#shh_getmessages">shh_getMessages</a> method, will reset the buffer for this method, so that you won&#39;t receive duplicate messages.</p>
+<h5 id='parameters-58'>Parameters</h5>
+<ol>
+<li><code>QUANTITY</code> - The filter id.</li>
+</ol>
+
+<p>params: [
+  &quot;0x7&quot; // 7
+]</p>
+<h5 id='returns-58'>Returns</h5>
+<p><code>Array</code> - Array of messages received since last poll:</p>
+
+<ul>
+<li><code>hash</code>: <code>DATA</code>, 32 Bytes (?) - The hash of the message.</li>
+<li><code>from</code>: <code>DATA</code>, 60 Bytes - The sender of the message, if a sender was specified.</li>
+<li><code>to</code>: <code>DATA</code>, 60 Bytes - The receiver of the message, if a receiver was specified.</li>
+<li><code>expiry</code>: <code>QUANTITY</code> - Integer of the time in seconds when this message should expire (?).</li>
+<li><code>ttl</code>: <code>QUANTITY</code> -  Integer of the time the message should float in the system in seconds (?).</li>
+<li><code>sent</code>: <code>QUANTITY</code> -  Integer of the unix timestamp when the message was sent.</li>
+<li><code>topics</code>: <code>Array of DATA</code> - Array of <code>DATA</code> topics the message contained.</li>
+<li><code>payload</code>: <code>DATA</code> - The payload of the message.</li>
+<li><code>workProved</code>: <code>QUANTITY</code> - Integer of the work this message required before it was send (?).</li>
+</ul>
+
 <hr>
-<h4 id='shh_getmessages'>shh_getMessages</h4>
+<pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
+<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_getMessages","params":["0x7"],"id":73}'</span>
+</code></pre><h3 id='shh_getmessages'>shh_getMessages</h3>
 <p>Get all messages matching a filter. Unlike <code>shh_getFilterChanges</code> this returns all messages.</p>
 <h5 id='parameters-59'>Parameters</h5>
 <ol>
 <li><code>QUANTITY</code> - The filter id.</li>
 </ol>
-<pre class="highlight javascript"><code><span class="nx">params</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">"0x7"</span> <span class="c1">// 7</span>
-<span class="p">]</span>
-</code></pre><h5 id='returns-59'>Returns</h5>
+
+<p>params: [
+  &quot;0x7&quot; // 7
+]</p>
+<h5 id='returns-59'>Returns</h5>
 <p>See <a href="#shh_getfilterchanges">shh_getFilterChanges</a></p>
-<h5 id='example-14'>Example</h5><pre class="highlight javascript"><code><span class="c1">// Request</span>
-<span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"shh_getMessages","params":["0x7"],"id":73}'</span>
-</code></pre>
-<p>Result see <a href="#shh_getfilterchanges">shh_getFilterChanges</a></p>
 <h1 id='ipfs-api'>IPFS API</h1><h2 id='block_get'>block_get</h2><h3 id='api-v0-block-get'>/api/v0/block/get</h3>
 <p>Get a raw IPFS block.</p>
 <h4 id='request'>REQUEST</h4>
@@ -2158,7 +2155,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <ul>
 <li><code>arg</code> <em>[required]</em> - The base58 multihash of an existing block to get.</li>
 </ul>
-<h4 id='example-15'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/get?arg=QmaYL7E4gDTPNfLxrCEEEcNJgcHBJ55NxxTnxpDKWqMtJ3"</span>
 </code></pre><h4 id='response'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2171,7 +2168,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/get?arg=QmaYL7E4
 <ul>
 <li><code>arg</code> <em>[required]</em> - The base58 multihash of an existing block to stat.</li>
 </ul>
-<h4 id='example-16'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-2'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/stat?arg=QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM"</span>
 </code></pre><h4 id='response-2'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2192,7 +2189,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/stat?arg=QmfQ5QA
 <ul>
 <li><code>arg</code> <em>[required]</em> - The IPFS object hash</li>
 </ul>
-<h4 id='example-17'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-3'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/cat?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"</span>
 </code></pre><h4 id='response-3'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2205,7 +2202,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/cat?arg=QmZtmD2qt6fJot
 <ul>
 <li><code>arg</code> <em>[required]</em> - The IPFS object hash</li>
 </ul>
-<h4 id='example-18'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-4'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/get?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"</span>
 </code></pre><h4 id='response-4'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2226,7 +2223,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/get?arg=QmZtmD2qt6
 <ul>
 <li><code>arg</code> <em>[required]</em> - The IPFS object hash; the path to resolve</li>
 </ul>
-<h4 id='example-19'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-5'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/resolve?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"</span>
 </code></pre><h4 id='response-5'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2250,7 +2247,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/resolve?arg=QmZtmD
 <li><code>arg</code> <em>[Required]</em> - Source object to copy. ( the ipfs/[hash] link )</li>
 <li><code>arg</code> <em>[Required]</em> - Destination to copy object to. ( on the MFS )</li>
 </ul>
-<h4 id='example-20'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-6'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
  curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/cp?arg=/ipfs/QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3&amp;arg=/ipfs-examples-docs-001"</span>
 </code></pre><h4 id='response-6'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2263,7 +2260,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/resolve?arg=QmZtmD
 <ul>
 <li><code>arg</code> <em>[required]</em> - Path to file to be read.</li>
 </ul>
-<h4 id='example-21'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-7'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/flush?arg=/ipfs-docs-example"</span>
 </code></pre><h4 id='response-7'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2276,7 +2273,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/flush?arg=/ipfs-
 <ul>
 <li><code>arg</code> <em>[Required]</em> - Path to dir to make.</li>
 </ul>
-<h4 id='example-22'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-8'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
  curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/mkdir?arg=/ipfs-examples-dir"</span>
 </code></pre><h4 id='response-8'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2291,7 +2288,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/flush?arg=/ipfs-
 <li><code>offset</code> <em>[optional]</em> - Byte offset to begin reading from.</li>
 <li><code>count</code> <em>[optional]</em> - Maximum number of bytes to read.</li>
 </ul>
-<h4 id='example-23'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-9'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/read?arg=/ipfs-docs-example"</span>
 </code></pre><h4 id='response-9'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2307,7 +2304,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/read?arg=/ipfs-d
 <li><code>hash</code> <em>[optional]</em> - Print only hash.</li>
 <li><code>size</code> <em>[optional]</em> - Print only size.</li>
 </ul>
-<h4 id='example-24'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-10'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/stat?arg=/ipfs-docs-example"</span>
 </code></pre><h4 id='response-10'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2338,7 +2335,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/stat?arg=/ipfs-d
 <li><code>compress</code> <em>[optional]</em> - Compress the output with GZIP compression. Default is “false”. </li>
 <li><code>compression-level</code> <em>[optional]</em> - The level of compression (1-9). Default: “-1”. </li>
 </ul>
-<h4 id='example-25'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-11'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/get?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy&amp;archive=true"</span>
 </code></pre><h4 id='response-11'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2352,7 +2349,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/get?arg=QmZtmD2qt6fJot
 <li><code>arg</code> <em>[optional]</em> - Peer ID of node to look up.</li>
 <li><code>format</code> <em>[optional]</em> - Optional output format</li>
 </ul>
-<h4 id='example-26'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-12'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/id?arg=Qmdnso85PCsvwSPp9NDZHqfoK872onaw2rgckgJSkWdK5N"</span>
 </code></pre><h4 id='response-12'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2385,7 +2382,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/id?arg=Qmdnso85PCsvwSP
 <ul>
 <li><code>arg</code> <em>[required]</em> - Key of the object to retrieve, in base58-encoded multihash format. </li>
 </ul>
-<h4 id='example-27'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-13'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/data?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"</span>
 </code></pre><h4 id='response-13'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2398,7 +2395,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/data?arg=QmZtmD
 <ul>
 <li><code>arg</code> <em>[required]</em> - Key of the object to retrieve, in base58-encoded multihash format. </li>
 </ul>
-<h4 id='example-28'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-14'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/get?arg=QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM"</span>
 </code></pre><h4 id='response-14'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2419,7 +2416,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/get?arg=QmfQ5QA
 <ul>
 <li><code>arg</code> <em>[required]</em> - Key of the object to retrieve, in base58-encoded multihash format. </li>
 </ul>
-<h4 id='example-29'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-15'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/stat?arg=QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy"</span>
 </code></pre><h4 id='response-15'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2450,7 +2447,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/stat?arg=QmZtmD
 <li><code>recursive</code> <em>[Optional]</em> - Recursively pin the object linked to by the specified object(s). Default: “true”</li>
 <li><code>progress</code> <em>[Optional]</em> - Show progress. </li>
 </ul>
-<h4 id='example-30'>EXAMPLE</h4>
+<h4 id='example-16'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/pin/add?arg=/ipfs/QmSTkR1kkqMuGEeBS49dxVJjgHRMH6cUYa7D3tcHDQ3ea3"</span> 
@@ -2476,7 +2473,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/pin/add?arg=/ipfs/QmST
 <li><code>repo</code> <em>[optional]</em> - Show repo version. Default is false</li>
 <li><code>all</code> <em>[optional]</em> - Show all version information. Default is false</li>
 </ul>
-<h4 id='example-31'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
+<h4 id='example-17'>EXAMPLE</h4><pre class="highlight shell"><code>// GET
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/version"</span>
 </code></pre><h4 id='response-17'>RESPONSE</h4>
 <p>On success, the call to this endpoint will return with 200 and the following body:</p>
@@ -2519,7 +2516,7 @@ chunker [string]: Chunking algorithm to use.</li>
 <li><code>cid-version</code> [int]: Cid version. Non-zero value will change default of ‘raw-leaves’ to true. (experimental). Default: “0”.</li>
 <li><code>hash</code> [string]: Hash function to use. Will set Cid version to 1 if used. (experimental). Default: “sha2-256”.</li>
 </ul>
-<h4 id='example-32'>EXAMPLE</h4>
+<h4 id='example-18'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// POST
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/add?pin=false"</span> <span class="se">\</span>
@@ -2550,7 +2547,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/add?pin=false"</span> 
 <li><code>mhtype</code> <em>[Optional]</em> - multihash hash function. Default: “sha2-256”.</li>
 <li><code>mhlen</code> <em>[Optional]</em> - multihash hash length. Default: “-1”. </li>
 </ul>
-<h4 id='example-33'>EXAMPLE</h4>
+<h4 id='example-19'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// POST
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/put"</span> <span class="se">\</span>
@@ -2580,7 +2577,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/block/put"</span> <spa
 <li><code>input-enc</code> <em>[Optional]</em> - Format that the input object will be. Default: “json”. </li>
 <li><code>hash</code> <em>[Optional]</em> - Hash function to use.</li>
 </ul>
-<h4 id='example-34'>EXAMPLE</h4>
+<h4 id='example-20'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// POST
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/put?format=cbor&amp;input-enc=json&amp;pin=false"</span> <span class="se">\</span>
@@ -2611,7 +2608,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/dag/put?format=cbor&am
 <li><code>truncate</code> <em>[Optional]</em> - Truncate the file to size zero before writing. </li>
 <li><code>count</code> <em>[Optional]</em> - Maximum number of bytes to read.</li>
 </ul>
-<h4 id='example-35'>EXAMPLE</h4>
+<h4 id='example-21'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// POST
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/write?arg=/ipfs-file-test?create=true"</span> <span class="se">\</span>
@@ -2640,7 +2637,7 @@ curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/files/write?arg=/ipfs-
 <li><code>datafieldenc</code> <em>[Optional]</em> - Encoding type of the data field, either “text” or “base64”. Default: “text”.</li>
 <li><code>pin</code> <em>[Optional]</em> - Pin this object when adding. Default: “false”.</li>
 </ul>
-<h4 id='example-36'>EXAMPLE</h4>
+<h4 id='example-22'>EXAMPLE</h4>
 <p>Argument &#39;file&#39; is of file type. This endpoint expects a file in the body of the request as <code>multipart/form-data</code>.</p>
 <pre class="highlight shell"><code>// POST
 curl <span class="s2">"https://ipfs.infura.io:5001/api/v0/object/put?inputenc=json&amp;datafieldenc=text&amp;pin=false"</span> <span class="se">\</span>
