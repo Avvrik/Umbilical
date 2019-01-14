@@ -464,42 +464,44 @@
                   </li>
                   <li>
                     <a href="#files_stat" class="toc-h2 toc-link" data-title="files_stat">files_stat</a>
-                  </li>
-                  <li>
-                    <a href="#get" class="toc-h2 toc-link" data-title="get">get</a>
-                  </li>
-                  <li>
-                    <a href="#id" class="toc-h2 toc-link" data-title="id">id</a>
-                  </li>
-                  <li>
-                    <a href="#object_data" class="toc-h2 toc-link" data-title="object_data">object_data</a>
-                  </li>
-                  <li>
-                    <a href="#object_get" class="toc-h2 toc-link" data-title="object_get">object_get</a>
-                  </li>
-                  <li>
-                    <a href="#object_stat" class="toc-h2 toc-link" data-title="object_stat">object_stat</a>
-                  </li>
-                  <li>
-                    <a href="#pin_add" class="toc-h2 toc-link" data-title="pin_add">pin_add</a>
-                  </li>
-                  <li>
-                    <a href="#version" class="toc-h2 toc-link" data-title="version">version</a>
-                  </li>
-                  <li>
-                    <a href="#add" class="toc-h2 toc-link" data-title="add">add</a>
-                  </li>
-                  <li>
-                    <a href="#block_put" class="toc-h2 toc-link" data-title="block_put">block_put</a>
-                  </li>
-                  <li>
-                    <a href="#dag_put" class="toc-h2 toc-link" data-title="dag_put">dag_put</a>
-                  </li>
-                  <li>
-                    <a href="#files_write" class="toc-h2 toc-link" data-title="files_write">files_write</a>
-                  </li>
-                  <li>
-                    <a href="#object_put" class="toc-h2 toc-link" data-title="object_put">object_put</a>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#get" class="toc-h3 toc-link" data-title="get">get</a>
+                        </li>
+                        <li>
+                          <a href="#id" class="toc-h3 toc-link" data-title="id">id</a>
+                        </li>
+                        <li>
+                          <a href="#object_data" class="toc-h3 toc-link" data-title="object_data">object_data</a>
+                        </li>
+                        <li>
+                          <a href="#object_get" class="toc-h3 toc-link" data-title="object_get">object_get</a>
+                        </li>
+                        <li>
+                          <a href="#object_stat" class="toc-h3 toc-link" data-title="object_stat">object_stat</a>
+                        </li>
+                        <li>
+                          <a href="#pin_add" class="toc-h3 toc-link" data-title="pin_add">pin_add</a>
+                        </li>
+                        <li>
+                          <a href="#version" class="toc-h3 toc-link" data-title="version">version</a>
+                        </li>
+                        <li>
+                          <a href="#add" class="toc-h3 toc-link" data-title="add">add</a>
+                        </li>
+                        <li>
+                          <a href="#block_put" class="toc-h3 toc-link" data-title="block_put">block_put</a>
+                        </li>
+                        <li>
+                          <a href="#dag_put" class="toc-h3 toc-link" data-title="dag_put">dag_put</a>
+                        </li>
+                        <li>
+                          <a href="#files_write" class="toc-h3 toc-link" data-title="files_write">files_write</a>
+                        </li>
+                        <li>
+                          <a href="#object_put" class="toc-h3 toc-link" data-title="object_put">object_put</a>
+                        </li>
+                    </ul>
                   </li>
               </ul>
           </li>
@@ -2329,7 +2331,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <p>See <a href="#shh_getfilterchanges">shh_getFilterChanges</a></p>
 <h1 id='ipfs-api'>IPFS API</h1>
 <hr>
-<h2 id='block_get'>block_get</h2><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">block</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">cid</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">block</span><span class="p">)</span> <span class="p">{</span>
+<h3 id='block_get'>block_get</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">block</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">cid</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">block</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">throw</span> <span class="nx">err</span>
   <span class="p">}</span>
@@ -2354,7 +2356,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <p><code>This endpoint returns a</code>text/plain<code>response body.</code></p>
 
 <hr>
-<h2 id='block_stat'>block_stat</h2><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+<h3 id='block_stat'>block_stat</h3><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="nl">key</span><span class="p">:</span> <span class="s1">'QmPTkMuuL6PD8L2SwTwbcs1NPg14U8mRzerB1ZrrBrkSDD'</span><span class="p">,</span>
   <span class="nx">size</span><span class="p">:</span> <span class="mi">10</span>
 <span class="p">}</span>
@@ -2380,7 +2382,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 }</p>
 
 <hr>
-<h2 id='cat'>cat</h2><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">cat</span><span class="p">(</span><span class="nx">ipfsPath</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+<h3 id='cat'>cat</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">cat</span><span class="p">(</span><span class="nx">ipfsPath</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">throw</span> <span class="nx">err</span>
   <span class="p">}</span>
@@ -2401,7 +2403,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <p>This endpoint returns a <code>text/plain</code> response body.</p>
 
 <hr>
-<h2 id='dag_get'>dag_get</h2>
+<h3 id='dag_get'>dag_get</h3>
 <p>Get a dag node from IPFS.</p>
 <h4 id='request-4'>Request</h4>
 <p><code>ipfs.dag.get(cid, [path], [options], [callback])</code></p>
@@ -2423,7 +2425,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 }</p>
 
 <hr>
-<h2 id='files_cp'>files_cp</h2><pre class="highlight javascript tab-javascript"><code><span class="c1">// To copy a file</span>
+<h3 id='files_cp'>files_cp</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">// To copy a file</span>
 <span class="nx">ipfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">cp</span><span class="p">(</span><span class="s1">'/src-file'</span><span class="p">,</span> <span class="s1">'/dst-file'</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
@@ -2450,7 +2452,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <p>This endpoint returns a <code>text/plain</code> response body.</p>
 
 <hr>
-<h2 id='files_flush'>files_flush</h2><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">flush</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<h3 id='files_flush'>files_flush</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">flush</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
   <span class="p">}</span>
@@ -2469,7 +2471,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <p>This endpoint returns a <code>text/plain</code> response body.</p>
 
 <hr>
-<h2 id='files_mkdir'>files_mkdir</h2><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">mkdir</span><span class="p">(</span><span class="s1">'/my/beautiful/directory'</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<h3 id='files_mkdir'>files_mkdir</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">mkdir</span><span class="p">(</span><span class="s1">'/my/beautiful/directory'</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
   <span class="p">}</span>
@@ -2488,7 +2490,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <p>This endpoint returns a <code>text/plain</code> response body.</p>
 
 <hr>
-<h2 id='files_read'>files_read</h2><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="s1">'/hello-world'</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">buf</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<h3 id='files_read'>files_read</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="s1">'/hello-world'</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">buf</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buf</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s1">'utf8'</span><span class="p">))</span>
 <span class="p">})</span>
 
@@ -2550,7 +2552,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 }</p>
 
 <hr>
-<h2 id='get'>get</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">validCID</span> <span class="o">=</span> <span class="s1">'QmQ2r6iMNpky5f1m4cnm3Yqw8VSvjuKpTcK1X7dBR1LkJF'</span>
+<h3 id='get'>get</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">validCID</span> <span class="o">=</span> <span class="s1">'QmQ2r6iMNpky5f1m4cnm3Yqw8VSvjuKpTcK1X7dBR1LkJF'</span>
 
 <span class="nx">ipfs</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">validCID</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">files</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">files</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">file</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -2576,7 +2578,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <p>This endpoint returns a <code>text/plain</code> response body.</p>
 
 <hr>
-<h2 id='id'>id</h2><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">identity</span><span class="p">)</span> <span class="p">{</span>
+<h3 id='id'>id</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">identity</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">throw</span> <span class="nx">err</span>
   <span class="p">}</span>
@@ -2617,7 +2619,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 }</p>
 
 <hr>
-<h2 id='object_data'>object_data</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">multihash</span> <span class="o">=</span> <span class="s1">'QmPb5f92FxKPYdT3QNBd1GKiL4tZUXUrzF4Hkpdr3Gf1gK'</span>
+<h3 id='object_data'>object_data</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">multihash</span> <span class="o">=</span> <span class="s1">'QmPb5f92FxKPYdT3QNBd1GKiL4tZUXUrzF4Hkpdr3Gf1gK'</span>
 
 <span class="nx">ipfs</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">multihash</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
@@ -2641,7 +2643,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 <p>This endpoint returns a <code>text/plain</code> response body.</p>
 
 <hr>
-<h2 id='object_get'>object_get</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">multihash</span> <span class="o">=</span> <span class="s1">'QmPb5f92FxKPYdT3QNBd1GKiL4tZUXUrzF4Hkpdr3Gf1gK'</span>
+<h3 id='object_get'>object_get</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">multihash</span> <span class="o">=</span> <span class="s1">'QmPb5f92FxKPYdT3QNBd1GKiL4tZUXUrzF4Hkpdr3Gf1gK'</span>
 
 <span class="nx">ipfs</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">multihash</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">node</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
@@ -2673,7 +2675,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 }</p>
 
 <hr>
-<h2 id='object_stat'>object_stat</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">multihash</span> <span class="o">=</span> <span class="s1">'QmPTkMuuL6PD8L2SwTwbcs1NPg14U8mRzerB1ZrrBrkSDD'</span>
+<h3 id='object_stat'>object_stat</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">multihash</span> <span class="o">=</span> <span class="s1">'QmPTkMuuL6PD8L2SwTwbcs1NPg14U8mRzerB1ZrrBrkSDD'</span>
 
 <span class="nx">ipfs</span><span class="p">.</span><span class="nx">object</span><span class="p">.</span><span class="nx">stat</span><span class="p">(</span><span class="nx">multihash</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">stats</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
@@ -2720,7 +2722,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 }</p>
 
 <hr>
-<h2 id='pin_add'>pin_add</h2><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">pin</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">hash</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{})</span>
+<h3 id='pin_add'>pin_add</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">pin</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">hash</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{})</span>
 </code></pre>
 <p>Pin objects to local storage.</p>
 <h4 id='request-15'>Request</h4>
@@ -2745,7 +2747,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 }</p>
 
 <hr>
-<h2 id='version'>version</h2><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">version</span><span class="p">((</span><span class="nx">err</span><span class="p">,</span> <span class="nx">version</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<h3 id='version'>version</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">version</span><span class="p">((</span><span class="nx">err</span><span class="p">,</span> <span class="nx">version</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">throw</span> <span class="nx">err</span>
   <span class="p">}</span>
@@ -2782,7 +2784,7 @@ Additonally Filters timeout when they aren&#39;t requested with <a href="#shh_ge
 }</p>
 
 <hr>
-<h2 id='add'>add</h2><pre class="highlight javascript tab-javascript"><code><span class="c1">//In the browser, assuming ipfs = new Ipfs(...):</span>
+<h3 id='add'>add</h3><pre class="highlight javascript tab-javascript"><code><span class="c1">//In the browser, assuming ipfs = new Ipfs(...):</span>
 
 <span class="kd">let</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">ipfs</span><span class="p">.</span><span class="nx">types</span><span class="p">.</span><span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s1">'ABC'</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">ipfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
@@ -2836,7 +2838,7 @@ chunker [string]: Chunking algorithm to use.</li>
 }</p>
 
 <hr>
-<h2 id='block_put'>block_put</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">buf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="s1">'a serialized object'</span><span class="p">)</span>
+<h3 id='block_put'>block_put</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">buf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="s1">'a serialized object'</span><span class="p">)</span>
 
 <span class="nx">ipfs</span><span class="p">.</span><span class="nx">block</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">buf</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">block</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="k">throw</span> <span class="nx">err</span> <span class="p">}</span>
@@ -2874,7 +2876,7 @@ chunker [string]: Chunking algorithm to use.</li>
 }</p>
 
 <hr>
-<h2 id='dag_put'>dag_put</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">simple</span><span class="p">:</span> <span class="s1">'object'</span> <span class="p">}</span>
+<h3 id='dag_put'>dag_put</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">simple</span><span class="p">:</span> <span class="s1">'object'</span> <span class="p">}</span>
 
 <span class="nx">ipfs</span><span class="p">.</span><span class="nx">dag</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="p">{</span> <span class="na">format</span><span class="p">:</span> <span class="s1">'dag-cbor'</span><span class="p">,</span> <span class="na">hashAlg</span><span class="p">:</span> <span class="s1">'sha3-512'</span> <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">cid</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cid</span><span class="p">.</span><span class="nx">toBaseEncodedString</span><span class="p">())</span>
@@ -2906,7 +2908,7 @@ chunker [string]: Chunking algorithm to use.</li>
 }</p>
 
 <hr>
-<h2 id='files_write'>files_write</h2><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">'/hello-world'</span><span class="p">,</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s1">'Hello, world!'</span><span class="p">),</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<h3 id='files_write'>files_write</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">ipfs</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">'/hello-world'</span><span class="p">,</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s1">'Hello, world!'</span><span class="p">),</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
 <span class="p">})</span>
 </code></pre>
@@ -2936,7 +2938,7 @@ chunker [string]: Chunking algorithm to use.</li>
 }</p>
 
 <hr>
-<h2 id='object_put'>object_put</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<h3 id='object_put'>object_put</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">Data</span><span class="p">:</span> <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="s1">'Some data'</span><span class="p">),</span>
   <span class="na">Links</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
