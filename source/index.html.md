@@ -1759,12 +1759,12 @@ Returns string from the local database.
 1. `String` - Database name.
 2. `String` - Key name.
 
-```js
+
 params: [
   "testDB",
   "myKey",
 ]
-```
+
 
 ##### Returns
 
