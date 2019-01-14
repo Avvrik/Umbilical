@@ -191,10 +191,6 @@ The examples also do not include the URL/IP & port combination which must be the
 * [eth_getTransactionReceipt](#eth_gettransactionreceipt)
 * [eth_getUncleByBlockHashAndIndex](#eth_getunclebyblockhashandindex)
 * [eth_getUncleByBlockNumberAndIndex](#eth_getunclebyblocknumberandindex)
-* [eth_getCompilers](#eth_getcompilers)
-* [eth_compileLLL](#eth_compilelll)
-* [eth_compileSolidity](#eth_compilesolidity)
-* [eth_compileSerpent](#eth_compileserpent)
 * [eth_newFilter](#eth_newfilter)
 * [eth_newBlockFilter](#eth_newblockfilter)
 * [eth_newPendingTransactionFilter](#eth_newpendingtransactionfilter)
@@ -1318,173 +1314,16 @@ Result see [eth_getBlockByHash](#eth_getblockbyhash)
 ***
 ```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCompilers","params":[],"id":1}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"topics":["0x0000000000000000000000000000000000000000000000000000000012341234"]}],"id":73}'
 
 // Result
 {
   "id":1,
   "jsonrpc": "2.0",
-  "result": ["solidity", "lll", "serpent"]
+  "result": "0x1" // 1
 }
 ```
-### eth_getCompilers (DEPRECATED)
-
-Returns a list of available compilers in the client.
-
-##### Parameters
-none
-
-##### Returns
-
-`Array` - Array of available compilers.
-
-
-***
-```javascript
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_compileSolidity","params":["contract test { function multiply(uint a) returns(uint d) {   return a * 7;   } }"],"id":1}'
-// Result
-{
-  "id":1,
-  "jsonrpc": "2.0",
-  "result": {
-      "code": "0x605880600c6000396000f3006000357c010000000000000000000000000000000000000000000000000000000090048063c6888fa114602e57005b603d6004803590602001506047565b8060005260206000f35b60006007820290506053565b91905056",
-      "info": {
-        "source": "contract test {\n   function multiply(uint a) constant returns(uint d) {\n       return a * 7;\n   }\n}\n",
-        "language": "Solidity",
-        "languageVersion": "0",
-        "compilerVersion": "0.9.19",
-        "abiDefinition": [
-          {
-            "constant": true,
-            "inputs": [
-              {
-                "name": "a",
-                "type": "uint256"
-              }
-            ],
-            "name": "multiply",
-            "outputs": [
-              {
-                "name": "d",
-                "type": "uint256"
-              }
-            ],
-            "type": "function"
-          }
-        ],
-        "userDoc": {
-          "methods": {}
-        },
-        "developerDoc": {
-          "methods": {}
-        }
-      }
-
-}
-```
-### eth_compileSolidity (DEPRECATED)
-
-Returns compiled solidity code.
-
-##### Parameters
-
-1. `String` - The source code.
-
-params: [
-   "contract test { function multiply(uint a) returns(uint d) {   return a * 7;   } }",
-]
-
-
-##### Returns
-
-`DATA` - The compiled source code.
-
-Contains the following information:
-
-- source
-
-- language
-
-- language version
-
-- compiler version
-
-- abi definition
-
-- user doc
-
-- developer doc
-
-
-***
-
-### eth_compileLLL (DEPRECATED)
-
-Returns compiled LLL code.
-
-##### Parameters
-
-1. `String` - The source code.
-
-params: [
-   "(returnlll (suicide (caller)))",
-]
-
-
-##### Returns
-
-`DATA` - The compiled source code.
-
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_compileLLL","params":["(returnlll (suicide (caller)))"],"id":1}'
-
-// Result
-{
-  "id":1,
-  "jsonrpc": "2.0",
-  "result": "0x603880600c6000396000f3006001600060e060020a600035048063c6888fa114601857005b6021600435602b565b8060005260206000f35b600081600702905091905056" // the compiled source code
-}
-```
-
-***
-
-#### eth_compileSerpent (DEPRECATED)
-
-Returns compiled serpent code.
-
-##### Parameters
-
-1. `String` - The source code.
-
-```js
-params: [
-   "/* some serpent */",
-]
-```
-
-##### Returns
-
-`DATA` - The compiled source code.
-
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_compileSerpent","params":["/* some serpent */"],"id":1}'
-
-// Result
-{
-  "id":1,
-  "jsonrpc": "2.0",
-  "result": "0x603880600c6000396000f3006001600060e060020a600035048063c6888fa114601857005b6021600435602b565b8060005260206000f35b600081600702905091905056" // the compiled source code
-}
-```
-
-***
-
-#### eth_newFilter
+### eth_newFilter
 
 Creates a filter object, based on filter options, to notify when the state changes (logs).
 To check if the state has changed, call [eth_getFilterChanges](#eth_getfilterchanges).
@@ -1505,35 +1344,30 @@ Topics are order-dependent. A transaction with a log with topics [A, B] will be 
   - `address`: `DATA|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
   - `topics`: `Array of DATA`,  - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.
 
-```js
 params: [{
   "fromBlock": "0x1",
   "toBlock": "0x2",
   "address": "0x8888f1f195afa192cfee860698584c030f4c9db1",
   "topics": ["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b", null, ["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x0000000000000000000000000aff3454fce5edbc8cca8697c15331677e6ebccc"]]
 }]
-```
 
 ##### Returns
 
 `QUANTITY` - A filter id.
 
-##### Example
-```js
+***
+```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newFilter","params":[{"topics":["0x0000000000000000000000000000000000000000000000000000000012341234"]}],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":73}'
 
 // Result
 {
   "id":1,
-  "jsonrpc": "2.0",
+  "jsonrpc":  "2.0",
   "result": "0x1" // 1
 }
 ```
-
-***
-
-#### eth_newBlockFilter
+### eth_newBlockFilter
 
 Creates a filter in the node, to notify when a new block arrives.
 To check if the state has changed, call [eth_getFilterChanges](#eth_getfilterchanges).
@@ -1545,11 +1379,10 @@ None
 
 `QUANTITY` - A filter id.
 
-##### Example
-```js
+***
+```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],"id":73}'
-
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}'
 // Result
 {
   "id":1,
@@ -1557,10 +1390,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newBlockFilter","params":[],
   "result": "0x1" // 1
 }
 ```
-
-***
-
-#### eth_newPendingTransactionFilter
+### eth_newPendingTransactionFilter
 
 Creates a filter in the node, to notify when new pending transactions arrive.
 To check if the state has changed, call [eth_getFilterChanges](#eth_getfilterchanges).
@@ -1572,43 +1402,8 @@ None
 
 `QUANTITY` - A filter id.
 
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}'
-
-// Result
-{
-  "id":1,
-  "jsonrpc":  "2.0",
-  "result": "0x1" // 1
-}
-```
-
 ***
-
-#### eth_uninstallFilter
-
-Uninstalls a filter with given id. Should always be called when watch is no longer needed.
-Additonally Filters timeout when they aren't requested with [eth_getFilterChanges](#eth_getfilterchanges) for a period of time.
-
-
-##### Parameters
-
-1. `QUANTITY` - The filter id.
-
-```js
-params: [
-  "0xb" // 11
-]
-```
-
-##### Returns
-
-`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
-
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["0xb"],"id":73}'
 
@@ -1619,44 +1414,27 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_uninstallFilter","params":["
   "result": true
 }
 ```
+### eth_uninstallFilter
 
-***
-
-#### eth_getFilterChanges
-
-Polling method for a filter, which returns an array of logs which occurred since last poll.
+Uninstalls a filter with given id. Should always be called when watch is no longer needed.
+Additonally Filters timeout when they aren't requested with [eth_getFilterChanges](#eth_getfilterchanges) for a period of time.
 
 
 ##### Parameters
 
-1. `QUANTITY` - the filter id.
+1. `QUANTITY` - The filter id.
 
-```js
 params: [
-  "0x16" // 22
+  "0xb" // 11
 ]
-```
 
 ##### Returns
 
-`Array` - Array of log objects, or an empty array if nothing has changed since last poll.
+`Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
-- For filters created with `eth_newBlockFilter` the return are block hashes (`DATA`, 32 Bytes), e.g. `["0x3454645634534..."]`.
-- For filters created with `eth_newPendingTransactionFilter ` the return are transaction hashes (`DATA`, 32 Bytes), e.g. `["0x6345343454645..."]`.
-- For filters created with `eth_newFilter` logs are objects with following params:
 
-  - `removed`: `TAG` - `true` when the log was removed, due to a chain reorganization. `false` if its a valid log.
-  - `logIndex`: `QUANTITY` - integer of the log index position in the block. `null` when its pending log.
-  - `transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. `null` when its pending log.
-  - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. `null` when its pending log.
-  - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. `null` when its pending. `null` when its pending log.
-  - `blockNumber`: `QUANTITY` - the block number where this log was in. `null` when its pending. `null` when its pending log.
-  - `address`: `DATA`, 20 Bytes - address from which this log originated.
-  - `data`: `DATA` - contains the non-indexed arguments of the log.
-  - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In *solidity*: The first topic is the *hash* of the signature of the event (e.g. `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.)
-
-##### Example
-```js
+***
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0x16"],"id":73}'
 
@@ -1678,39 +1456,63 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":[
     }]
 }
 ```
+### eth_getFilterChanges
+
+Polling method for a filter, which returns an array of logs which occurred since last poll.
+
+##### Parameters
+
+1. `QUANTITY` - the filter id.
+
+params: [
+  "0x16" // 22
+]
+
+##### Returns
+
+`Array` - Array of log objects, or an empty array if nothing has changed since last poll.
+
+- For filters created with `eth_newBlockFilter` the return are block hashes (`DATA`, 32 Bytes), e.g. `["0x3454645634534..."]`.
+- For filters created with `eth_newPendingTransactionFilter ` the return are transaction hashes (`DATA`, 32 Bytes), e.g. `["0x6345343454645..."]`.
+- For filters created with `eth_newFilter` logs are objects with following params:
+
+  - `removed`: `TAG` - `true` when the log was removed, due to a chain reorganization. `false` if its a valid log.
+  - `logIndex`: `QUANTITY` - integer of the log index position in the block. `null` when its pending log.
+  - `transactionIndex`: `QUANTITY` - integer of the transactions index position log was created from. `null` when its pending log.
+  - `transactionHash`: `DATA`, 32 Bytes - hash of the transactions this log was created from. `null` when its pending log.
+  - `blockHash`: `DATA`, 32 Bytes - hash of the block where this log was in. `null` when its pending. `null` when its pending log.
+  - `blockNumber`: `QUANTITY` - the block number where this log was in. `null` when its pending. `null` when its pending log.
+  - `address`: `DATA`, 20 Bytes - address from which this log originated.
+  - `data`: `DATA` - contains the non-indexed arguments of the log.
+  - `topics`: `Array of DATA` - Array of 0 to 4 32 Bytes `DATA` of indexed log arguments. (In *solidity*: The first topic is the *hash* of the signature of the event (e.g. `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.)
 
 ***
-
-#### eth_getFilterLogs
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x16"],"id":74}'
+```
+### eth_getFilterLogs
 
 Returns an array of all logs matching filter with given id.
-
 
 ##### Parameters
 
 1. `QUANTITY` - The filter id.
 
-```js
 params: [
   "0x16" // 22
 ]
-```
 
 ##### Returns
 
 See [eth_getFilterChanges](#eth_getfilterchanges)
 
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["0x16"],"id":74}'
-```
-
-Result see [eth_getFilterChanges](#eth_getfilterchanges)
-
 ***
-
-#### eth_getLogs
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}'
+```
+### eth_getLogs
 
 Returns an array of all logs matching a given filter object.
 
@@ -1723,27 +1525,32 @@ Returns an array of all logs matching a given filter object.
   - `topics`: `Array of DATA`,  - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options.
   - `blockhash`:  `DATA`, 32 Bytes - (optional) With the addition of EIP-234 (Geth >= v1.8.13 or Parity >= v2.1.0), `blockHash` is a new filter option which restricts the logs returned to the single block with the 32-byte hash `blockHash`.  Using `blockHash` is equivalent to `fromBlock` = `toBlock` = the block number with hash `blockHash`.  If `blockHash` is present in the filter criteria, then neither `fromBlock` nor `toBlock` are allowed.
 
-```js
+
 params: [{
   "topics": ["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]
 }]
-```
+
 
 ##### Returns
 
 See [eth_getFilterChanges](#eth_getfilterchanges)
 
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}'
-```
-
-Result see [eth_getFilterChanges](#eth_getfilterchanges)
-
 ***
-
-#### eth_getWork
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":73}'
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": [
+      "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+      "0x5EED00000000000000000000000000005EED0000000000000000000000000000",
+      "0xd1ff1c01710000000000000000000000d1ff1c01710000000000000000000000"
+    ]
+}
+```
+### eth_getWork
 
 Returns the hash of the current block, the seedHash, and the boundary condition to be met ("target").
 
@@ -1757,51 +1564,8 @@ none
   2. `DATA`, 32 Bytes - the seed hash used for the DAG.
   3. `DATA`, 32 Bytes - the boundary condition ("target"), 2^256 / difficulty.
 
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getWork","params":[],"id":73}'
-
-// Result
-{
-  "id":1,
-  "jsonrpc":"2.0",
-  "result": [
-      "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
-      "0x5EED00000000000000000000000000005EED0000000000000000000000000000",
-      "0xd1ff1c01710000000000000000000000d1ff1c01710000000000000000000000"
-    ]
-}
-```
-
 ***
-
-#### eth_submitWork
-
-Used for submitting a proof-of-work solution.
-
-
-##### Parameters
-
-1. `DATA`, 8 Bytes - The nonce found (64 bits)
-2. `DATA`, 32 Bytes - The header's pow-hash (256 bits)
-3. `DATA`, 32 Bytes - The mix digest (256 bits)
-
-```js
-params: [
-  "0x0000000000000001",
-  "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
-  "0xD1FE5700000000000000000000000000D1FE5700000000000000000000000000"
-]
-```
-
-##### Returns
-
-`Boolean` - returns `true` if the provided solution is valid, otherwise `false`.
-
-
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0000000000000001", "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"],"id":73}'
 
@@ -1812,36 +1576,32 @@ curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitWork", "params":["0x0
   "result": true
 }
 ```
+### eth_submitWork
 
-***
-
-#### eth_submitHashrate
-
-Used for submitting mining hashrate.
-
+Used for submitting a proof-of-work solution.
 
 ##### Parameters
 
-1. `Hashrate`, a hexadecimal string representation (32 bytes) of the hash rate 
-2. `ID`, String - A random hexadecimal(32 bytes) ID identifying the client
+1. `DATA`, 8 Bytes - The nonce found (64 bits)
+2. `DATA`, 32 Bytes - The header's pow-hash (256 bits)
+3. `DATA`, 32 Bytes - The mix digest (256 bits)
 
-```js
+
 params: [
-  "0x0000000000000000000000000000000000000000000000000000000000500000",
-  "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"
+  "0x0000000000000001",
+  "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+  "0xD1FE5700000000000000000000000000D1FE5700000000000000000000000000"
 ]
-```
+
 
 ##### Returns
 
-`Boolean` - returns `true` if submitting went through succesfully and `false` otherwise.
+`Boolean` - returns `true` if the provided solution is valid, otherwise `false`.
 
-
-##### Example
-```js
+***
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":["0x0000000000000000000000000000000000000000000000000000000000500000", "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"],"id":73}'
-
 // Result
 {
   "id":73,
@@ -1849,50 +1609,29 @@ curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_submitHashrate", "params":[
   "result": true
 }
 ```
+### eth_submitHashrate
+
+Used for submitting mining hashrate.
+
+##### Parameters
+
+1. `Hashrate`, a hexadecimal string representation (32 bytes) of the hash rate 
+2. `ID`, String - A random hexadecimal(32 bytes) ID identifying the client
+
+
+params: [
+  "0x0000000000000000000000000000000000000000000000000000000000500000",
+  "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"
+]
+
+##### Returns
+
+`Boolean` - returns `true` if submitting went through succesfully and `false` otherwise.
 
 ***
-
-#### eth_getProof
-
-Returns the account- and storage-values of the specified account including the Merkle-proof.
-
-##### getProof-Parameters
-
-1. `DATA`, 20 bytes - address of the account or contract
-2. `ARRAY`, 32 Bytes - array of storage-keys which should be proofed and included. See eth_getStorageAt
-3. `QUANTITY|TAG` - integer block number, or the string "latest" or "earliest", see the default block parameter
-
-
-```
-params: ["0x1234567890123456789012345678901234567890",["0x0000000000000000000000000000000000000000000000000000000000000000","0x0000000000000000000000000000000000000000000000000000000000000001"],"latest"]
-```
-
-##### getProof-Returns
-
-Returns
-`Object` - A account object:
-
-`balance`: `QUANTITY` - the balance of the account. See eth_getBalance
-
-`codeHash`: `DATA`, 32 Bytes - hash of the code of the account. For a simple Account without code it will return "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
-
-`nonce`: `QUANTITY`, - nonce of the account. See eth_getTransactionCount
-
-`storageHash`: `DATA`, 32 Bytes - SHA3 of the StorageRoot. All storage will deliver a MerkleProof starting with this rootHash.
-
-`accountProof`: `ARRAY` - Array of rlp-serialized MerkleTree-Nodes, starting with the stateRoot-Node, following the path of the SHA3 (address) as key.
-
-`storageProof`: `ARRAY` - Array of storage-entries as requested. Each entry is a object with these properties:
-
-`key`: `QUANTITY` - the requested storage key
-`value`: `QUANTITY` - the storage value
-`proof`: `ARRAY` - Array of rlp-serialized MerkleTree-Nodes, starting with the storageHash-Node, following the path of the SHA3 (key) as path.
-
-##### getProof-Example
-```
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x1234567890123456789012345678901234567890",["0x0000000000000000000000000000000000000000000000000000000000000000","0x0000000000000000000000000000000000000000000000000000000000000001"],"latest"],"id":1}' -H "Content-type:application/json" http://localhost:8545
-
 // Result
 {
   "jsonrpc": "2.0",
@@ -1924,6 +1663,42 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
   }
 }
 ```
+### eth_getProof
+
+Returns the account- and storage-values of the specified account including the Merkle-proof.
+
+##### Parameters
+
+1. `DATA`, 20 bytes - address of the account or contract
+2. `ARRAY`, 32 Bytes - array of storage-keys which should be proofed and included. See eth_getStorageAt
+3. `QUANTITY|TAG` - integer block number, or the string "latest" or "earliest", see the default block parameter
+
+params: ["0x1234567890123456789012345678901234567890",["0x0000000000000000000000000000000000000000000000000000000000000000","0x0000000000000000000000000000000000000000000000000000000000000001"],"latest"]
+
+
+##### Returns
+
+Returns
+
+`Object` - A account object:
+
+`balance`: `QUANTITY` - the balance of the account. See eth_getBalance
+
+`codeHash`: `DATA`, 32 Bytes - hash of the code of the account. For a simple Account without code it will return "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+
+`nonce`: `QUANTITY`, - nonce of the account. See eth_getTransactionCount
+
+`storageHash`: `DATA`, 32 Bytes - SHA3 of the StorageRoot. All storage will deliver a MerkleProof starting with this rootHash.
+
+`accountProof`: `ARRAY` - Array of rlp-serialized MerkleTree-Nodes, starting with the stateRoot-Node, following the path of the SHA3 (address) as key.
+
+`storageProof`: `ARRAY` - Array of storage-entries as requested. Each entry is a object with these properties:
+
+- `key`: `QUANTITY` - the requested storage key
+
+- `value`: `QUANTITY` - the storage value
+
+- `proof`: `ARRAY` - Array of rlp-serialized MerkleTree-Nodes, starting with the storageHash-Node, following the path of the SHA3 (key) as path.
 
 ***
 
