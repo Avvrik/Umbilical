@@ -2153,7 +2153,6 @@ See [shh_getFilterChanges](#shh_getfilterchanges)
 
 # IPFS API
 
-***
 ### block_get
 ```javascript
 ipfs.block.get(cid, function (err, block) {
@@ -2731,7 +2730,7 @@ Add a file or directory to IPFS.
 
 `ipfs.add(data, [options], [callback])`
 
-#### REQUEST PARAMS
+#### Parameters
 - `file` _[Required]_ - The path to a file to be added to IPFS.
 - `recursive` _[Optional]_ - Add directory paths recursively. Default: “false”.
 - `quiet` _[Optional]_ - Write minimal output.
