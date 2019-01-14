@@ -448,7 +448,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":71}
   "jsonrpc": "2.0",
   "result": true
 }
-
 ```
 
 ### eth_mining
@@ -475,7 +474,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":7
   "jsonrpc": "2.0",
   "result": "0x38a"
 }
-
 ```
 Returns the number of hashes per second that the node is mining with.
 
@@ -558,7 +556,6 @@ none
 
 
 ***
-
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":1}'
@@ -578,7 +575,6 @@ Returns the balance of the account of given address.
 
 1. `DATA`, 20 Bytes - address to check for balance.
 2. `QUANTITY|TAG` - integer block number, or the string `"latest"`, `"earliest"` or `"pending"`, see the [default block parameter](#the-default-block-parameter)
-
 
 params: [
    '0xc94770007dda54cF92009BFF0dE90c06F603a09f',
@@ -603,32 +599,22 @@ contract Storage {
 }
 
 //Retrieving the value of pos0 is straightforward:
-
 curl -X POST --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"], "id": 1}' localhost:8545
 
 {"jsonrpc":"2.0","id":1,"result":"0x00000000000000000000000000000000000000000000000000000000000004d2"}
-
 //Retrieving an element of the map is harder. The position of an element in the map is calculated with:
-
 keccack(LeftPad32(key, 0), LeftPad32(map position, 0))
-
 //This means to retrieve the storage on pos1["0x391694e7e0b0cce554cb130d723a9d27458f9298"] we need to calculate the position with:
-
 keccak(decodeHex("000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"))
-
 //The geth console which comes with the web3 library can be used to make the calculation:
-
 > var key = "000000000000000000000000391694e7e0b0cce554cb130d723a9d27458f9298" + "0000000000000000000000000000000000000000000000000000000000000001"
 undefined
 > web3.sha3(key, {"encoding": "hex"})
 "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9"
-
 //Now to fetch the storage:
-
 curl -X POST --data '{"jsonrpc":"2.0", "method": "eth_getStorageAt", "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x6661e9d6d8b923d5bbaab1b96e1dd51ff6ea2a93520fdc9eb75d059238b8c5e9", "latest"], "id": 1}' localhost:8545
 
 {"jsonrpc":"2.0","id":1,"result":"0x000000000000000000000000000000000000000000000000000000000000162e"}
-
 ```
 ### eth_getStorageAt
 
@@ -694,7 +680,6 @@ params: [
 `QUANTITY` - integer of the number of transactions send from this address.
 
 ***
-
 ```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockTransactionCountByHash","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f"],"id":1}'
@@ -1169,85 +1154,89 @@ params: [
   - `s`: `DATA`, 32 Bytes - ECDSA signature s
 
 ***
-
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'
+```
 ### eth_getTransactionByBlockHashAndIndex
 
 Returns information about a transaction by block hash and transaction index position.
-
 
 ##### Parameters
 
 1. `DATA`, 32 Bytes - hash of a block.
 2. `QUANTITY` - integer of the transaction index position.
 
-```js
 params: [
    '0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331',
    '0x0' // 0
 ]
-```
 
 ##### Returns
 
 See [eth_getTransactionByHash](#eth_gettransactionbyhash)
 
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'
-```
-
-Result see [eth_getTransactionByHash](#eth_gettransactionbyhash)
-
 ***
-
-#### eth_getTransactionByBlockNumberAndIndex
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'
+```
+### eth_getTransactionByBlockNumberAndIndex
 
 Returns information about a transaction by block number and transaction index position.
-
 
 ##### Parameters
 
 1. `QUANTITY|TAG` - a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter).
 2. `QUANTITY` - the transaction index position.
 
-```js
 params: [
    '0x29c', // 668
    '0x0' // 0
 ]
-```
+
 
 ##### Returns
 
 See [eth_getTransactionByHash](#eth_gettransactionbyhash)
 
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'
-```
-
-Result see [eth_getTransactionByHash](#eth_gettransactionbyhash)
-
 ***
-
-#### eth_getTransactionReceipt
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
+// Result
+{
+"id":1,
+"jsonrpc":"2.0",
+"result": {
+     transactionHash: '0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238',
+     transactionIndex:  '0x1', // 1
+     blockNumber: '0xb', // 11
+     blockHash: '0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b',
+     cumulativeGasUsed: '0x33bc', // 13244
+     gasUsed: '0x4dc', // 1244
+     contractAddress: '0xb60e8dd61c5d32be8058bb8eb970870f07233155', // or null, if none was created
+     logs: [{
+         // logs as returned by getFilterLogs, etc.
+     }, ...],
+     logsBloom: "0x00...0", // 256 byte bloom filter
+     status: '0x1'
+  }
+}
+```
+### eth_getTransactionReceipt
 
 Returns the receipt of a transaction by transaction hash.
 
 **Note** That the receipt is not available for pending transactions.
 
-
 ##### Parameters
 
 1. `DATA`, 32 Bytes - hash of a transaction
 
-```js
 params: [
    '0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238'
 ]
-```
 
 ##### Returns
 
@@ -1270,70 +1259,40 @@ It also returns _either_ :
   - `root` : `DATA` 32 bytes of post-transaction stateroot (pre Byzantium)
   - `status`: `QUANTITY` either `1` (success) or `0` (failure) 
 
-
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}'
-
-// Result
-{
-"id":1,
-"jsonrpc":"2.0",
-"result": {
-     transactionHash: '0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238',
-     transactionIndex:  '0x1', // 1
-     blockNumber: '0xb', // 11
-     blockHash: '0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b',
-     cumulativeGasUsed: '0x33bc', // 13244
-     gasUsed: '0x4dc', // 1244
-     contractAddress: '0xb60e8dd61c5d32be8058bb8eb970870f07233155', // or null, if none was created
-     logs: [{
-         // logs as returned by getFilterLogs, etc.
-     }, ...],
-     logsBloom: "0x00...0", // 256 byte bloom filter
-     status: '0x1'
-  }
-}
-```
-
 ***
-
-#### eth_getUncleByBlockHashAndIndex
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'
+```
+### eth_getUncleByBlockHashAndIndex
 
 Returns information about a uncle of a block by hash and uncle index position.
 
-
 ##### Parameters
-
 
 1. `DATA`, 32 Bytes - hash a block.
 2. `QUANTITY` - the uncle's index position.
 
-```js
 params: [
    '0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b',
    '0x0' // 0
 ]
-```
+
 
 ##### Returns
 
 See [eth_getBlockByHash](#eth_getblockbyhash)
-
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}'
-```
 
 Result see [eth_getBlockByHash](#eth_getblockbyhash)
 
 **Note**: An uncle doesn't contain individual transactions.
 
 ***
-
-#### eth_getUncleByBlockNumberAndIndex
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'
+```
+### eth_getUncleByBlockNumberAndIndex
 
 Returns information about a uncle of a block by number and uncle index position.
 
@@ -1343,12 +1302,10 @@ Returns information about a uncle of a block by number and uncle index position.
 1. `QUANTITY|TAG` - a block number, or the string `"earliest"`, `"latest"` or `"pending"`, as in the [default block parameter](#the-default-block-parameter).
 2. `QUANTITY` - the uncle's index position.
 
-```js
 params: [
    '0x29c', // 668
    '0x0' // 0
 ]
-```
 
 ##### Returns
 
@@ -1356,29 +1313,10 @@ See [eth_getBlockByHash](#eth_getblockbyhash)
 
 **Note**: An uncle doesn't contain individual transactions.
 
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getUncleByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}'
-```
-
 Result see [eth_getBlockByHash](#eth_getblockbyhash)
 
 ***
-
-#### eth_getCompilers (DEPRECATED)
-
-Returns a list of available compilers in the client.
-
-##### Parameters
-none
-
-##### Returns
-
-`Array` - Array of available compilers.
-
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCompilers","params":[],"id":1}'
 
@@ -1389,32 +1327,22 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCompilers","params":[],"i
   "result": ["solidity", "lll", "serpent"]
 }
 ```
+### eth_getCompilers (DEPRECATED)
 
-***
-
-#### eth_compileSolidity (DEPRECATED)
-
-Returns compiled solidity code.
+Returns a list of available compilers in the client.
 
 ##### Parameters
-
-1. `String` - The source code.
-
-```js
-params: [
-   "contract test { function multiply(uint a) returns(uint d) {   return a * 7;   } }",
-]
-```
+none
 
 ##### Returns
 
-`DATA` - The compiled source code.
+`Array` - Array of available compilers.
 
-##### Example
-```js
+
+***
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_compileSolidity","params":["contract test { function multiply(uint a) returns(uint d) {   return a * 7;   } }"],"id":1}'
-
 // Result
 {
   "id":1,
@@ -1455,10 +1383,43 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_compileSolidity","params":["
 
 }
 ```
+### eth_compileSolidity (DEPRECATED)
+
+Returns compiled solidity code.
+
+##### Parameters
+
+1. `String` - The source code.
+
+params: [
+   "contract test { function multiply(uint a) returns(uint d) {   return a * 7;   } }",
+]
+
+
+##### Returns
+
+`DATA` - The compiled source code.
+
+Contains the following information:
+
+- source
+
+- language
+
+- language version
+
+- compiler version
+
+- abi definition
+
+- user doc
+
+- developer doc
+
 
 ***
 
-#### eth_compileLLL (DEPRECATED)
+### eth_compileLLL (DEPRECATED)
 
 Returns compiled LLL code.
 
@@ -1466,11 +1427,10 @@ Returns compiled LLL code.
 
 1. `String` - The source code.
 
-```js
 params: [
    "(returnlll (suicide (caller)))",
 ]
-```
+
 
 ##### Returns
 
