@@ -696,7 +696,6 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <hr>
 <pre class="highlight javascript tab-javascript"><code><span class="c1">// Request</span>
 <span class="nx">curl</span> <span class="o">-</span><span class="nx">X</span> <span class="nx">POST</span> <span class="o">--</span><span class="nx">data</span> <span class="s1">'{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}'</span>
-
 <span class="c1">// Result</span>
 <span class="p">{</span>
   <span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
@@ -718,7 +717,9 @@ See the <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API">JavaScrip
 <h5 id='parameters-7'>Parameters</h5>
 <p>none</p>
 <h5 id='returns-7'>Returns</h5>
-<p><code>Object|Boolean</code>, An object with sync status data or <code>FALSE</code>, when not syncing:</p>
+<p><code>Object|Boolean</code>, </p>
+
+<p>An object with sync status data or <code>FALSE</code>, when not syncing:</p>
 
 <ul>
 <li><p><code>startingBlock</code>: <code>QUANTITY</code> - The block at which the import started (will only be reset, after the sync reached his head)</p></li>
