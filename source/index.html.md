@@ -1701,8 +1701,17 @@ Returns
 - `proof`: `ARRAY` - Array of rlp-serialized MerkleTree-Nodes, starting with the storageHash-Node, following the path of the SHA3 (key) as path.
 
 ***
-
-#### db_putString
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"db_putString","params":["testDB","myKey","myString"],"id":73}'
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
+}
+```
+### db_putString
 
 Stores a string in the local database.
 
@@ -1714,34 +1723,32 @@ Stores a string in the local database.
 2. `String` - Key name.
 3. `String` - String to store.
 
-```js
+
 params: [
   "testDB",
   "myKey",
   "myString"
 ]
-```
+
 
 ##### Returns
 
 `Boolean` - returns `true` if the value was stored, otherwise `false`.
 
-##### Example
-```js
+
+***
+```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"db_putString","params":["testDB","myKey","myString"],"id":73}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"db_getString","params":["testDB","myKey"],"id":73}'
 
 // Result
 {
   "id":1,
   "jsonrpc":"2.0",
-  "result": true
+  "result": "myString"
 }
 ```
-
-***
-
-#### db_getString
+### db_getString
 
 Returns string from the local database.
 
@@ -1763,23 +1770,18 @@ params: [
 
 `String` - The previously stored string.
 
-
-##### Example
-```js
+***
+```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"db_getString","params":["testDB","myKey"],"id":73}'
-
+curl -X POST --data '{"jsonrpc":"2.0","method":"db_putHex","params":["testDB","myKey","0x68656c6c6f20776f726c64"],"id":73}'
 // Result
 {
   "id":1,
   "jsonrpc":"2.0",
-  "result": "myString"
+  "result": true
 }
 ```
-
-***
-
-#### db_putHex
+### db_putHex
 
 Stores binary data in the local database.
 
@@ -1792,34 +1794,29 @@ Stores binary data in the local database.
 2. `String` - Key name.
 3. `DATA` - The data to store.
 
-```js
 params: [
   "testDB",
   "myKey",
   "0x68656c6c6f20776f726c64"
 ]
-```
 
 ##### Returns
 
 `Boolean` - returns `true` if the value was stored, otherwise `false`.
 
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"db_putHex","params":["testDB","myKey","0x68656c6c6f20776f726c64"],"id":73}'
 
+***
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"db_getHex","params":["testDB","myKey"],"id":73}'
 // Result
 {
   "id":1,
   "jsonrpc":"2.0",
-  "result": true
+  "result": "0x68656c6c6f20776f726c64"
 }
 ```
-
-***
-
-#### db_getHex
+### db_getHex
 
 Returns binary data from the local database.
 
@@ -1831,34 +1828,27 @@ Returns binary data from the local database.
 1. `String` - Database name.
 2. `String` - Key name.
 
-```js
 params: [
   "testDB",
   "myKey",
 ]
-```
 
 ##### Returns
 
 `DATA` - The previously stored data.
 
-
-##### Example
-```js
+***
+```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"db_getHex","params":["testDB","myKey"],"id":73}'
-
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_version","params":[],"id":67}'
 // Result
 {
-  "id":1,
-  "jsonrpc":"2.0",
-  "result": "0x68656c6c6f20776f726c64"
+  "id":67,
+  "jsonrpc": "2.0",
+  "result": "2"
 }
 ```
-
-***
-
-#### shh_version
+### shh_version
 
 Returns the current whisper protocol version.
 
@@ -1869,22 +1859,19 @@ none
 
 `String` - The current whisper protocol version
 
-##### Example
-```js
+***
+```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"shh_version","params":[],"id":67}'
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_post","params":[{"from":"0xc931d93e97ab07fe42d923478ba2465f2..","topics": ["0x68656c6c6f20776f726c64"],"payload":"0x68656c6c6f20776f726c64","ttl":0x64,"priority":0x64}],"id":73}'
 
 // Result
 {
-  "id":67,
-  "jsonrpc": "2.0",
-  "result": "2"
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": true
 }
 ```
-
-***
-
-#### shh_post
+### shh_post
 
 Sends a whisper message.
 
@@ -1898,7 +1885,6 @@ Sends a whisper message.
   - `priority`: `QUANTITY` - The integer of the priority in a range from ... (?).
   - `ttl`: `QUANTITY` - integer of the time to live in seconds.
 
-```js
 params: [{
   from: "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1",
   to: "0x3e245533f97284d442460f2998cd41858798ddf04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a0d4d661997d3940272b717b1",
@@ -1907,28 +1893,24 @@ params: [{
   priority: "0x64",
   ttl: "0x64",
 }]
-```
+
 
 ##### Returns
 
 `Boolean` - returns `true` if the message was send, otherwise `false`.
 
 
-##### Example
-```js
+***
+```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"shh_post","params":[{"from":"0xc931d93e97ab07fe42d923478ba2465f2..","topics": ["0x68656c6c6f20776f726c64"],"payload":"0x68656c6c6f20776f726c64","ttl":0x64,"priority":0x64}],"id":73}'
-
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_newIdentity","params":[],"id":73}'
 // Result
 {
   "id":1,
-  "jsonrpc":"2.0",
-  "result": true
+  "jsonrpc": "2.0",
+  "result": "0xc931d93e97ab07fe42d923478ba2465f283f440fd6cabea4dd7a2c807108f651b7135d1d6ca9007d5b68aa497e4619ac10aa3b27726e1863c1fd9b570d99bbaf"
 }
 ```
-
-***
-
 #### shh_newIdentity
 
 Creates new whisper identity in the client.
@@ -1940,22 +1922,18 @@ none
 
 `DATA`, 60 Bytes - the address of the new identiy.
 
-##### Example
-```js
+***
+```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"shh_newIdentity","params":[],"id":73}'
-
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_hasIdentity","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'
 // Result
 {
   "id":1,
   "jsonrpc": "2.0",
-  "result": "0xc931d93e97ab07fe42d923478ba2465f283f440fd6cabea4dd7a2c807108f651b7135d1d6ca9007d5b68aa497e4619ac10aa3b27726e1863c1fd9b570d99bbaf"
+  "result": true
 }
 ```
-
-***
-
-#### shh_hasIdentity
+### shh_hasIdentity
 
 Checks if the client hold the private keys for a given identity.
 
@@ -1964,33 +1942,28 @@ Checks if the client hold the private keys for a given identity.
 
 1. `DATA`, 60 Bytes - The identity address to check.
 
-```js
+
 params: [
   "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"
 ]
-```
+
 
 ##### Returns
 
 `Boolean` - returns `true` if the client holds the privatekey for that identity, otherwise `false`.
 
-
-##### Example
-```js
+***
+```javascript
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"shh_hasIdentity","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'
-
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_newGroup","params":[],"id":73}'
 // Result
 {
   "id":1,
   "jsonrpc": "2.0",
-  "result": true
+  "result": "0xc65f283f440fd6cabea4dd7a2c807108f651b7135d1d6ca90931d93e97ab07fe42d923478ba2407d5b68aa497e4619ac10aa3b27726e1863c1fd9b570d99bbaf"
 }
 ```
-
-***
-
-#### shh_newGroup
+### shh_newGroup
 
 Creates a new group.
 
@@ -2001,44 +1974,11 @@ none
 
 `DATA`, 60 Bytes - the address of the new group.
 
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"shh_newGroup","params":[],"id":73}'
-
-// Result
-{
-  "id":1,
-  "jsonrpc": "2.0",
-  "result": "0xc65f283f440fd6cabea4dd7a2c807108f651b7135d1d6ca90931d93e97ab07fe42d923478ba2407d5b68aa497e4619ac10aa3b27726e1863c1fd9b570d99bbaf"
-}
-```
 
 ***
-
-#### shh_addToGroup
-
-Adds a whisper identity to the group.
-
-##### Parameters
-
-1. `DATA`, 60 Bytes - The identity address to add to a group.
-
-```js
-params: [
-  "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"
-]
-```
-
-##### Returns
-
-`Boolean` - returns `true` if the identity was successfully added to the group, otherwise `false`.
-
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"shh_addToGroup","params":["0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"],"id":73}'
-
 // Result
 {
   "id":1,
@@ -2046,13 +1986,39 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"shh_addToGroup","params":["0x04f
   "result": true
 }
 ```
+### shh_addToGroup
+
+Adds a whisper identity to the group.
+
+##### Parameters
+
+1. `DATA`, 60 Bytes - The identity address to add to a group.
+
+
+params: [
+  "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"
+]
+
+
+##### Returns
+
+`Boolean` - returns `true` if the identity was successfully added to the group, otherwise `false`.
+
 
 ***
-
-#### shh_newFilter
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_newFilter","params":[{"topics": ['0x12341234bf4b564f'],"to": "0x2341234bf4b2341234bf4b564f..."}],"id":73}'
+// Result
+{
+  "id":1,
+  "jsonrpc":"2.0",
+  "result": "0x7" // 7
+}
+```
+### shh_newFilter
 
 Creates filter to notify, when client receives whisper message matching the filter options.
-
 
 ##### Parameters
 
@@ -2063,33 +2029,28 @@ Creates filter to notify, when client receives whisper message matching the filt
     - `[A, [B, C]] = A && (B || C)`
     - `[null, A, B] = ANYTHING && A && B` `null` works as a wildcard
 
-```js
 params: [{
    "topics": ['0x12341234bf4b564f'],
    "to": "0x04f96a5e25610293e42a73908e93ccc8c4d4dc0edcfa9fa872f50cb214e08ebf61a03e245533f97284d442460f2998cd41858798ddfd4d661997d3940272b717b1"
 }]
-```
+
 
 ##### Returns
 
 `QUANTITY` - The newly created filter.
 
-##### Example
+***
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"shh_newFilter","params":[{"topics": ['0x12341234bf4b564f'],"to": "0x2341234bf4b2341234bf4b564f..."}],"id":73}'
-
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_uninstallFilter","params":["0x7"],"id":73}'
 // Result
 {
   "id":1,
   "jsonrpc":"2.0",
-  "result": "0x7" // 7
+  "result": true
 }
 ```
-
-***
-
-#### shh_uninstallFilter
+### shh_uninstallFilter
 
 Uninstalls a filter with given id. Should always be called when watch is no longer needed.
 Additonally Filters timeout when they aren't requested with [shh_getFilterChanges](#shh_getfilterchanges) for a period of time.
@@ -2099,67 +2060,21 @@ Additonally Filters timeout when they aren't requested with [shh_getFilterChange
 
 1. `QUANTITY` - The filter id.
 
-```js
+
 params: [
   "0x7" // 7
 ]
-```
+
 
 ##### Returns
 
 `Boolean` - `true` if the filter was successfully uninstalled, otherwise `false`.
 
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"shh_uninstallFilter","params":["0x7"],"id":73}'
-
-// Result
-{
-  "id":1,
-  "jsonrpc":"2.0",
-  "result": true
-}
-```
 
 ***
-
-#### shh_getFilterChanges
-
-Polling method for whisper filters. Returns new messages since the last call of this method.
-
-**Note** calling the [shh_getMessages](#shh_getmessages) method, will reset the buffer for this method, so that you won't receive duplicate messages.
-
-
-##### Parameters
-
-1. `QUANTITY` - The filter id.
-
-```js
-params: [
-  "0x7" // 7
-]
-```
-
-##### Returns
-
-`Array` - Array of messages received since last poll:
-
-  - `hash`: `DATA`, 32 Bytes (?) - The hash of the message.
-  - `from`: `DATA`, 60 Bytes - The sender of the message, if a sender was specified.
-  - `to`: `DATA`, 60 Bytes - The receiver of the message, if a receiver was specified.
-  - `expiry`: `QUANTITY` - Integer of the time in seconds when this message should expire (?).
-  - `ttl`: `QUANTITY` -  Integer of the time the message should float in the system in seconds (?).
-  - `sent`: `QUANTITY` -  Integer of the unix timestamp when the message was sent.
-  - `topics`: `Array of DATA` - Array of `DATA` topics the message contained.
-  - `payload`: `DATA` - The payload of the message.
-  - `workProved`: `QUANTITY` - Integer of the work this message required before it was send (?).
-
-##### Example
-```js
+```javascript
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"shh_getFilterChanges","params":["0x7"],"id":73}'
-
 // Result
 {
   "id":1,
@@ -2177,10 +2092,41 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"shh_getFilterChanges","params":[
     }]
 }
 ```
+### shh_getFilterChanges
+
+Polling method for whisper filters. Returns new messages since the last call of this method.
+
+**Note** calling the [shh_getMessages](#shh_getmessages) method, will reset the buffer for this method, so that you won't receive duplicate messages.
+
+
+##### Parameters
+
+1. `QUANTITY` - The filter id.
+
+params: [
+  "0x7" // 7
+]
+
+##### Returns
+
+`Array` - Array of messages received since last poll:
+
+  - `hash`: `DATA`, 32 Bytes (?) - The hash of the message.
+  - `from`: `DATA`, 60 Bytes - The sender of the message, if a sender was specified.
+  - `to`: `DATA`, 60 Bytes - The receiver of the message, if a receiver was specified.
+  - `expiry`: `QUANTITY` - Integer of the time in seconds when this message should expire (?).
+  - `ttl`: `QUANTITY` -  Integer of the time the message should float in the system in seconds (?).
+  - `sent`: `QUANTITY` -  Integer of the unix timestamp when the message was sent.
+  - `topics`: `Array of DATA` - Array of `DATA` topics the message contained.
+  - `payload`: `DATA` - The payload of the message.
+  - `workProved`: `QUANTITY` - Integer of the work this message required before it was send (?).
 
 ***
-
-#### shh_getMessages
+```javascript
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"shh_getMessages","params":["0x7"],"id":73}'
+```
+### shh_getMessages
 
 Get all messages matching a filter. Unlike `shh_getFilterChanges` this returns all messages.
 
@@ -2188,24 +2134,15 @@ Get all messages matching a filter. Unlike `shh_getFilterChanges` this returns a
 
 1. `QUANTITY` - The filter id.
 
-```js
+
 params: [
   "0x7" // 7
 ]
-```
+
 
 ##### Returns
 
 See [shh_getFilterChanges](#shh_getfilterchanges)
-
-##### Example
-```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"shh_getMessages","params":["0x7"],"id":73}'
-```
-
-Result see [shh_getFilterChanges](#shh_getfilterchanges)
-
 
 
 # IPFS API
