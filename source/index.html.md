@@ -24,7 +24,7 @@ We provide each user with a personal "My account" page where they can access and
 
 # Getting Started
 
-To start your own node, you will need to register with Umbiblical and start a project. Then, you will choose a network which you wish to connect to and make calls to it from a respective API that you can find in this documentation.
+To start your own node, you will need to register with Umbilical and start a project. Then, you will choose a network which you wish to connect to and make calls to it from a respective API that you can find in this documentation.
 
 # Ethereum API
 
@@ -2149,6 +2149,9 @@ params: [
 ##### Returns
 
 See [shh_getFilterChanges](#shh_getfilterchanges)
+
+# Bitshares API
+
 
 
 # IPFS API
